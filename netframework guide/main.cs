@@ -21,7 +21,7 @@ namespace netframework_guide
         private void Setup472(object sender, EventArgs e)
         {
             MessageBox.Show("Microsoft 홈페이지로 연결합니다.","홈페이지에서 설치 파일 다운");
-            System.Diagnostics.Process.Start("https://dotnet.microsoft.com/download");
+            System.Diagnostics.Process.Start("https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-web-installer");
         }
 
         private void WinUpdate_x86(object sender, EventArgs e)
