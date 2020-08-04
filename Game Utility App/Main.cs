@@ -40,7 +40,7 @@ namespace GameUtilityApp
         
         private void updateCheck()
         {
-            int thisrelese = 20200806;
+            int thisrelese = 20200807;
             bool netstate = NetworkInterface.GetIsNetworkAvailable();//네트워크 상태 확인
             if (netstate == false)
             {
