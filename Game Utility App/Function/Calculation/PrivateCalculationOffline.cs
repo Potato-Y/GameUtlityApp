@@ -62,10 +62,16 @@ namespace GameUtilityApp
             textBox1.BackColor = Color.White;
             
         }
+        bool JustClick = true; //등수를 입력할 경우 true , 뒤로가기를 할 경우 false
 
         //등수별 점수 클릭
         private void g1st_click(object sender,EventArgs e)
         {
+            if (JustClick == false)
+            {
+                textBox1.Text += "\r\n";
+            }
+            JustClick = true;
             score = score + 10;
             match++;
             if (match == 1)
@@ -85,6 +91,11 @@ namespace GameUtilityApp
 
         private void g2st_click(object sender, EventArgs e)
         {
+            if (JustClick == false)
+            {
+                textBox1.Text += "\r\n";
+            }
+            JustClick = true;
             score = score + 7;
             match++;
             if (match == 1)
@@ -105,6 +116,11 @@ namespace GameUtilityApp
 
         private void g3st_click(object sender, EventArgs e)
         {
+            if (JustClick == false)
+            {
+                textBox1.Text += "\r\n";
+            }
+            JustClick = true;
             score = score + 5;
             match++;
             if (match == 1)
@@ -125,6 +141,11 @@ namespace GameUtilityApp
 
         private void g4st_click(object sender, EventArgs e)
         {
+            if (JustClick == false)
+            {
+                textBox1.Text += "\r\n";
+            }
+            JustClick = true;
             score = score + 4;
             match++;
             if (match == 1)
@@ -144,6 +165,11 @@ namespace GameUtilityApp
         }
         private void g5st_click(object sender, EventArgs e)
         {
+            if (JustClick == false)
+            {
+                textBox1.Text += "\r\n";
+            }
+            JustClick = true;
             score = score + 3;
             match++;
             if (match == 1)
@@ -164,6 +190,11 @@ namespace GameUtilityApp
 
         private void g6st_click(object sender, EventArgs e)
         {
+            if (JustClick == false)
+            {
+                textBox1.Text += "\r\n";
+            }
+            JustClick = true;
             score = score + 1;
             match++;
             if (match == 1)
@@ -184,6 +215,11 @@ namespace GameUtilityApp
 
         private void g7st_click(object sender, EventArgs e)
         {
+            if (JustClick == false)
+            {
+                textBox1.Text += "\r\n";
+            }
+            JustClick = true;
             match++;
             if (match == 1)
             {
@@ -203,6 +239,11 @@ namespace GameUtilityApp
 
         private void g8st_click(object sender, EventArgs e)
         {
+            if (JustClick == false)
+            {
+                textBox1.Text += "\r\n";
+            }
+            JustClick = true;
             score = score - 1;
             match++;
             if (match == 1)
@@ -223,6 +264,11 @@ namespace GameUtilityApp
 
         private void g9st_click(object sender, EventArgs e)
         {
+            if (JustClick == false)
+            {
+                textBox1.Text += "\r\n";
+            }
+            JustClick = true;
             score = score - 5;
             match++;
             if (match == 1)
@@ -265,46 +311,46 @@ namespace GameUtilityApp
             {
                 case 1:
                     score = score - 10;
-                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score + "\r\n";
+                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score ;
                     match--;
                     break;
                 case 2:
                     score = score - 7;
-                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score + "\r\n";
+                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score ;
                     match--;
                     break;
                 case 3:
                     score = score - 5;
-                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score + "\r\n";
+                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score ;
                     match--;
                     break;
                 case 4:
                     score = score - 4;
-                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score + "\r\n";
+                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score;
                     match--;
                     break;
                 case 5:
                     score = score - 3;
-                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score + "\r\n";
+                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score ;
                     match--;
                     break;
                 case 6:
                     score = score - 1;
-                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score + "\r\n";
+                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score ;
                     match--;
                     break;
                 case 7:
-                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score + "\r\n";
+                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score ;
                     match--;
                     break;
                 case 8:
                     score = score + 1;
-                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score + "\r\n";
+                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score ;
                     match--;
                     break;
                 case 9:
                     score = score + 5;
-                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score + "\r\n";
+                    textBox1.Text += "\r\n" + match + "째 판 취소, 총점 : " + score ;
                     match--;
                     break;
                 default:
@@ -314,6 +360,7 @@ namespace GameUtilityApp
             label2.Text = Convert.ToString(score);
             this.textBox1.SelectionStart = textBox1.Text.Length;
             this.textBox1.ScrollToCaret();
+            JustClick = false;
         }
 
     }

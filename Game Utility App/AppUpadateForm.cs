@@ -30,12 +30,13 @@ namespace GameUtilityApp.Properties
                 {
                     textBox1.Text += "클라이언트 주소를 검색합니다.";
                     
-                    var client = new HttpClient();
-                    var server_check_response = client.GetAsync("https://github.com/Potato-Y/Game-Utility-App/blob/master/release/release%20guide.md").Result;
-                    var html = server_check_response.Content.ReadAsStringAsync().Result; 
+                    var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
+                    var server_check_response = client.GetAsync("https://github.com/Potato-Y/Game-Utility-App/blob/master/release/release%20guide.md").Result; //웹으로부터 다운로드 
+                    var html = server_check_response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다.
 
-                    var file_check_match = Regex.Match(html, "클라이언트 다운주소 :.+?입"); 
-                    string link_result = file_check_match.Value;
+
+                    var file_check_match = Regex.Match(html, "클라이언트 다운주소 :.+?입"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다.
+                    string link_result = file_check_match.Value; //캡쳐 된 내용을 가져온다.
                     string clientLink = link_result.Substring(15, link_result.Length - 16);
 
                     textBox1.Text += "업데이트 클라이언트 다운로드를 시작합니다.";
@@ -58,6 +59,7 @@ namespace GameUtilityApp.Properties
                 string tmpSetupPath = e.UserState.ToString();
                 textBox1.Text += "\r\n업데이트 클라이언트 다운로드 완료\r\n업데이트 클라이언트를 실행합니다.";
                 Process.Start(tmpSetupPath);
+                //this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 Application.Exit();
             }
             catch (Exception)

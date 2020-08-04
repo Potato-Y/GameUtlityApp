@@ -44,20 +44,6 @@ namespace GameUtilityApp.Function.reg_
 
             button8.Text = "저장하기";
 
-            /*
-            textBox1.ReadOnly = true;
-            textBox2.ReadOnly = true;
-            textBox3.ReadOnly = true;
-            textBox4.ReadOnly = true;
-            textBox5.ReadOnly = true;
-            textBox6.ReadOnly = true;
-            textBox7.ReadOnly = true;
-            textBox8.ReadOnly = true;
-            textBox9.ReadOnly = true;
-            */
-            
-            
-
             textBox1.BackColor = Color.White;
             textBox2.BackColor = Color.White;
             textBox3.BackColor = Color.White;
@@ -80,26 +66,26 @@ namespace GameUtilityApp.Function.reg_
             comboBox1.SelectedIndex = 0;
         }
 
-
+        //선수 이름 셋팅
         string myset = "내 설정";
-        string LJD = "ㅇㅈㄷ 님"; 
-        string LJS = "ㅇㅈㅅ 님";
-        string BIS = "ㅂㅇㅅ 님"; 
-        string BMS = "ㅂㅁㅅ 님"; 
-        string RMG = "ㄹㅁㄱ 님"; 
-        string SJM = "ㅅㅈㅁ 님"; 
-        string KTH = "ㄱㅌㅎ 님"; 
-        string neal = "neal 님"; 
-        string IHG = "ㅇㅎㅈ 님  (정확하지 않음)";
+        string LJD = "ㅇㅈㄷ 님"; //이중대
+        string LJS = "ㅇㅈㅅ 님"; //이중선
+        string BIS = "ㅂㅇㅅ 님"; //박인수
+        string BMS = "ㅂㅁㅅ 님"; //박민수
+        string RMG = "ㄹㅁㄱ 님"; //런민기
+        string SJM = "ㅅㅈㅁ 님"; //신종민
+        string KTH = "ㄱㅌㅎ 님"; //김택환
+        string neal = "N-1 님"; //닐
+        string IHG = "ㅇㅎㅈ 님  (정확하지 않음)"; //안혁진
 
 
-        string Mschool = "ㅁㅇㅅㅋ 님"; 
-        string Rooki = "ㄹㅋㅇㅈ 님";
-        string chizz = "ㅊㅈ 님"; 
-        string rcl = "ㄹㅊㄹ 님"; 
-        string ollf = "ㅇㅍ 님"; 
-        string dhgu = "ㄷㅎㄱㅇ 님";
-        string spmh = "ㅅㅍㅁㅎ 님 (정확하지 않음)";
+        string Mschool = "ㅁㅇㅅㅋ 님"; //민영스쿨
+        string Rooki = "ㄹㅋㅇㅈ 님"; //루키영재
+        string chizz = "ㅊㅈ 님"; //치즈
+        string rcl = "ㄹㅊㄹ 님"; //레츠리
+        string ollf = "ㅇㅍ 님"; //울프
+        string dhgu = "ㄷㅎㄱㅇ 님"; //대한건우
+        string spmh = "ㅅㅍㅁㅎ 님 (정확하지 않음)"; //스펙마허
 
         private void save_Click(object sender, EventArgs e)
         {
@@ -107,6 +93,19 @@ namespace GameUtilityApp.Function.reg_
             RegSave_Response();
             RegSave_ToggleKeys();
             MessageBox.Show("저장되었습니다.", "Save");
+            label1.ForeColor = Color.Black;
+            label2.ForeColor = Color.Black;
+            label3.ForeColor = Color.Black;
+            label4.ForeColor = Color.Black;
+            label5.ForeColor = Color.Black;
+            label6.ForeColor = Color.Black;
+            label7.ForeColor = Color.Black;
+            label8.ForeColor = Color.Black;
+            label9.ForeColor = Color.Black;
+            label10.ForeColor = Color.Black;
+            label11.ForeColor = Color.Black;
+            label12.ForeColor = Color.Black;
+            label13.ForeColor = Color.Black;
         }
 
         private void regChoice(object sender, EventArgs e)
@@ -119,6 +118,19 @@ namespace GameUtilityApp.Function.reg_
                     RegReload_keyboard();
                     RegReload_Response();
                     RegReload_ToggleKeys();
+                    label1.ForeColor = Color.Black;
+                    label2.ForeColor = Color.Black;
+                    label3.ForeColor = Color.Black;
+                    label4.ForeColor = Color.Black;
+                    label5.ForeColor = Color.Black;
+                    label6.ForeColor = Color.Black;
+                    label7.ForeColor = Color.Black;
+                    label8.ForeColor = Color.Black;
+                    label9.ForeColor = Color.Black;
+                    label10.ForeColor = Color.Black;
+                    label11.ForeColor = Color.Black;
+                    label12.ForeColor = Color.Black;
+                    label13.ForeColor = Color.Black;
                 }
                 if (comboBox1.Text ==LJD)
                 {
@@ -492,5 +504,232 @@ namespace GameUtilityApp.Function.reg_
             reg.Close();
         }
         //레지 저장 끝
+
+        //숫자만 입력되도록 하며 입력시 글자색이 파란색으로 변경
+        private void txtInterval_KeyPress_box1(object sender, KeyPressEventArgs e)
+        {
+            label1.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box2(object sender, KeyPressEventArgs e)
+        {
+            label2.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box3(object sender, KeyPressEventArgs e)
+        {
+            label3.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box4(object sender, KeyPressEventArgs e)
+        {
+            label4.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box5(object sender, KeyPressEventArgs e)
+        {
+            label5.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box6(object sender, KeyPressEventArgs e)
+        {
+            label6.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box7(object sender, KeyPressEventArgs e)
+        {
+            label7.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box8(object sender, KeyPressEventArgs e)
+        {
+            label8.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box9(object sender, KeyPressEventArgs e)
+        {
+            label9.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box10(object sender, KeyPressEventArgs e)
+        {
+            label10.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box11(object sender, KeyPressEventArgs e)
+        {
+            label11.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box12(object sender, KeyPressEventArgs e)
+        {
+            label12.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box13(object sender, KeyPressEventArgs e)
+        {
+            label13.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        // 색바꾸기, 숫자만 입력 코드 끝
+        private void key_Enter1(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox2.Focus();
+            }
+        }
+        private void key_Enter2(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox3.Focus();
+            }
+        }
+        private void key_Enter3(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox4.Focus();
+            }
+        }
+        private void key_Enter4(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox5.Focus();
+            }
+        }
+        private void key_Enter5(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox6.Focus();
+            }
+        }
+        private void key_Enter6(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox7.Focus();
+            }
+        }
+        private void key_Enter7(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox8.Focus();
+            }
+        }
+
+        private void key_Enter8(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox10.Focus();
+            }
+        }
+        private void key_Enter10(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox11.Focus();
+            }
+        }
+        private void key_Enter11(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox12.Focus();
+            }
+        }
+        private void key_Enter12(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox13.Focus();
+            }
+        }
+        private void key_Enter13(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox9.Focus();
+            }
+        }
+        private void key_Enter9(object sender, KeyEventArgs e)
+        {
+            //엔터 누르면 다음칸으로 넘어가기
+            if (e.KeyCode == Keys.Enter)
+            {
+                button8.Focus();
+            }
+        }
+
+
     }
 }

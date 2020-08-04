@@ -53,7 +53,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Mainicon.ico</ApplicationIcon>
+    <ApplicationIcon>Mainico.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -99,10 +99,10 @@
     <Compile Include="Function\reg+\RegPlus.Designer.cs">
       <DependentUpon>RegPlus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Function\donation\Sponsor.cs">
+    <Compile Include="Function\후원\Sponsor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Function\donation\Sponsor.Designer.cs">
+    <Compile Include="Function\후원\Sponsor.Designer.cs">
       <DependentUpon>Sponsor.cs</DependentUpon>
     </Compile>
     <Compile Include="MainSetting.cs">
@@ -149,7 +149,7 @@
     <EmbeddedResource Include="Function\reg+\RegPlus.resx">
       <DependentUpon>RegPlus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Function\donation\Sponsor.resx">
+    <EmbeddedResource Include="Function\후원\Sponsor.resx">
       <DependentUpon>Sponsor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
@@ -198,7 +198,7 @@
   <ItemGroup>
     <EmbeddedResource Include="dll\Microsoft.WindowsAPICodePack.dll" />
     <EmbeddedResource Include="dll\Microsoft.WindowsAPICodePack.Shell.dll" />
-    <Content Include="Mainicon.ico" />
+    <Content Include="Mainico.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

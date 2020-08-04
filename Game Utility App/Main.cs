@@ -40,7 +40,7 @@ namespace GameUtilityApp
         
         private void updateCheck()
         {
-            int thisrelese = 20200801;
+            int thisrelese = 20200804;
             bool netstate = NetworkInterface.GetIsNetworkAvailable();//네트워크 상태 확인
             if (netstate == false)
             {
@@ -64,15 +64,19 @@ namespace GameUtilityApp
             //서버 페이지 연결 
             try
             {
-                var client = new HttpClient(); // 웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스 제작 
-                var response = client.GetAsync("https://github.com/Potato-Y/Game-Utility-App/blob/master/release/release%20guide.md").Result; // 웹으로부터 HTML 다운로드 
-                var html = response.Content.ReadAsStringAsync().Result; // 다운로드 결과를 html 로 받아 옴. 
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-                var last_relese_check_match = Regex.Match(html, "최신 버전 릴리즈 :.+?<"); // 정규식을 사용해서 위의 문장과 동일한 패턴을 가져오기.
-                string ver_check_result = last_relese_check_match.Value; // 캡쳐 된 내용을 가져옵니다.
+
+                var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
+                var response = client.GetAsync("https://github.com/Potato-Y/Game-Utility-App/blob/master/release/release%20guide.md").Result; //웹으로부터 다운로드 
+                var html = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다. 
+
+                var last_relese_check_match = Regex.Match(html, "최신 버전 릴리즈 :.+?<"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다.
+                string ver_check_result = last_relese_check_match.Value; //캡쳐 된 내용을 가져온다.
                 int last_relese_ver = Convert.ToInt32(ver_check_result.Substring(11, ver_check_result.Length - 12));
-                var min_relese_check_match = Regex.Match(html, "최소 실행 릴리즈 버전 :.+?<"); // 정규식을 사용해서 위의 문장과 동일한 패턴을 가져오기.
-                string min_relese_check_result = min_relese_check_match.Value; // 캡쳐 된 내용을 가져오기.
+                var min_relese_check_match = Regex.Match(html, "최소 실행 릴리즈 버전 :.+?<"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다.
+                string min_relese_check_result = min_relese_check_match.Value; //캡쳐 된 내용을 가져온다.
                 int min_relese_ver = Convert.ToInt32(min_relese_check_result.Substring(14, min_relese_check_result.Length - 15));
 
                 
@@ -112,14 +116,20 @@ namespace GameUtilityApp
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("서버에 연결할 수 없습니다.\n홈페이지에 연결합니다.\n","네트워크 Error");
-                Process.Start("https://cafe.naver.com/checkmateclub");
-                Application.Exit();
-                this.Close();
+                if (MessageBox.Show("업데이트 확인 서버에 연결할 수 없습니다.\n\n홈페이지로 연결하시겠습니까?\n"+ex, "서버에 연결할 수 없습니다.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Process.Start("https://cafe.naver.com/checkmateclub");
+                    Application.Exit();
+                    this.Close();
+                }
+                else
+                {
+                    Application.Exit();
+                    this.Close();
+                }
             }
-
         }
 
         private void Form1_Load(object sender, EventArgs e)  //프로그램 로딩
@@ -189,22 +199,40 @@ namespace GameUtilityApp
                 Application.Exit();
                 this.Close();
             }
-            
-            var client = new HttpClient(); 
-            var response = client.GetAsync("http://potatoystudio.pe.kr/?device=mobile").Result;  
-            var html = response.Content.ReadAsStringAsync().Result;
-            //today
-            var today_match = Regex.Match(html, @"<dt>오늘</dt>\n        <dd>.+?</dd>"); 
-            string today_result = today_match.Value; 
-            label14.Text = today_result.Substring(24, today_result.Length - 29);
-            //total
-            var total_match = Regex.Match(html, @"<dt>전체</dt>\n        <dd>.+?</dd>");
-            string total_result = total_match.Value; 
-            label15.Text = total_result.Substring(24, total_result.Length - 29);
 
-            var now_match = Regex.Match(html, "<span>.+?</span>"); 
-            string now_result = now_match.Value;
-            label11.Text = now_result.Substring(6, now_result.Length - 13);
+            try
+            {
+                var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
+                var response = client.GetAsync("http://potatoystudio.pe.kr/?device=mobile").Result; //웹으로부터 다운로드 
+                var html = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다.
+                                                                        //today
+                var today_match = Regex.Match(html, @"<dt>오늘</dt>\n        <dd>.+?</dd>"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다. 
+                string today_result = today_match.Value; //캡쳐 된 내용을 가져온다.
+                label14.Text = today_result.Substring(24, today_result.Length - 29);
+                //total
+                var total_match = Regex.Match(html, @"<dt>전체</dt>\n        <dd>.+?</dd>"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다. 
+                string total_result = total_match.Value; //캡쳐 된 내용을 가져온다.
+                label15.Text = total_result.Substring(24, total_result.Length - 29);
+
+                var now_match = Regex.Match(html, "<span>.+?</span>"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다. 
+                string now_result = now_match.Value; //캡쳐 된 내용을 가져온다.
+                label11.Text = now_result.Substring(6, now_result.Length - 13);
+
+            }
+            catch (Exception)
+            {
+                if (MessageBox.Show("서비스 점검중입니다. \n보통 00~06시까지 점검하나 몇일간 이 메시지가 보인다면 홈페이지 공지를 확인해주세요.\n\n홈페이지로 연결하시겠습니까?", "서버에 연결할 수 없습니다.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Process.Start("https://cafe.naver.com/checkmateclub");
+                    Application.Exit();
+                    this.Close();
+                }
+                else
+                {
+                    Application.Exit();
+                    this.Close();
+                }
+            }
         }
 
         private void netver_check()
@@ -316,6 +344,8 @@ namespace GameUtilityApp
             RegSave_Response();
             RegSave_ToggleKeys();
             MessageBox.Show("모두 저장하였습니다.", "Save");
+            RegReload_keyboard();
+            RegReload_Response();
             RegReload_ToggleKeys();
             usercount(); //버튼 누를 때마다 사용자 수 재설정
         }
@@ -332,6 +362,16 @@ namespace GameUtilityApp
 
         private void recommendReg(object sender, EventArgs e)  //권장 레지로 설정
         {
+            label1.ForeColor = Color.Blue;
+            label2.ForeColor = Color.Blue;
+            label3.ForeColor = Color.Blue;
+            label4.ForeColor = Color.Blue;
+            label5.ForeColor = Color.Blue;
+            label6.ForeColor = Color.Blue;
+            label7.ForeColor = Color.Blue;
+            label8.ForeColor = Color.Blue;
+            label9.ForeColor = Color.Blue;
+
             textBox1.Text = "2";
             textBox2.Text = "0";
             textBox3.Text = "48";
@@ -345,6 +385,8 @@ namespace GameUtilityApp
             RegSave_Response();
             RegSave_ToggleKeys();
             MessageBox.Show("권장 값으로 저장하였습니다.", "Save");
+            RegReload_keyboard();
+            RegReload_Response();
             RegReload_ToggleKeys();
             usercount(); //버튼 누를 때마다 사용자 수 재설정
         }
@@ -376,8 +418,93 @@ namespace GameUtilityApp
             usercount();
         }
 
-        private void txtInterval_KeyPress(object sender, KeyPressEventArgs e)
+        //숫자만 입력되도록 하며 입력시 글자색이 파란색으로 변경
+        private void txtInterval_KeyPress_box1(object sender, KeyPressEventArgs e)
         {
+            label1.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box2(object sender, KeyPressEventArgs e)
+        {
+            label2.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box3(object sender, KeyPressEventArgs e)
+        {
+            label3.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+            OperatingSystem os = Environment.OSVersion;
+            Version vs = os.Version;
+
+            if (vs.Major == 10)
+            {
+                if (Convert.ToInt32(textBox3.Text) > 31)
+                {
+                    MessageBox.Show("윈도우10");
+                }
+            }
+            
+        }
+        private void txtInterval_KeyPress_box4(object sender, KeyPressEventArgs e)
+        {
+            label4.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box5(object sender, KeyPressEventArgs e)
+        {
+            label5.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box6(object sender, KeyPressEventArgs e)
+        {
+            label6.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box7(object sender, KeyPressEventArgs e)
+        {
+            label7.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box8(object sender, KeyPressEventArgs e)
+        {
+            label8.ForeColor = Color.Blue;
+            //숫자만 입력되도록 필터링
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtInterval_KeyPress_box9(object sender, KeyPressEventArgs e)
+        {
+            label9.ForeColor = Color.Blue;
             //숫자만 입력되도록 필터링
             if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
             {
@@ -385,6 +512,7 @@ namespace GameUtilityApp
             }
         }
 
+        // 색바꾸기, 숫자만 입력 코드 끝
         private void key_Enter1(object sender, KeyEventArgs e)
         {
             //엔터 누르면 다음칸으로 넘어가기
@@ -485,6 +613,9 @@ namespace GameUtilityApp
             textBox2.Text = Convert.ToString(reg.GetValue("KeyboardDelay", ""));
             textBox3.Text = Convert.ToString(reg.GetValue("KeyboardSpeed", ""));
             reg.Close();
+            label1.ForeColor = Color.Black;
+            label2.ForeColor = Color.Black;
+            label3.ForeColor = Color.Black;
         }
 
         private void RegReload_Response()
@@ -497,6 +628,11 @@ namespace GameUtilityApp
             textBox7.Text = Convert.ToString(reg.GetValue("DelayBeforeAcceptance", ""));
             textBox8.Text = Convert.ToString(reg.GetValue("Flags", ""));
             reg.Close();
+            label4.ForeColor = Color.Black;
+            label5.ForeColor = Color.Black;
+            label6.ForeColor = Color.Black;
+            label7.ForeColor = Color.Black;
+            label8.ForeColor = Color.Black;
         }
 
         private void RegReload_ToggleKeys()
@@ -505,6 +641,7 @@ namespace GameUtilityApp
             reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("ToggleKeys");
             textBox9.Text = Convert.ToString(reg.GetValue("Flags", ""));
             reg.Close();
+            label9.ForeColor = Color.Black;
         }
         //레지 불러오기 끝
         //레지 저장하기
@@ -519,6 +656,7 @@ namespace GameUtilityApp
             reg.SetValue("KeyboardSpeed", textBox3.Text);
 
             reg.Close();
+            
         }
 
         private void RegSave_Response()
@@ -535,6 +673,7 @@ namespace GameUtilityApp
             reg.SetValue("Last Valid Repeat", "0", RegistryValueKind.DWord);
             reg.SetValue("Last Valid Wait", "1000", RegistryValueKind.DWord);
             reg.Close();
+            
         }
 
         private void RegSave_ToggleKeys()
@@ -544,15 +683,8 @@ namespace GameUtilityApp
 
             reg.SetValue("Flags", textBox9.Text);
             reg.Close();
+            
         }
-
-        
-
         //레지 저장하기 끝
-
-
-
-
-
     }
 }
