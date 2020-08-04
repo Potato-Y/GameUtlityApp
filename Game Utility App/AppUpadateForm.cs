@@ -37,7 +37,7 @@ namespace GameUtilityApp.Properties
 
                     var file_check_match = Regex.Match(html, "클라이언트 다운주소 :.+?입"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다.
                     string link_result = file_check_match.Value; //캡쳐 된 내용을 가져온다.
-                    string clientLink = link_result.Substring(15, link_result.Length - 16);
+                    string clientLink = link_result.Substring(12, link_result.Length - 13);
 
                     textBox1.Text += "업데이트 클라이언트 다운로드를 시작합니다.";
                     string tmpSetupPath = Path.Combine(Application.StartupPath, "UpdateClient.exe");
@@ -47,7 +47,7 @@ namespace GameUtilityApp.Properties
                 }
             }catch(Exception ex)
             {
-                textBox1.Text += "오류 : " + ex.Message;
+                MessageBox.Show(""+ex);
                 Process.Start("https://cafe.naver.com/checkmateclub");
                 Application.Exit();
             }
