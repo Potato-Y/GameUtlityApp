@@ -40,7 +40,7 @@ namespace GameUtilityApp
         
         private void updateCheck()
         {
-            int thisrelese = 20200804;
+            int thisrelese = 20200805;
             bool netstate = NetworkInterface.GetIsNetworkAvailable();//네트워크 상태 확인
             if (netstate == false)
             {
@@ -445,6 +445,7 @@ namespace GameUtilityApp
             {
                 e.Handled = true;
             }
+            /*
             OperatingSystem os = Environment.OSVersion;
             Version vs = os.Version;
 
@@ -455,7 +456,7 @@ namespace GameUtilityApp
                     MessageBox.Show("윈도우10");
                 }
             }
-            
+            */
         }
         private void txtInterval_KeyPress_box4(object sender, KeyPressEventArgs e)
         {
