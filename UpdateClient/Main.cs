@@ -39,6 +39,9 @@ namespace UpdateClient
             {
                 using (WebClient fileDownloader = new WebClient())
                 {
+                    ServicePointManager.Expect100Continue = true;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
                     label2.Text = "파일 다운로드를 시작";
                     string tmpSetupPath = Path.Combine(Application.StartupPath, "Game Utility App.exe");
                     fileDownloader.DownloadProgressChanged += fileDownloader_DownloadProgressChanged; // 다운로드 진행 상황 표시하기 위해
