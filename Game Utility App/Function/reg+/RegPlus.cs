@@ -21,6 +21,7 @@ namespace GameUtilityApp.Function.reg_
 
         private void RegPlus_Load(object sender, EventArgs e)
         {
+            loadtooltip();
             label1.Text = "InitialKeyboardIndicators";
             label2.Text = "KeyboardDelay";
             label3.Text = "KeyboardSpeed";
@@ -64,6 +65,30 @@ namespace GameUtilityApp.Function.reg_
 
             comboBox1.Items.AddRange(new string[] { myset, "===매우 빠름 유명인===", LJD, LJS, BIS, BMS, RMG, SJM, KTH, IHG, neal, "===빠름 유명인===", Mschool, Rooki, chizz, rcl, ollf, dhgu, spmh });
             comboBox1.SelectedIndex = 0;
+        }
+
+        private void loadtooltip()
+        {
+            toolTip1.SetToolTip(comboBox1, "프리셋을 선택할 수 있습니다.");
+            toolTip1.SetToolTip(linkLabel1, "프리셋 출처로 이동합니다.");
+
+
+            //textBox 영역
+            toolTip1.SetToolTip(textBox1, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox2, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox3, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox4, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox5, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox6, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox7, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox8, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox9, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox10, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox11, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox12, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox13, "숫자를 입력하십시오");
+
+            toolTip1.SetToolTip(button8, "전체 저장합니다.");
         }
 
         //선수 이름 셋팅

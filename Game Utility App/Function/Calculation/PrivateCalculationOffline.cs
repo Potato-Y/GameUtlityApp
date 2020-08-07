@@ -60,7 +60,23 @@ namespace GameUtilityApp
 
             textBox1.ReadOnly = true;
             textBox1.BackColor = Color.White;
-            
+
+            loadtooltip();
+        }
+
+        private void loadtooltip()
+        {
+            toolTip1.SetToolTip(button1, "1등 점수 10점을 추가합니다.");
+            toolTip1.SetToolTip(button2, "2등 점수 7점을 추가합니다.");
+            toolTip1.SetToolTip(button3, "3등 점수 5점을 추가합니다.");
+            toolTip1.SetToolTip(button4, "4등 점수 4점을 추가합니다.");
+            toolTip1.SetToolTip(button5, "5등 점수 3점을 추가합니다.");
+            toolTip1.SetToolTip(button6, "6등 점수 1점을 추가합니다.");
+            toolTip1.SetToolTip(button7, "7등 점수 0점을 추가합니다.");
+            toolTip1.SetToolTip(button8, "8등 점수 -1점을 추가합니다.");
+            toolTip1.SetToolTip(button9, "리타 점수 -5점을 추가합니다.");
+            toolTip1.SetToolTip(button10, "추가한 점수를 취소합니다.");
+
         }
         bool JustClick = true; //등수를 입력할 경우 true , 뒤로가기를 할 경우 false
 

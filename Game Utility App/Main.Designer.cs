@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -72,6 +73,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -123,6 +125,7 @@
             this.textBox3.TabIndex = 4;
             this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.key_Enter3);
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInterval_KeyPress_box3);
+            this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textbox3_keyup);
             // 
             // textBox2
             // 
@@ -538,7 +541,7 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Game Utility App Beta 0.1.4";
+            this.Text = "Game Utility App Beta 0.2";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -599,6 +602,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

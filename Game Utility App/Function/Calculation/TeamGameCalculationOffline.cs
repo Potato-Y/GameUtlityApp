@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAPICodePack.Dialogs;
+﻿using Microsoft.Win32;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,15 +23,11 @@ namespace GameUtilityApp
         public TeamGameCalculationOffline()
         {
             InitializeComponent();
-            this.button1.Click += new System.EventHandler(win_Click);
-            this.button2.Click += new System.EventHandler(lose_Click);
-            this.button5.Click += new System.EventHandler(path_Click);
-            this.button3.Click += new System.EventHandler(save_Click);
-            this.button4.Click += new System.EventHandler(reset_Click);
         }
 
         private void TeamGameCalculationOffline_Load(object sneder,EventArgs e)
         {
+            loadtooltip();
             this.ActiveControl = comboBox1;
             checkBox1.Checked = false;
             checkBox2.Checked = true;
@@ -49,12 +46,43 @@ namespace GameUtilityApp
             {
                 string[] speedmaplist = System.IO.File.ReadAllLines(@".\otherFile\map_speedmaplist.dat");
                 comboBox1.Items.AddRange(speedmaplist);
-                savepath = System.IO.File.ReadAllText(@".\otherFile\map_savesetting.dat");
             }catch(Exception)
             {
                 MessageBox.Show("맵 파일을 찾을 수 없습니다.","실행 오류");
                 this.Close();
             }
+
+            try
+            {
+                RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE").OpenSubKey("Game Utility App", true);
+                if(reg.OpenSubKey("setting")==null||Convert.ToString(reg.OpenSubKey("setting").GetValue("save team match results")) == "")
+                {
+                    reg.CreateSubKey("setting").SetValue("save team match results", "null");
+                }
+                savepath = Convert.ToString(reg.OpenSubKey("setting").GetValue("save team match results", null));
+                reg.Close();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("저장 위치를 불러올 수 없습니다.","불러오기 오류");
+                this.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("설정값 초기화 오류","불러오기 오류");
+                this.Close();
+            }
+            
+        }
+
+        private void loadtooltip()
+        {
+            toolTip1.SetToolTip(button5, "결과를 저장할 폴더를 선택합니다.");
+            toolTip1.SetToolTip(button3, "결과를 선택한 폴더에 저장합니다.");
+            toolTip1.SetToolTip(button4, "점수를 초기화합니다.");
+            toolTip1.SetToolTip(comboBox1, "맵 이름을 입력합니다.");
+
+
         }
 
         private void allmap_Click(object sender, EventArgs e)
@@ -160,13 +188,14 @@ namespace GameUtilityApp
                 label3.Text = Convert.ToString(myscore);
                 label3.Text = Convert.ToString(myscore);
                 label8.Text = Convert.ToString(match);
-                savedata+= match + "번째 판, " + comboBox1.Text + " 승리";
+                savedata+= match + "번째 판, " + comboBox1.Text + " '승리'";
             }
             else
             {
                 MessageBox.Show("허용 점수를 초과하였습니다.","경고");
             }
-            
+            this.textBox1.SelectionStart = textBox1.Text.Length;
+            this.textBox1.ScrollToCaret();
         }
 
         private void lose_Click(object sender, EventArgs e)
@@ -192,7 +221,8 @@ namespace GameUtilityApp
             {
                 MessageBox.Show("허용 점수를 초과하였습니다.", "경고");
             }
-
+            this.textBox2.SelectionStart = textBox1.Text.Length;
+            this.textBox2.ScrollToCaret();
         }
 
         private void reset_Click(object sender, EventArgs e)
@@ -211,6 +241,8 @@ namespace GameUtilityApp
             textBox1.Text = "";
             textBox2.Text = "";
             label8.Text = "0";
+            label3.Text = "0";
+            label5.Text = "0";
             savedata = "";
 
         }
@@ -219,13 +251,25 @@ namespace GameUtilityApp
         {
             try
             {
+                
                 CommonOpenFileDialog dialog = new CommonOpenFileDialog();
                 dialog.IsFolderPicker = true;
+                
 
                 if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 {
                     savepath = dialog.FileName;
-                    System.IO.File.WriteAllText(@".\otherFile\map_savesetting.dat", savepath, Encoding.Default);
+                    try
+                    {
+                        RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE").OpenSubKey("Game Utility App").OpenSubKey("setting", true);
+                        reg.SetValue("save team match results", savepath);
+                        reg.Close();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("설정값을 저장할 수 없습니다.", "저장 오류");
+                    }
+
                     MessageBox.Show("저장 버튼을 누르면 ' " + savepath + " ' 에 저장됩니다.", "Save");
                 }
 

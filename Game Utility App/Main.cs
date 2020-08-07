@@ -18,6 +18,7 @@ using GameUtilityApp.Function.reg_;
 using GameUtilityApp.Function.후원;
 using System.Diagnostics;
 using GameUtilityApp.Properties;
+using GameUtilityApp.Notice;
 
 namespace GameUtilityApp
 {
@@ -37,10 +38,9 @@ namespace GameUtilityApp
             this.button9.Click += new System.EventHandler(this.regpluse_Click);
         }
 
-        
+        int thisrelese = 20200808;
         private void updateCheck()
         {
-            int thisrelese = 20200807;
             bool netstate = NetworkInterface.GetIsNetworkAvailable();//네트워크 상태 확인
             if (netstate == false)
             {
@@ -183,6 +183,42 @@ namespace GameUtilityApp
             RegReload_keyboard();
             RegReload_Response();
             RegReload_ToggleKeys();
+
+            newusercheck();
+            loadtooltip();
+        }
+
+        //툴팁 영역
+        private void loadtooltip()
+        {
+            //textBox 영역
+            toolTip1.SetToolTip(textBox1, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox2, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox3, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox4, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox5, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox6, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox7, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox8, "숫자를 입력하십시오");
+            toolTip1.SetToolTip(textBox9, "숫자를 입력하십시오");
+
+            //saveButton 영역
+            toolTip1.SetToolTip(button1, "Keyboard 부분을 저장합니다.");
+            toolTip1.SetToolTip(button2, "Keyboard Response 부분을 저장합니다.");
+            toolTip1.SetToolTip(button3, "ToggleKeys 부분을 저장합니다.");
+            toolTip1.SetToolTip(button8, "전체 저장합니다.");
+
+            //utility+ 영역
+            toolTip1.SetToolTip(button4, "사용방법이 설명되어있는 페이지로 연결합니다.");
+            toolTip1.SetToolTip(button5, "권장하는 레지스트리로 전체 초기화합니다.");
+            toolTip1.SetToolTip(button6, "레지스트리를 다시 불러옵니다.");
+            toolTip1.SetToolTip(button9, "레지스트리를 상세 설정합니다.");
+            toolTip1.SetToolTip(button7, "추가 기능을 봅니다.");
+            toolTip1.SetToolTip(button10, "프로그램을 설정합니다.");
+            toolTip1.SetToolTip(button11, "후원 안내창을 띄웁니다.");
+            toolTip1.SetToolTip(button12, "공식 개발 카페로 연결합니다.");
+
+
         }
 
         //사용자 파악
@@ -202,6 +238,9 @@ namespace GameUtilityApp
 
             try
             {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
                 var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
                 var response = client.GetAsync("http://potatoystudio.pe.kr/?device=mobile").Result; //웹으로부터 다운로드 
                 var html = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다.
@@ -311,7 +350,30 @@ namespace GameUtilityApp
                 return "No 4.5 or later version detected";
             }
         }
-        
+
+        int check;
+        private void newusercheck()
+        {
+            //새로운 유저인지 검색. 기존에 사용자인지, 버전을 확인하며 필요한 레지스트리 업데이트가 적용 합니다.
+            try
+            {
+                RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE");
+                if(reg.OpenSubKey("Game Utility App")==null||Convert.ToString(reg.OpenSubKey("Game Utility App").GetValue("ver release")) == ""||Convert.ToInt32(reg.OpenSubKey("Game Utility App").GetValue("ver release"))!=thisrelese)
+                {
+                    reg = Registry.CurrentUser.CreateSubKey("SOFTWARE").CreateSubKey("Game Utility App", true);
+                    reg.SetValue("ver release", thisrelese);
+                }
+                else
+                {
+                    check=Convert.ToInt32(reg.OpenSubKey("Game Utility App").GetValue("ver release"));
+                }
+                reg.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("초기 설정을 하는데 오류가 발생하였습니다.","초기 설정 오류");
+            }
+        }
 
         //세이브 버튼
         private void KeyboardClick(object sender, EventArgs e)
@@ -445,19 +507,52 @@ namespace GameUtilityApp
             {
                 e.Handled = true;
             }
-            /*
+        }
+        int win10_message_count = 0;
+        private void textbox3_keyup(object sender, KeyEventArgs e)
+        {
+            //windows 10에서 31이 넘으면 알림창을 표시하는 부분
+
             OperatingSystem os = Environment.OSVersion;
             Version vs = os.Version;
-
-            if (vs.Major == 10)
+            if (win10_message_count == 0)
             {
-                if (Convert.ToInt32(textBox3.Text) > 31)
+                if (vs.Major == 10)
                 {
-                    MessageBox.Show("윈도우10");
+                    try
+                    {
+                        if (win10_message_count == 0)
+                        {
+                            if (Convert.ToInt32(textBox3.Text) >= 32)
+                            {
+                                RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE").OpenSubKey("Game Utility App", true);
+                                if (reg.OpenSubKey("setting") == null || Convert.ToString(reg.OpenSubKey("setting").GetValue("keyboardspeed win10")) == "")
+                                {
+                                    reg.CreateSubKey("setting").SetValue("keyboardspeed win10", 0);
+                                }
+                                reg = Registry.CurrentUser.OpenSubKey("SOFTWARE").OpenSubKey("Game Utility App").OpenSubKey("setting");
+                                if (Convert.ToInt32(reg.GetValue("keyboardspeed win10")) == 0)
+                                {
+                                    KeyboardSpeed_win10 newForm = new KeyboardSpeed_win10();
+                                    newForm.ShowDialog();
+                                    win10_message_count++;
+                                }
+                            }
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        win10_message_count=0;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Windows10 경고 관련 시스템에 문제가 발생했습니다."+ex, "오류");
+                    }
+                    
                 }
             }
-            */
         }
+
         private void txtInterval_KeyPress_box4(object sender, KeyPressEventArgs e)
         {
             label4.ForeColor = Color.Blue;
@@ -617,6 +712,7 @@ namespace GameUtilityApp
             label1.ForeColor = Color.Black;
             label2.ForeColor = Color.Black;
             label3.ForeColor = Color.Black;
+            reg.Close();
         }
 
         private void RegReload_Response()
@@ -634,6 +730,7 @@ namespace GameUtilityApp
             label6.ForeColor = Color.Black;
             label7.ForeColor = Color.Black;
             label8.ForeColor = Color.Black;
+            reg.Close();
         }
 
         private void RegReload_ToggleKeys()
