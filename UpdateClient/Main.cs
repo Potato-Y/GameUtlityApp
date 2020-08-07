@@ -46,7 +46,7 @@ namespace UpdateClient
                     string tmpSetupPath = Path.Combine(Application.StartupPath, "Game Utility App.exe");
                     fileDownloader.DownloadProgressChanged += fileDownloader_DownloadProgressChanged; // 다운로드 진행 상황 표시하기 위해
                     fileDownloader.DownloadFileCompleted += fileDownloader_DownloadFileCompleted;        // 다운로드가 완료되면 실행
-                    fileDownloader.DownloadFileAsync(new Uri("https://github.com/Potato-Y/Game-Utility-App/releases/download/v0.1.4/updatedata.exe"), tmpSetupPath, tmpSetupPath);
+                    fileDownloader.DownloadFileAsync(new Uri("https://github.com/Potato-Y/Game-Utility-App/releases/download/v0.2.0/updatedata.exe"), tmpSetupPath, tmpSetupPath);
                 }
             }
             catch (Exception ex)
