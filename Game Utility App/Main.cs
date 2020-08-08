@@ -38,7 +38,7 @@ namespace GameUtilityApp
             this.button9.Click += new System.EventHandler(this.regpluse_Click);
         }
 
-        int thisrelese = 20200808;
+        int thisrelese = 20200809;
         private void updateCheck()
         {
             bool netstate = NetworkInterface.GetIsNetworkAvailable();//네트워크 상태 확인
@@ -287,38 +287,36 @@ namespace GameUtilityApp
                     {
                         if (ver != "4.8 or later")
                         {
-                            MessageBox.Show(".NET Framework Version이 낮습니다. 업데이트 후 실행하세요.\n\n열리는 폴더에서 NET Framework Setup Guide프로그램을 사용하세요.", "버전 오류");
+                            MessageBox.Show(".NET Framework Version이 낮습니다. 업데이트 후 실행하세요.\n\n4.7.2 이상 버전하고 호환됩니다.", "NET Framework 업데이트 필요");
                             try
                             {
-                                System.Diagnostics.Process.Start(@".\otherFile\netpatch\");
-                            }catch(Exception ex)
+                                NetVerUpdate newForm = new NetVerUpdate();
+                                newForm.ShowDialog();
+                            }
+                            catch (Exception ex)
                             {
-                                MessageBox.Show("폴더가 없습니다.\nError code : "+ex,"Error");
+                                MessageBox.Show("가이드가 실행되지 않습니다.\nError code : "+ex,"Error");
                                 Application.Exit();
 
                             }
-
-                            Application.Exit();
-                            this.Close();
 
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show(".NET Framework Version 이 감지되지 않습니다.\n.NET Framework를 설치 후 실행 부탁드립니다.\n\n열리는 폴더에서 NET Framework Setup Guide프로그램을 사용하세요.", "버전 오류");
+                    MessageBox.Show(".NET Framework Version 이 감지되지 않습니다.\n.NET Framework를 설치(업데이트) 후 실행 부탁드립니다.", "NET Framework 업데이트 필요");
                     try
                     {
-                        System.Diagnostics.Process.Start(@".\otherFile\netpatch\");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("폴더가 없습니다.\nError code : " + ex, "Error");
-                        Application.Exit();
+                        NetVerUpdate newForm = new NetVerUpdate();
+                        newForm.ShowDialog();
 
                     }
-                    Application.Exit();
-                    this.Close();
+                    catch (Exception)
+                    {
+                        MessageBox.Show("업데이트 가이드를 실행하는 중 문제가 발생하였습니다.", "Error");
+                        Application.Exit();
+                    }
                 }
             }
 

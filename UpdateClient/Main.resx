@@ -118,7 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>v 0.2.0 패치노트
+    <value>V ★ 1.0 업데이트!!! ★
+- 베타 버전에서 탈출하였습니다! 근본적인 기본 기능들이 잔여파일 없이도 정상적으로 사용이 가능해졌습니다!
+이제는 Game Utility App.exe 만 있더라도 사용할 수 있는 간편함이 다가왔습니다.
+- 'otherFile' 폴더를 없애셔도 됩니다.
+- updateClient는 자동으로 다운로드 하고 실행하여 프로그램을 업데이트합니다. 기존과 같이 업데이트가 종료된 이후에는 삭제하셔도 무관합니다.
+- 새로운 기능추가를 위한 베타 테스트는 계속됩니다.
+- 닷넷 버전 업데이트 가이드가 프로그램에 합체되었습니다!
+
+V ★ 1.0 update!!! ★
+-You have escaped from the beta version! Basic basic functions can be used normally without residual files!
+Now, the simplicity of using Game Utility App.exe has arrived.
+-You may delete the 'otherFile' folder.
+-updateClient automatically downloads and runs to update the program. As before, you can delete it after the update is finished.
+-Beta testing for adding new features will continue.
+-The .NET version update guide has been incorporated into the program!
+
+
+----------------------------------------------------------------------
+v 0.2.0 패치노트
 
 - 셋팅값을 레지스트리에 저장하여 부가적인 파일 최소화 기초 작업
 - Windows 10 최적값 추천기능 추가

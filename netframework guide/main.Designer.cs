@@ -88,9 +88,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(191, 23);
             this.button1.TabIndex = 7;
-            this.button1.Text = ".NET Framework 4.7.2 설치";
+            this.button1.Text = ".NET Framework 4.8 설치";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Setup472);
+            this.button1.Click += new System.EventHandler(this.Setup_new_ver);
             // 
             // label3
             // 
@@ -149,7 +149,7 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "label6";
             // 
-            // Form1
+            // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,7 +165,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "main";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = ".NET Framework 설치 가이드";

@@ -59,7 +59,7 @@ namespace GameUtilityApp
                     if (reg.GetValue(appname) == null)
                     {
                         reg.SetValue(appname, Application.ExecutablePath.ToString());
-                        //MessageBox.Show("등록");
+                        MessageBox.Show("프로그램 파일을 이동하거나, 삭제하기 전에는 꼭 해제 부탁드립니다.\n그렇지 않으면 PC를 부팅할때마다 오류가 발생할 수 있습니다.","안내");
                     }
                 }
                 else

@@ -3,19 +3,25 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace netframework_guide
+namespace GameUtilityApp.Notice
 {
-    public partial class main : Form
+    public partial class NetVerUpdate : Form
     {
-        public main()
+        public NetVerUpdate()
         {
             InitializeComponent();
+        }
+
+        private void Setup472(object sender, EventArgs e)
+        {
+            MessageBox.Show("Microsoft 홈페이지로 연결합니다.", "홈페이지에서 설치 파일 다운");
+            System.Diagnostics.Process.Start("https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-web-installer");
         }
 
         private void WinUpdate_x86(object sender, EventArgs e)
@@ -29,7 +35,7 @@ namespace netframework_guide
             System.Diagnostics.Process.Start("https://www.microsoft.com/ko-kr/download/details.aspx?id=39115");
         }
 
-    
+
         private void WinUpdate_other(object sender, EventArgs e)
         {
             MessageBox.Show("본인에게 맞는 Windows 용 보안 업데이트를 다운로드하고 설치하세요.", "안내");
@@ -40,7 +46,7 @@ namespace netframework_guide
         {
             String sProcess;
 
-            if(Environment.Is64BitOperatingSystem == true)
+            if (Environment.Is64BitOperatingSystem == true)
             {
                 sProcess = "64 bit";
             }
@@ -56,7 +62,7 @@ namespace netframework_guide
             {
                 if (ndpKey != null && ndpKey.GetValue("Release") != null)
                 {
-                    label4.Text=CheckFor45PlusVersion((int)ndpKey.GetValue("Release"));
+                    label4.Text = CheckFor45PlusVersion((int)ndpKey.GetValue("Release"));
                 }
                 else
                 {
@@ -91,11 +97,10 @@ namespace netframework_guide
                 return "No 4.5 or later version detected";
             }
         }
-
-        private void Setup_new_ver(object sender, EventArgs e)
+        private void form_Close(object sender, FormClosedEventArgs e)
         {
-            MessageBox.Show("Microsoft 홈페이지로 연결합니다.", "홈페이지에서 설치 파일 다운");
-            System.Diagnostics.Process.Start("https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-web-installer");
+            Application.Exit();
+            this.Close();
         }
     }
 }
