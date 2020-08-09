@@ -87,10 +87,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Function\Calculation\AdditionSetting.cs">
+    <Compile Include="Function\AdditionSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Function\Calculation\AdditionSetting.Designer.cs">
+    <Compile Include="Function\AdditionSetting.Designer.cs">
       <DependentUpon>AdditionSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="Function\reg+\RegPlus.cs">
@@ -167,7 +167,7 @@
     <Compile Include="UtilityChoice.Designer.cs">
       <DependentUpon>UtilityChoice.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Function\Calculation\AdditionSetting.resx">
+    <EmbeddedResource Include="Function\AdditionSetting.resx">
       <DependentUpon>AdditionSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Function\reg+\RegPlus.resx">
