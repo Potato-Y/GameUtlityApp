@@ -258,8 +258,7 @@ namespace GameUtilityApp
             checkBox1.Checked = false;
             checkBox2.Checked = true;
             checkBox3.Checked = false;
-            string[] speedmaplist = System.IO.File.ReadAllLines(@".\otherFile\map_speedmaplist.dat");
-            comboBox1.Items.AddRange(speedmaplist);
+            MapLoad("SpeedMap");
             textBox1.Text = "";
             textBox2.Text = "";
             label8.Text = "0";
