@@ -34,9 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -83,18 +87,32 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Location = new System.Drawing.Point(12, 66);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(295, 54);
+            this.groupBox2.Size = new System.Drawing.Size(295, 112);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "프로그램";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(176, 20);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(113, 23);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "업데이트 하기";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.Update_Click);
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(126, 20);
+            this.button3.Location = new System.Drawing.Point(176, 49);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(113, 23);
             this.button3.TabIndex = 5;
@@ -104,13 +122,40 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(7, 20);
+            this.button2.Location = new System.Drawing.Point(176, 78);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 23);
             this.button2.TabIndex = 0;
             this.button2.Text = "초기화 하고 종료";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.reset_click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(153, 12);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "최신버전을 사용 중 입니다.";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "본 릴리즈 : ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 12);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "최신 릴리즈 : ";
             // 
             // MainSetting
             // 
@@ -132,6 +177,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +193,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

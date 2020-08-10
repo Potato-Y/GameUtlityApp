@@ -32,13 +32,13 @@ namespace GameUtilityApp
             this.button3.Click += new System.EventHandler(this.ToggleKeysClick);
             this.button8.Click += new System.EventHandler(this.SaveAll);
             this.button6.Click += new System.EventHandler(this.reloadClick);
-            this.button5.Click += new System.EventHandler(this.recommendReg);
+            this.button5.Click += new System.EventHandler(this.recommendReg_Click);
             this.button10.Click += new System.EventHandler(this.SettingButton_Click);
             this.button7.Click += new System.EventHandler(this.Utility_Click);
             this.button9.Click += new System.EventHandler(this.regpluse_Click);
         }
 
-        int thisrelese = 20200810;
+        int thisrelese = 20200811;
         private void updateCheck()
         {
             bool netstate = NetworkInterface.GetIsNetworkAvailable();//네트워크 상태 확인
@@ -58,7 +58,6 @@ namespace GameUtilityApp
                 MessageBox.Show("인터넷 오류", "오류");
                 Application.Exit();
                 this.Close();
-
             }
 
             //서버 페이지 연결 
@@ -79,13 +78,13 @@ namespace GameUtilityApp
                 string min_relese_check_result = min_relese_check_match.Value; //캡쳐 된 내용을 가져온다.
                 int min_relese_ver = Convert.ToInt32(min_relese_check_result.Substring(14, min_relese_check_result.Length - 15));
 
-                
+
 
                 if (thisrelese < last_relese_ver)
                 {
                     if (thisrelese < min_relese_ver)
                     {
-                        if (MessageBox.Show("현재 최신 버전이 아닙니다. 업데이트를 하시겠습니까?\n아니요를 누르면 종료됩니다."+"\n\n"+"버전 정보\n"+ "최신 릴리즈 날짜 : " + last_relese_ver + "\n" + "최소 실행 릴리즈 날짜 : " + min_relese_ver + "\n본 앱 릴리즈 날짜 : "+thisrelese, "업데이트 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("필수 업데이트가 있습니다. 업데이트를 하시겠습니까?\n아니요를 누르면 종료됩니다." + "\n\n" + "버전 정보\n" + "최신 릴리즈 날짜 : " + last_relese_ver + "\n" + "최소 실행 릴리즈 날짜 : " + min_relese_ver + "\n본 앱 릴리즈 날짜 : " + thisrelese, "업데이트 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             AppUpadateForm newForm = new AppUpadateForm();
                             newForm.ShowDialog();
@@ -98,6 +97,7 @@ namespace GameUtilityApp
                     }
                     else if (min_relese_ver <= thisrelese)
                     {
+                        /*
                         if (MessageBox.Show("현재 최신 버전이 아닙니다. 업데이트를 하시겠습니까?\n아니요를 누르면 업데이트를 하지 않습니다." + "\n\n" + "버전 정보\n" + "최신 릴리즈 날짜 : " + last_relese_ver + "\n" + "최소 실행 릴리즈 날짜 : " + min_relese_ver + "\n본 앱 릴리즈 날짜 : " + thisrelese, "업데이트 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             AppUpadateForm newForm = new AppUpadateForm();
@@ -107,6 +107,9 @@ namespace GameUtilityApp
                         {
                             this.Text += "  :: 업데이트가 있습니다 ::";
                         }
+                        */
+                        this.Text += "  :: 업데이트가 있습니다 ::";
+                        업데이트확인ToolStripMenuItem.Enabled = true;
                     }
 
                 }
@@ -118,7 +121,7 @@ namespace GameUtilityApp
             }
             catch (Exception ex)
             {
-                if (MessageBox.Show("업데이트 확인 서버에 연결할 수 없습니다.\n\n홈페이지로 연결하시겠습니까?\n"+ex, "서버에 연결할 수 없습니다.", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("업데이트 확인 서버에 연결할 수 없습니다.\n\n홈페이지로 연결하시겠습니까?\n" + ex, "서버에 연결할 수 없습니다.", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     Process.Start("https://cafe.naver.com/checkmateclub");
                     Application.Exit();
@@ -138,7 +141,7 @@ namespace GameUtilityApp
             label14.Text = "0";
             label15.Text = "0";
             //필수 시작점
-            
+
             this.ActiveControl = button5;
             //그룹 영역
             groupBox1.Text = "Keyboard Registry";
@@ -186,6 +189,8 @@ namespace GameUtilityApp
 
             newusercheck();
             loadtooltip();
+            notifyIcon1.Visible = true;
+
         }
 
         //툴팁 영역
@@ -295,7 +300,7 @@ namespace GameUtilityApp
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show("가이드가 실행되지 않습니다.\nError code : "+ex,"Error");
+                                MessageBox.Show("가이드가 실행되지 않습니다.\nError code : " + ex, "Error");
                                 Application.Exit();
 
                             }
@@ -356,20 +361,20 @@ namespace GameUtilityApp
             try
             {
                 RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE");
-                if(reg.OpenSubKey("Game Utility App")==null||Convert.ToString(reg.OpenSubKey("Game Utility App").GetValue("ver release")) == ""||Convert.ToInt32(reg.OpenSubKey("Game Utility App").GetValue("ver release"))!=thisrelese)
+                if (reg.OpenSubKey("Game Utility App") == null || Convert.ToString(reg.OpenSubKey("Game Utility App").GetValue("ver release")) == "" || Convert.ToInt32(reg.OpenSubKey("Game Utility App").GetValue("ver release")) != thisrelese)
                 {
                     reg = Registry.CurrentUser.CreateSubKey("SOFTWARE").CreateSubKey("Game Utility App", true);
                     reg.SetValue("ver release", thisrelese);
                 }
                 else
                 {
-                    check=Convert.ToInt32(reg.OpenSubKey("Game Utility App").GetValue("ver release"));
+                    check = Convert.ToInt32(reg.OpenSubKey("Game Utility App").GetValue("ver release"));
                 }
                 reg.Close();
             }
             catch (Exception)
             {
-                MessageBox.Show("초기 설정을 하는데 오류가 발생하였습니다.","초기 설정 오류");
+                MessageBox.Show("초기 설정을 하는데 오류가 발생하였습니다.", "초기 설정 오류");
             }
         }
 
@@ -382,7 +387,7 @@ namespace GameUtilityApp
             usercount(); //버튼 누를 때마다 사용자 수 재설정
         }
 
-        private void ResponseClick(object sender,EventArgs e)
+        private void ResponseClick(object sender, EventArgs e)
         {
             RegSave_Response();
             MessageBox.Show("Keyboard Response 부분을 저장하였습니다.", "Save");
@@ -390,7 +395,7 @@ namespace GameUtilityApp
             usercount(); //버튼 누를 때마다 사용자 수 재설정
         }
 
-        private void ToggleKeysClick(object sender,EventArgs e)
+        private void ToggleKeysClick(object sender, EventArgs e)
         {
             RegSave_ToggleKeys();
             MessageBox.Show("ToggleKeys 부분을 저장하였습니다.", "Save");
@@ -420,7 +425,7 @@ namespace GameUtilityApp
             usercount(); //버튼 누를 때마다 사용자 수 재설정
         }
 
-        private void recommendReg(object sender, EventArgs e)  //권장 레지로 설정
+        private void recommendReg_Click(object sender, EventArgs e)  //권장 레지로 설정
         {
             label1.ForeColor = Color.Blue;
             label2.ForeColor = Color.Blue;
@@ -540,13 +545,13 @@ namespace GameUtilityApp
                     }
                     catch (FormatException)
                     {
-                        win10_message_count=0;
+                        win10_message_count = 0;
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Windows10 경고 관련 시스템에 문제가 발생했습니다."+ex, "오류");
+                        MessageBox.Show("Windows10 경고 관련 시스템에 문제가 발생했습니다." + ex, "오류");
                     }
-                    
+
                 }
             }
         }
@@ -745,20 +750,20 @@ namespace GameUtilityApp
         {
             //CurrentUser
             RegistryKey reg;
-            reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("KeyBoard",true);
-            
+            reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("KeyBoard", true);
+
             reg.SetValue("InitialKeyboardIndicators", textBox1.Text);
             reg.SetValue("KeyboardDelay", textBox2.Text);
             reg.SetValue("KeyboardSpeed", textBox3.Text);
 
             reg.Close();
-            
+
         }
 
         private void RegSave_Response()
         {
             RegistryKey reg;
-            reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("Keyboard Response",true);
+            reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("Keyboard Response", true);
             reg.SetValue("AutoRepeatDelay", textBox4.Text);
             reg.SetValue("AutoRepeatRate", textBox5.Text);
             reg.SetValue("BounceTime", textBox6.Text);
@@ -769,18 +774,122 @@ namespace GameUtilityApp
             reg.SetValue("Last Valid Repeat", "0", RegistryValueKind.DWord);
             reg.SetValue("Last Valid Wait", "1000", RegistryValueKind.DWord);
             reg.Close();
-            
+
         }
 
         private void RegSave_ToggleKeys()
         {
             RegistryKey reg;
-            reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("ToggleKeys",true);
+            reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("ToggleKeys", true);
 
             reg.SetValue("Flags", textBox9.Text);
             reg.Close();
-            
+
         }
         //레지 저장하기 끝
+
+        //프로그램 트레이 아이콘
+        private void notifyIcon_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+            System.Reflection.MethodInfo methodInfo = typeof(NotifyIcon).GetMethod("ShowContextMenu", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            methodInfo.Invoke(notifyIcon1, null);
+        }
+
+        private void App_Closing_Click(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                this.Visible = false;
+                this.ShowIcon = false;
+                notifyIcon1.Visible = true;
+                e.Cancel = true;
+            }
+        }
+        /* 최소화 할 때 트레이 아이콘으로 가게 하기
+        private void Notify_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Visible = false;
+                this.ShowIcon = false;
+                notifyIcon1.Visible = true;
+            }
+        }
+        */
+
+        private void notify_Double_Click(object sender, EventArgs e)
+        {
+            this.Visible = true;
+            this.ShowIcon = true;
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            this.Activate();
+        }
+
+
+        private void StripExit_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Visible = false;
+            Application.Exit();
+        }
+
+        //트레이 아이콘에서 바로가기 영역
+        //점수 부분
+        private void PrivateCalculation_Click(object sender, EventArgs e)
+        {
+            PrivateCalculationOffline newForm = new PrivateCalculationOffline();
+            newForm.Show();
+        }
+        private void TeamGameCalculation_Click(object sender, EventArgs e)
+        {
+            TeamGameCalculationOffline newForm = new TeamGameCalculationOffline();
+            newForm.Show();
+        }
+        private void ScreenCapture_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\Documents\카트라이더\스크린샷";
+                System.Diagnostics.Process.Start(path);
+                this.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("폴더를 찾을 수 없습니다.", "폴더 오류");
+            }
+        }
+        private void Riderdata_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\Documents\카트라이더\라이더데이터";
+                System.Diagnostics.Process.Start(path);
+                this.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("폴더를 찾을 수 없습니다.", "폴더 오류");
+            }
+        }
+
+        private void noti_update_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("업데이트를 하시겠습니까?", "업데이트", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Show();
+                AppUpadateForm newForm = new AppUpadateForm();
+                newForm.ShowDialog();
+            }
+        }
+
+        private void noti_UtilityPlus_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            UtilityChoice newForm = new UtilityChoice();
+            newForm.ShowDialog();
+        }
     }
 }

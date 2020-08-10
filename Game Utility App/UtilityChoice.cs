@@ -30,6 +30,8 @@ namespace GameUtilityApp
             groupBox2.Text = "기타";
             button3.Text = "(Beta) PC 부가 설정";
             button4.Text = "닫기";
+            button5.Text = "스크린샷 폴더 열기";
+            button6.Text = "라이더데이터 폴더 열기";
         }
 
         public void PrivateCalculationOffline_Click(object sender, EventArgs e)
@@ -54,7 +56,35 @@ namespace GameUtilityApp
             newForm.ShowDialog();
         }
 
-        public void eixt_Click(object sender,EventArgs e)
+
+        private void ScreenCapture_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = @"C:\Users\"+((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1])+ @"\Documents\카트라이더\스크린샷";
+                System.Diagnostics.Process.Start(path);
+                this.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("폴더를 찾을 수 없습니다.", "폴더 오류");
+            }
+        }
+        private void Riderdata_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\Documents\카트라이더\라이더데이터";
+                System.Diagnostics.Process.Start(path);
+                this.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("폴더를 찾을 수 없습니다.", "폴더 오류");
+            }
+        }
+
+        public void eixt_Click(object sender, EventArgs e)
         {
             this.Close();
         }

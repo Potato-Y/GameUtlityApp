@@ -74,12 +74,26 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.regToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.권장레지ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.바로가기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.개인전점수기록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.팀전점수기록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.열기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.닫기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.스크린샷폴더ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.라이더데이터폴더ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.업데이트확인ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -526,6 +540,108 @@
             this.label15.TabIndex = 12;
             this.label15.Text = "label15";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Game Utility App";
+            this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon_Click);
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notify_Double_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.regToolStripMenuItem,
+            this.권장레지ToolStripMenuItem,
+            this.바로가기ToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.업데이트확인ToolStripMenuItem,
+            this.열기ToolStripMenuItem,
+            this.닫기ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 164);
+            // 
+            // regToolStripMenuItem
+            // 
+            this.regToolStripMenuItem.Name = "regToolStripMenuItem";
+            this.regToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.regToolStripMenuItem.Text = "Reg+";
+            this.regToolStripMenuItem.Click += new System.EventHandler(this.regpluse_Click);
+            // 
+            // 권장레지ToolStripMenuItem
+            // 
+            this.권장레지ToolStripMenuItem.Name = "권장레지ToolStripMenuItem";
+            this.권장레지ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.권장레지ToolStripMenuItem.Text = "권장 레지";
+            this.권장레지ToolStripMenuItem.Click += new System.EventHandler(this.recommendReg_Click);
+            // 
+            // 바로가기ToolStripMenuItem
+            // 
+            this.바로가기ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.개인전점수기록ToolStripMenuItem,
+            this.팀전점수기록ToolStripMenuItem,
+            this.스크린샷폴더ToolStripMenuItem,
+            this.라이더데이터폴더ToolStripMenuItem});
+            this.바로가기ToolStripMenuItem.Name = "바로가기ToolStripMenuItem";
+            this.바로가기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.바로가기ToolStripMenuItem.Text = "바로 가기";
+            this.바로가기ToolStripMenuItem.Click += new System.EventHandler(this.noti_UtilityPlus_Click);
+            // 
+            // 개인전점수기록ToolStripMenuItem
+            // 
+            this.개인전점수기록ToolStripMenuItem.Name = "개인전점수기록ToolStripMenuItem";
+            this.개인전점수기록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.개인전점수기록ToolStripMenuItem.Text = "개인전 점수 기록";
+            this.개인전점수기록ToolStripMenuItem.Click += new System.EventHandler(this.PrivateCalculation_Click);
+            // 
+            // 팀전점수기록ToolStripMenuItem
+            // 
+            this.팀전점수기록ToolStripMenuItem.Name = "팀전점수기록ToolStripMenuItem";
+            this.팀전점수기록ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.팀전점수기록ToolStripMenuItem.Text = "팀전 점수 기록";
+            this.팀전점수기록ToolStripMenuItem.Click += new System.EventHandler(this.TeamGameCalculation_Click);
+            // 
+            // 열기ToolStripMenuItem
+            // 
+            this.열기ToolStripMenuItem.Name = "열기ToolStripMenuItem";
+            this.열기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.열기ToolStripMenuItem.Text = "열기";
+            this.열기ToolStripMenuItem.Click += new System.EventHandler(this.notify_Double_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // 닫기ToolStripMenuItem
+            // 
+            this.닫기ToolStripMenuItem.Name = "닫기ToolStripMenuItem";
+            this.닫기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.닫기ToolStripMenuItem.Text = "닫기";
+            this.닫기ToolStripMenuItem.Click += new System.EventHandler(this.StripExit_Click);
+            // 
+            // 스크린샷폴더ToolStripMenuItem
+            // 
+            this.스크린샷폴더ToolStripMenuItem.Name = "스크린샷폴더ToolStripMenuItem";
+            this.스크린샷폴더ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.스크린샷폴더ToolStripMenuItem.Text = "스크린샷 폴더";
+            this.스크린샷폴더ToolStripMenuItem.Click += new System.EventHandler(this.ScreenCapture_Click);
+            // 
+            // 라이더데이터폴더ToolStripMenuItem
+            // 
+            this.라이더데이터폴더ToolStripMenuItem.Name = "라이더데이터폴더ToolStripMenuItem";
+            this.라이더데이터폴더ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.라이더데이터폴더ToolStripMenuItem.Text = "라이더데이터 폴더";
+            this.라이더데이터폴더ToolStripMenuItem.Click += new System.EventHandler(this.Riderdata_Click);
+            // 
+            // 업데이트확인ToolStripMenuItem
+            // 
+            this.업데이트확인ToolStripMenuItem.Enabled = false;
+            this.업데이트확인ToolStripMenuItem.Name = "업데이트확인ToolStripMenuItem";
+            this.업데이트확인ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.업데이트확인ToolStripMenuItem.Text = "업데이트";
+            this.업데이트확인ToolStripMenuItem.Click += new System.EventHandler(this.noti_update_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -541,7 +657,8 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Game Utility App 1.0.1";
+            this.Text = "Game Utility App 1.1.0";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.App_Closing_Click);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -553,6 +670,7 @@
             this.groupBox5.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -603,6 +721,19 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 열기ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 닫기ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem 바로가기ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 개인전점수기록ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 권장레지ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 팀전점수기록ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 스크린샷폴더ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 라이더데이터폴더ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 업데이트확인ToolStripMenuItem;
     }
 }
 
