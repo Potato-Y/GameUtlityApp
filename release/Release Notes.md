@@ -1,3 +1,35 @@
+V 1.1.0 패치노트<br>
+<br>
+- 프로그램을 닫으면 트레이 영역으로 들어가요!<br>
+- 카트라이더 폴더에 간편하게 접근하세요!<br>
+- 업데이트 시스템 일부 변경!<br>
+필수 업데이트가 없더라도 업데이트 여부를 항시 물어 불편하셨던 분들을 위해 업데이트 구조가 변경됩니다.<br>
+<br>
+→ 필수 업데이트의 경우 : 기존과 동일<br>
+→ 필수 업데이트가 아닌 자유 업데이트의 경우 : 설정 혹은 트레이 아이콘에서 업데이트 확인 및 업데이트 가능<br>
+→ 업데이트가 없는 경우 : 기존과 동일<br>
+→ 강제성 업데이트 문구에 대해 수정되었습니다.<br>
+<br>
+- 업데이트 클라이언트 재 사용이 가능해졌습니다.<br>
+- 최신 패치 노트를 쉽게 확인하세요. 다음 업데이트에 대해 미리 알 수 있습니다.<br>
+<br>
+V 1.1.0 patch notes<br>
+<br>
+-When you close the program, it enters the tray area!<br>
+-Easily access your KartRider folder!<br>
+-Some changes to the update system!<br>
+Even if there is no required update, the update structure will be changed for those who have always been inconvenient to ask for updates.<br>
+<br>
+→ In case of mandatory update: same as before<br>
+→ In the case of a free update that is not a mandatory update: You can check and update updates in the settings or tray icon<br>
+→ No update: Same as before<br>
+→ Corrected for the forced update text.<br>
+<br>
+-The update client can now be reused.<br>
+-Easily check the latest patch notes. You will be informed in advance of the next update.<br>
+<br>
+<br>
+----------------------------------------------------------------------<br>
 V 1.0.1 패치노트<br>
 <br>
 - 팀전 계산기 초기화 오류 수정<br>
