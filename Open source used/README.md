@@ -1,15 +1,15 @@
 Windows API Code Pack 1.1<br>
-https://github.com/aybe/Windows-API-Code-Pack-1.1/blob/master/LICENCE<br>
+<a href="https://github.com/aybe/Windows-API-Code-Pack-1.1/blob/master/LICENCE">https://github.com/aybe/Windows-API-Code-Pack-1.1/blob/master/LICENCE</a><br>
 Custom License<br>
 <br><br>
 
 arjunphp<br>
-https://arjunphp.com/<br>
+<a href="https://arjunphp.com">https://arjunphp.com/</a><br>
 MIT License<br>
 <br><br>
 
 Windows Handle<br>
-https://gent.tistory.com/97<br>
+<a href="https://gent.tistory.com/97">https://gent.tistory.com/97</a><br>
 No License<br>
 <br><br>
 
