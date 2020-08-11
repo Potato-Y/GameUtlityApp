@@ -21,8 +21,8 @@ namespace GameUtilityApp
         int match; //총 점수
         string savepath; //저장 위치
         string savedata; //저장할 점수 데이터
-        int speedMapCount = 322; //스피드 맵 갯수
-        int itemMapCount = 453; //아이템 맵 갯수
+        int speedMapCount; //스피드 맵 갯수
+        int itemMapCount; //아이템 맵 갯수
 
         private void MapLoad(string type)
         {
@@ -42,6 +42,7 @@ namespace GameUtilityApp
                     using (Stream stream = assembly.GetManifestResourceStream(resourcceName))
                     using (StreamReader reader = new StreamReader(stream))
                     {
+                        speedMapCount = Convert.ToInt32(reader.ReadLine());
                         for(int i = 0; i < speedMapCount; i++)
                         {
                             comboBox1.Items.Add(reader.ReadLine());
@@ -71,6 +72,7 @@ namespace GameUtilityApp
                     using (Stream stream = assembly.GetManifestResourceStream(resourcceName))
                     using (StreamReader reader = new StreamReader(stream))
                     {
+                        itemMapCount = Convert.ToInt32(reader.ReadLine());
                         for (int i = 0; i < itemMapCount; i++)
                         {
                             comboBox1.Items.Add(reader.ReadLine());

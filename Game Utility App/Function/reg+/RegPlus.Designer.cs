@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegPlus));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button8 = new System.Windows.Forms.Button();
@@ -422,6 +423,7 @@
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.comboBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegPlus";

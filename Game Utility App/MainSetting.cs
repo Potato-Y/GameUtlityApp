@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -29,6 +30,7 @@ namespace GameUtilityApp
             button1.Text = "닫기";
             button1.Left = (this.ClientSize.Width - button1.Width) / 2;
             label1.Left = (this.ClientSize.Width - label1.Width) / 2;
+            linkLabel1.Left = (this.ClientSize.Width - linkLabel1.Width) / 2;
             checkBox1.Text = "Windows 시작시 실행";
             RegistryKey reg;
             reg = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
@@ -179,6 +181,33 @@ namespace GameUtilityApp
         {
             AppUpadateForm newForm = new AppUpadateForm();
             newForm.ShowDialog();
+        }
+        static string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\Documents\Game Utility App";
+
+        private void OpenSource_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
+                var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
+                var response = client.GetAsync("https://raw.githubusercontent.com/Potato-Y/Game-Utility-App/master/Open%20source%20used/README.md").Result; //웹으로부터 다운로드 
+                var html = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다. 
+                DirectoryInfo Documents_App_Directory = new DirectoryInfo(path);
+                if (Documents_App_Directory.Exists == false)
+                {
+                    Documents_App_Directory.Create();
+                }
+
+                System.IO.File.WriteAllText(path + @"\Open source used.html", html, Encoding.UTF8);
+                System.Diagnostics.Process.Start(path + @"\Open source used.html");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("업데이트 정보를 불러오는 중에 문제가 생겼습니다"+ex,"오류");
+            }
+
         }
     }
 }

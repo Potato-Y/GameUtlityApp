@@ -53,7 +53,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Mainico.ico</ApplicationIcon>
+    <ApplicationIcon>MainIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -61,11 +61,12 @@
   <PropertyGroup>
     <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -92,6 +93,18 @@
     </Compile>
     <Compile Include="Function\AdditionSetting.Designer.cs">
       <DependentUpon>AdditionSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\Calculation\broadcast\BroadcastCalculation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\Calculation\broadcast\BroadcastCalculation.Designer.cs">
+      <DependentUpon>BroadcastCalculation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\Calculation\broadcast\Font Choice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\Calculation\broadcast\Font Choice.Designer.cs">
+      <DependentUpon>Font Choice.cs</DependentUpon>
     </Compile>
     <Compile Include="Function\reg+\RegPlus.cs">
       <SubType>Form</SubType>
@@ -170,6 +183,12 @@
     <EmbeddedResource Include="Function\AdditionSetting.resx">
       <DependentUpon>AdditionSetting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Function\Calculation\broadcast\BroadcastCalculation.resx">
+      <DependentUpon>BroadcastCalculation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\Calculation\broadcast\Font Choice.resx">
+      <DependentUpon>Font Choice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Function\reg+\RegPlus.resx">
       <DependentUpon>RegPlus.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,11 +251,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Function\Calculation\broadcast\HtmlFile.txt" />
+    <Content Include="MainIcon.ico" />
     <EmbeddedResource Include="dll\Microsoft.WindowsAPICodePack.dll" />
     <EmbeddedResource Include="dll\Microsoft.WindowsAPICodePack.Shell.dll" />
     <EmbeddedResource Include="Function\Calculation\TeamGameCalculation\itemmaplist.txt" />
     <EmbeddedResource Include="Function\Calculation\TeamGameCalculation\speedmaplist.txt" />
-    <Content Include="Mainico.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

@@ -6,11 +6,25 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace GameUtilityApp
 {
     static class Program
     {
+        [DllImport("user32.dll")]
+        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll")]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+
+        private const int SW_SHOWNORMAL = 1;
+        private const int SW_SHOWMINIMIZED = 2;
+        private const int SW_SHOWMAXIMIZED = 3;
+
         /// <summary>
         /// 해당 애플리케이션의 주 진입점입니다.
         /// </summary>
@@ -27,7 +41,12 @@ namespace GameUtilityApp
                 }
                 if (cnt > 1)
                 {
-                    MessageBox.Show("이미 프로그램이 실행 중입니다. 종료 후 재 실행하세요.", "실행 중 오류가 발생하였습니다.");
+                    IntPtr hwnd = FindWindow(null, "Game Utility App");
+                    if (!hwnd.Equals(IntPtr.Zero))
+                    {
+                        ShowWindowAsync(hwnd, SW_SHOWNORMAL);
+                        SetForegroundWindow(hwnd);
+                    }
                     return;
                 }
                 else

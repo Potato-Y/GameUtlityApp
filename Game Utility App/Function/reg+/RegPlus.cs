@@ -157,7 +157,7 @@ namespace GameUtilityApp.Function.reg_
                     label12.ForeColor = Color.Black;
                     label13.ForeColor = Color.Black;
                 }
-                if (comboBox1.Text ==LJD)
+                if (comboBox1.Text == LJD)
                 {
                     textBox1.Text = "2";
                     textBox2.Text = "0";
@@ -173,7 +173,7 @@ namespace GameUtilityApp.Function.reg_
                     textBox13.Text = "0";
                     textBox9.Text = "62";
                 }
-                if (comboBox1.Text ==LJS)
+                if (comboBox1.Text == LJS)
                 {
                     textBox1.Text = "2";
                     textBox2.Text = "0";
@@ -189,7 +189,7 @@ namespace GameUtilityApp.Function.reg_
                     textBox13.Text = "1000";
                     textBox9.Text = "62";
                 }
-                if (comboBox1.Text ==BIS)
+                if (comboBox1.Text == BIS)
                 {
                     textBox1.Text = "2147483650";
                     textBox2.Text = "1";
@@ -205,7 +205,7 @@ namespace GameUtilityApp.Function.reg_
                     textBox13.Text = "1000";
                     textBox9.Text = "62";
                 }
-                if (comboBox1.Text ==BMS)
+                if (comboBox1.Text == BMS)
                 {
                     textBox1.Text = "2";
                     textBox2.Text = "0";
@@ -221,7 +221,7 @@ namespace GameUtilityApp.Function.reg_
                     textBox13.Text = "0";
                     textBox9.Text = "58";
                 }
-                if (comboBox1.Text ==RMG )
+                if (comboBox1.Text == RMG)
                 {
                     textBox1.Text = "2";
                     textBox2.Text = "0";

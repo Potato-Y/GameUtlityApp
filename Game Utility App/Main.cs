@@ -38,7 +38,7 @@ namespace GameUtilityApp
             this.button9.Click += new System.EventHandler(this.regpluse_Click);
         }
 
-        int thisrelese = 20200811;
+        int thisrelese = 20200812;
         private void updateCheck()
         {
             bool netstate = NetworkInterface.GetIsNetworkAvailable();//네트워크 상태 확인
@@ -108,14 +108,16 @@ namespace GameUtilityApp
                             this.Text += "  :: 업데이트가 있습니다 ::";
                         }
                         */
-                        this.Text += "  :: 업데이트가 있습니다 ::";
-                        업데이트확인ToolStripMenuItem.Enabled = true;
+                        button10.Text += " 💬";
+                        업데이트ToolStripMenuItem.Enabled = true;
+                        toolTip1.SetToolTip(button10, "업데이트가 있습니다.");
+
+                    }
+                    else
+                    {
+                        toolTip1.SetToolTip(button10, "프로그램을 설정합니다.");
                     }
 
-                }
-                else
-                {
-                    this.Text += "  :: 최신버전 입니다 ::";
                 }
 
             }
@@ -161,7 +163,7 @@ namespace GameUtilityApp
             button7.Text = "부가기능";
             button8.Text = "전체 저장";
             button9.Text = "Reg +";
-            button10.Text = "Setting";
+            button10.Text = "설정";
             button11.Text = "후원을 통해 앱 서버 유지";
             button12.Text = "공식 홈";
             //버튼 영역 끝
@@ -219,7 +221,6 @@ namespace GameUtilityApp
             toolTip1.SetToolTip(button6, "레지스트리를 다시 불러옵니다.");
             toolTip1.SetToolTip(button9, "레지스트리를 상세 설정합니다.");
             toolTip1.SetToolTip(button7, "추가 기능을 봅니다.");
-            toolTip1.SetToolTip(button10, "프로그램을 설정합니다.");
             toolTip1.SetToolTip(button11, "후원 안내창을 띄웁니다.");
             toolTip1.SetToolTip(button12, "공식 개발 카페로 연결합니다.");
 
@@ -890,6 +891,12 @@ namespace GameUtilityApp
             this.Show();
             UtilityChoice newForm = new UtilityChoice();
             newForm.ShowDialog();
+        }
+
+        private void Icon_Show(object sender, EventArgs e)
+        {
+            this.ShowIcon = true;
+
         }
     }
 }

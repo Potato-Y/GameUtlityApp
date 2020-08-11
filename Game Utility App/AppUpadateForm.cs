@@ -53,7 +53,7 @@ namespace GameUtilityApp.Properties
             }catch(Exception ex)
             {
                 MessageBox.Show(""+ex);
-                Process.Start("https://cafe.naver.com/checkmateclub");
+                System.Diagnostics.Process.Start("https://cafe.naver.com/checkmateclub");
                 Application.Exit();
             }
         }
@@ -65,7 +65,7 @@ namespace GameUtilityApp.Properties
                 textBox1.Text += "\r\n업데이트 클라이언트 다운로드 완료\r\n업데이트 클라이언트를 실행합니다.";
                 this.textBox1.SelectionStart = textBox1.Text.Length;
                 this.textBox1.ScrollToCaret();
-                Process.Start(tmpSetupPath);
+                System.Diagnostics.Process.Start(tmpSetupPath);
                 //this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 Application.Exit();
             }

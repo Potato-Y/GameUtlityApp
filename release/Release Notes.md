@@ -1,3 +1,23 @@
+V 1.2.0 패치 노트<br>
+<br>
+- 📣 새로운 기능 업데이트!!<br>
+방송중 버튼을 이용해 간단하게 점수 상황을 공유하세요! 친선 점수를 간편하게 방송에 띄울 수 있습니다!<br>
+- 프로그램 상단 제목이 심플하게 변경되었습니다!<br>
+- 프로그램이 켜져있는 상태에서 또 실행하면 트레이 영역에 숨어있던 아이가 나옵니다.<br>
+- 앞으로 업데이트가 있을 경우에는 설정 영역에 💬 아이콘이 추가됩니다.<br>
+- 유틸리티 창 전체화면 되는 버그 픽스<br>
+- win7 일부 호환성 문제 수정<br>
+<br>
+V 1.2.0 patch notes<br>
+<br>
+- 📣 New feature update!!<br>
+Simply share your score status using the button on the air! You can easily broadcast your friendship score!<br>
+- The title at the top of the program has been changed to be simple!<br>
+- If you run the program while it is on, the child hidden in the tray area will appear.<br>
+- If there is an update in the future, a 💬 icon will be added to the setting area.<br>
+- Bug fixed in the utility window full screen<br>
+- Fixed some compatibility issues with win7<br>
+----------------------------------------------------------------------<br>
 V 1.1.0 패치노트<br>
 <br>
 - 프로그램을 닫으면 트레이 영역으로 들어가요!<br>

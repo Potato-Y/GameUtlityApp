@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,23 @@ namespace GameUtilityApp.Notice
         {
             try
             {
+                try
+                {
+                    string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\Documents\Game Utility App";
+
+                    DirectoryInfo Documents_App_Directory = new DirectoryInfo(path);
+                    if (Documents_App_Directory.Exists == true)
+                    {
+                        DirectoryInfo folder = new DirectoryInfo(path);
+                        folder.Delete(true);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("문서 내 파일을 삭제하는데 문제가 생겼습니다.", "초기화 오류");
+                }
+
+
                 string appname = "GameUtilityGame";
                 textBox1.Text += "부팅 실행 검사\r\n";
                 RegistryKey reg;

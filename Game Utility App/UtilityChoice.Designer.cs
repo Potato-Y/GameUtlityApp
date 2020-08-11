@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UtilityChoice));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -71,19 +73,30 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(159, 84);
+            this.groupBox1.Size = new System.Drawing.Size(159, 110);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1,점수 기록";
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(6, 78);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(147, 23);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "방송용 계산기7";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.BroadcastCalculation_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Location = new System.Drawing.Point(13, 189);
+            this.groupBox2.Location = new System.Drawing.Point(13, 215);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(159, 54);
             this.groupBox2.TabIndex = 4;
@@ -93,7 +106,7 @@
             // button4
             // 
             this.button4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button4.Location = new System.Drawing.Point(13, 250);
+            this.button4.Location = new System.Drawing.Point(13, 276);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(159, 23);
             this.button4.TabIndex = 5;
@@ -104,22 +117,12 @@
             // 
             this.groupBox3.Controls.Add(this.button6);
             this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Location = new System.Drawing.Point(12, 103);
+            this.groupBox3.Location = new System.Drawing.Point(12, 129);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(160, 80);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "카트라이더 폴더";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(6, 20);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(148, 23);
-            this.button5.TabIndex = 0;
-            this.button5.Text = "스크린샷 폴더5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.ScreenCapture_Click);
             // 
             // button6
             // 
@@ -131,17 +134,29 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Riderdata_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(6, 20);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(148, 23);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "스크린샷 폴더5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.ScreenCapture_Click);
+            // 
             // UtilityChoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button4;
-            this.ClientSize = new System.Drawing.Size(184, 283);
+            this.ClientSize = new System.Drawing.Size(184, 311);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "UtilityChoice";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -165,5 +180,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button7;
     }
 }

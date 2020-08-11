@@ -1,4 +1,5 @@
 ﻿using GameUtilityApp.Function.Calculation;
+using GameUtilityApp.Function.Calculation.broadcast;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,7 @@ namespace GameUtilityApp
             button4.Text = "닫기";
             button5.Text = "스크린샷 폴더 열기";
             button6.Text = "라이더데이터 폴더 열기";
+            button7.Text = "방송용 계산기";
         }
 
         public void PrivateCalculationOffline_Click(object sender, EventArgs e)
@@ -39,7 +41,6 @@ namespace GameUtilityApp
             this.Close();
             PrivateCalculationOffline newForm = new PrivateCalculationOffline();
             newForm.Show();
-            
         }
 
         public void TeamGameCaculationOffline_Click(object sender, EventArgs e)
@@ -87,6 +88,13 @@ namespace GameUtilityApp
         public void eixt_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BroadcastCalculation_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            BroadcastCalculation newForm = new BroadcastCalculation();
+            newForm.Show();
         }
     }
 }
