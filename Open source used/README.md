@@ -13,3 +13,7 @@ Windows Handle<br>
 No License<br>
 <br><br>
 
+docs.ko-kr
+<a href="https://github.com/dotnet/docs.ko-kr/blob/live/LICENSE" target="_blank">https://github.com/dotnet/docs.ko-kr/blob/live/LICENSE</a>
+Attribution 4.0 International<br>
+<br><br>
