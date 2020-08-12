@@ -38,7 +38,7 @@ namespace GameUtilityApp
             this.button9.Click += new System.EventHandler(this.regpluse_Click);
         }
 
-        int thisrelese = 20200812;
+        int thisrelese = 20200813;
         private void updateCheck()
         {
             bool netstate = NetworkInterface.GetIsNetworkAvailable();//네트워크 상태 확인

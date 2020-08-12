@@ -51,6 +51,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "reset";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "reset";
             this.Load += new System.EventHandler(this.reset_Load);
             this.ResumeLayout(false);

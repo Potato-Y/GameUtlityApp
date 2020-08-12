@@ -44,10 +44,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // comboBox1
             // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(12, 24);
@@ -84,6 +87,8 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(416, 24);
@@ -120,6 +125,8 @@
             // 
             // comboBox4
             // 
+            this.comboBox4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.comboBox4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(618, 24);
@@ -146,6 +153,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "취소";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.cancel_Button_Click);
             // 
             // label6
             // 
@@ -169,9 +177,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(616, 177);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(173, 24);
+            this.label7.Size = new System.Drawing.Size(237, 24);
             this.label7.TabIndex = 13;
-            this.label7.Text = "※일정 크기 이상 안커집니다.\r\n방송 프로그램에서 확대하세요.\r\n";
+            this.label7.Text = "※일정 크기 이상 안커집니다.\r\n방송 프로그램에서 브라우저를 확대하세요.\r\n";
             // 
             // label8
             // 
@@ -180,7 +188,18 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(306, 24);
             this.label8.TabIndex = 14;
-            this.label8.Text = "※저작권법에 주의하세요.\r\nPC에 없는 글꼴을 입력하면 작동하지 않을 수 있습니다.";
+            this.label8.Text = "※ 스트리밍시 저작권법에 주의하세요.\r\nPC에 없는 글꼴을 입력하면 작동하지 않을 수 있습니다.";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(324, 189);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(57, 12);
+            this.linkLabel1.TabIndex = 15;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "무료 폰트";
+            this.linkLabel1.Click += new System.EventHandler(this.FreeFont_Link_Click);
             // 
             // Font_Choice
             // 
@@ -188,6 +207,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(873, 205);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -209,7 +229,7 @@
             this.Name = "Font_Choice";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Font Choice";
+            this.Text = "글꼴 선택";
             this.Load += new System.EventHandler(this.FontForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -233,5 +253,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

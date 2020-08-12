@@ -33,6 +33,7 @@ namespace GameUtilityApp.Function.Calculation.broadcast
 
             comboBox2.Items.AddRange(new string[] { "보통", "굵게", "기울이기", "취소선", "밑줄 긋기" });
             comboBox3.Items.AddRange(new String[] { "white", "yellow", "red", "black", "blue", "orange", "silver", "purple", "fuchsia", "gray", "green", "lime", "maroon", "navy", "olive", "aqua", "teal" });
+            comboBox4.Items.AddRange(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
 
             int this_ver = 1;
             //폰트 파일이 있는지 확인
@@ -125,6 +126,17 @@ namespace GameUtilityApp.Function.Calculation.broadcast
             {
                 e.Handled = true;
             }
+        }
+
+        private void FreeFont_Link_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("새로운 글꼴을 설치한 뒤에는 본 프로그램과 방송 프로그램을 재시작 하세요.", "안내");
+            System.Diagnostics.Process.Start("https://gongu.copyright.or.kr/freeFontEvent.html");
+        }
+
+        private void cancel_Button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
