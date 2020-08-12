@@ -16,7 +16,9 @@ Simply share your score status using the button on the air! You can easily broad
 - If you run the program while it is on, the child hidden in the tray area will appear.<br>
 - If there is an update in the future, a 💬 icon will be added to the setting area.<br>
 - Bug fixed in the utility window full screen<br>
-- Fixed some compatibility issues with win7<br>
+- Fixed some compatibility issues with win7<br><br><br>
+
+
 ----------------------------------------------------------------------<br>
 V 1.1.0 패치노트<br>
 <br>
