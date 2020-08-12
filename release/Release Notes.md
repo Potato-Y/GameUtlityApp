@@ -1,3 +1,19 @@
+V 1.2.1 패치 노트<br><br>
+
+- 방송용 계산기 글꼴 선택창 버그 수정<br>
+- 방송용 계산기 글꼴 선택창에서 무료 폰트 링크 추가<br>
+- 초기화 상태를 확인할 수 있도록 수정되었습니다.<br>
+- 'ESC' 버튼 영역이 확장되었습니다.<br>
+<br>
+V 1.2.1 patch notes<br><br>
+
+- Broadcast calculator font selection window bug fixed<br>
+- Free font link added in the calculator font selection window for broadcasting<br>
+- Modified so that you can check the initialization status.<br>
+- 'ESC' button area has been expanded.<br>
+<br><br>
+
+----------------------------------------------------------------------<br>
 V 1.2.0 패치 노트<br>
 <br>
 - 📣 새로운 기능 업데이트!!<br>
