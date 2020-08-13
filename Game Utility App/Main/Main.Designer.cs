@@ -87,6 +87,7 @@
             this.업데이트ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.열기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.닫기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DwmKiller = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -120,6 +121,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.KeyboardClick);
             // 
             // label3
             // 
@@ -207,6 +209,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.ResponseClick);
             // 
             // label8
             // 
@@ -323,6 +326,7 @@
             this.button3.TabIndex = 10;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.ToggleKeysClick);
             // 
             // textBox9
             // 
@@ -378,6 +382,7 @@
             this.button11.TabIndex = 6;
             this.button11.Text = "button11";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Visible = false;
             this.button11.Click += new System.EventHandler(this.Sponsor_Click);
             // 
             // button10
@@ -388,6 +393,7 @@
             this.button10.TabIndex = 5;
             this.button10.Text = "button10";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.SettingButton_Click);
             // 
             // button9
             // 
@@ -397,6 +403,7 @@
             this.button9.TabIndex = 4;
             this.button9.Text = "button9";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.RegPluse_Click);
             // 
             // button7
             // 
@@ -406,6 +413,7 @@
             this.button7.TabIndex = 3;
             this.button7.Text = "button7";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.Utility_Click);
             // 
             // button6
             // 
@@ -415,6 +423,7 @@
             this.button6.TabIndex = 2;
             this.button6.Text = "button6";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.ReloadClick);
             // 
             // button5
             // 
@@ -424,6 +433,7 @@
             this.button5.TabIndex = 1;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.RecommendReg_Click);
             // 
             // button4
             // 
@@ -456,6 +466,7 @@
             this.button8.TabIndex = 11;
             this.button8.Text = "button8";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.SaveAll);
             // 
             // webBrowser2
             // 
@@ -566,14 +577,14 @@
             this.regToolStripMenuItem.Name = "regToolStripMenuItem";
             this.regToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.regToolStripMenuItem.Text = "Reg+";
-            this.regToolStripMenuItem.Click += new System.EventHandler(this.regpluse_Click);
+            this.regToolStripMenuItem.Click += new System.EventHandler(this.RegPluse_Click);
             // 
             // 권장레지ToolStripMenuItem
             // 
             this.권장레지ToolStripMenuItem.Name = "권장레지ToolStripMenuItem";
             this.권장레지ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.권장레지ToolStripMenuItem.Text = "권장 레지";
-            this.권장레지ToolStripMenuItem.Click += new System.EventHandler(this.recommendReg_Click);
+            this.권장레지ToolStripMenuItem.Click += new System.EventHandler(this.RecommendReg_Click);
             // 
             // 바로가기ToolStripMenuItem
             // 
@@ -644,8 +655,7 @@
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(601, 549);
@@ -653,6 +663,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.webBrowser2);
+            this.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";
@@ -735,6 +746,7 @@
         private System.Windows.Forms.ToolStripMenuItem 스크린샷폴더ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 라이더데이터폴더ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 업데이트ToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker DwmKiller;
     }
 }
 

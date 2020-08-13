@@ -427,7 +427,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RegPlus";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "RegPlus";
             this.Load += new System.EventHandler(this.RegPlus_Load);

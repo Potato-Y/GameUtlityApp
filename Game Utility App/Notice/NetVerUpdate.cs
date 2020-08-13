@@ -100,7 +100,6 @@ namespace GameUtilityApp.Notice
         private void form_Close(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-            this.Close();
         }
     }
 }

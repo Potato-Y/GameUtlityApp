@@ -119,30 +119,19 @@ namespace GameUtilityApp
             //서버 페이지 연결 
             try
             {
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
-
-
-                var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
-                var response = client.GetAsync("https://github.com/Potato-Y/Game-Utility-App/blob/master/release/release%20guide.md").Result; //웹으로부터 다운로드 
-                var html = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다. 
-
-                var last_relese_check_match = Regex.Match(html, "최신 버전 릴리즈 :.+?<"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다.
-                string ver_check_result = last_relese_check_match.Value; //캡쳐 된 내용을 가져온다.
-                int last_relese_ver = Convert.ToInt32(ver_check_result.Substring(11, ver_check_result.Length - 12));
-                var min_relese_check_match = Regex.Match(html, "최소 실행 릴리즈 버전 :.+?<"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다.
-                string min_relese_check_result = min_relese_check_match.Value; //캡쳐 된 내용을 가져온다.
-                int min_relese_ver = Convert.ToInt32(min_relese_check_result.Substring(14, min_relese_check_result.Length - 15));
-
+                Basic_Check newCheck = new Basic_Check();
+                int lastReleseVer = newCheck.LatestVersionCheck();
+                int minReleseVer = newCheck.MinimumVersionCheck();
                 RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE").OpenSubKey("Game Utility App");
                 int thisrelese = Convert.ToInt32(reg.GetValue("ver release"));
                 label3.Text += Convert.ToString(thisrelese);
-                label4.Text += Convert.ToString(last_relese_ver);
-                if (thisrelese < last_relese_ver)
+                label4.Text += Convert.ToString(lastReleseVer);
+
+                if (thisrelese < lastReleseVer)
                 {
-                    if (thisrelese < min_relese_ver)
+                    if (thisrelese < minReleseVer)
                     {
-                        if (MessageBox.Show("현재 최신 버전이 아닙니다. 업데이트를 하시겠습니까?\n아니요를 누르면 종료됩니다." + "\n\n" + "버전 정보\n" + "최신 릴리즈 날짜 : " + last_relese_ver + "\n" + "최소 실행 릴리즈 날짜 : " + min_relese_ver + "\n본 앱 릴리즈 날짜 : " + thisrelese, "업데이트 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("현재 최신 버전이 아닙니다. 업데이트를 하시겠습니까?\n아니요를 누르면 종료됩니다." + "\n\n" + "버전 정보\n" + "최신 릴리즈 날짜 : " + lastReleseVer + "\n" + "최소 실행 릴리즈 날짜 : " + minReleseVer + "\n본 앱 릴리즈 날짜 : " + thisrelese, "업데이트 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             AppUpadateForm newForm = new AppUpadateForm();
                             newForm.ShowDialog();
@@ -153,12 +142,13 @@ namespace GameUtilityApp
                         }
 
                     }
-                    else if (min_relese_ver <= thisrelese)
+                    else if (minReleseVer <= thisrelese)
                     {
                         label2.Text = "업데이트가 있습니다.";
                         button4.Enabled = true;
                     }
                 }
+                reg.Close();
             }
             catch (Exception ex)
             {
@@ -208,6 +198,12 @@ namespace GameUtilityApp
                 MessageBox.Show("업데이트 정보를 불러오는 중에 문제가 생겼습니다"+ex,"오류");
             }
 
+        }
+
+        private void FontLicense_Link_Click(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Font_License newForm = new Font_License();
+            newForm.ShowDialog();
         }
     }
 }

@@ -118,16 +118,17 @@
     <Compile Include="Function\후원\Sponsor.Designer.cs">
       <DependentUpon>Sponsor.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainSetting.cs">
+    <Compile Include="Main\Basic Check.cs" />
+    <Compile Include="Main\Setting\MainSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainSetting.Designer.cs">
+    <Compile Include="Main\Setting\MainSetting.Designer.cs">
       <DependentUpon>MainSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="Main\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="Main\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Function\Calculation\PrivateCalculationOffline.cs">
@@ -135,6 +136,12 @@
     </Compile>
     <Compile Include="Function\Calculation\PrivateCalculationOffline.Designer.cs">
       <DependentUpon>PrivateCalculationOffline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notice\Font License.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notice\Font License.Designer.cs">
+      <DependentUpon>Font License.cs</DependentUpon>
     </Compile>
     <Compile Include="Notice\KeyboardSpeed win10.cs">
       <SubType>Form</SubType>
@@ -161,6 +168,7 @@
       <DependentUpon>reset.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramFontSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Function\Calculation\TeamGameCalculation\TeamGameCalculationOffline.cs">
       <SubType>Form</SubType>
@@ -168,16 +176,16 @@
     <Compile Include="Function\Calculation\TeamGameCalculation\TeamGameCalculationOffline.Designer.cs">
       <DependentUpon>TeamGameCalculationOffline.cs</DependentUpon>
     </Compile>
-    <Compile Include="AppUpadateForm.cs">
+    <Compile Include="Main\Setting\AppUpadateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppUpadateForm.Designer.cs">
+    <Compile Include="Main\Setting\AppUpadateForm.Designer.cs">
       <DependentUpon>AppUpadateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UtilityChoice.cs">
+    <Compile Include="Main\UtilityChoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UtilityChoice.Designer.cs">
+    <Compile Include="Main\UtilityChoice.Designer.cs">
       <DependentUpon>UtilityChoice.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Function\AdditionSetting.resx">
@@ -195,14 +203,17 @@
     <EmbeddedResource Include="Function\후원\Sponsor.resx">
       <DependentUpon>Sponsor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="Main\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainSetting.resx">
+    <EmbeddedResource Include="Main\Setting\MainSetting.resx">
       <DependentUpon>MainSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Function\Calculation\PrivateCalculationOffline.resx">
       <DependentUpon>PrivateCalculationOffline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notice\Font License.resx">
+      <DependentUpon>Font License.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Notice\KeyboardSpeed win10.resx">
       <DependentUpon>KeyboardSpeed win10.cs</DependentUpon>
@@ -229,10 +240,10 @@
     <EmbeddedResource Include="Function\Calculation\TeamGameCalculation\TeamGameCalculationOffline.resx">
       <DependentUpon>TeamGameCalculationOffline.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppUpadateForm.resx">
+    <EmbeddedResource Include="Main\Setting\AppUpadateForm.resx">
       <DependentUpon>AppUpadateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UtilityChoice.resx">
+    <EmbeddedResource Include="Main\UtilityChoice.resx">
       <DependentUpon>UtilityChoice.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -246,6 +257,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Resources\NanumSquareRoundR.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -270,5 +284,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

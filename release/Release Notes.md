@@ -1,3 +1,15 @@
+V 1.3.0 패치 노트<br><br>
+
+- 내부 프로그램 구조 일부 변경<br>
+- 일부 임시 수정<br>
+<br>
+V 1.3.0 patch notes<br>
+<br>
+- Partial change of internal program structure<br>
+- Some temporary fixes<br>
+<br><br>
+
+----------------------------------------------------------------------<br>
 V 1.2.1 패치 노트<br><br>
 
 - 방송용 계산기 글꼴 선택창 버그 수정<br>

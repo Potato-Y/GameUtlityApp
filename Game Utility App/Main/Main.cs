@@ -1,24 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Win32;
 using System.Windows.Forms;
-using System.Diagnostics.CodeAnalysis;
-using System.Net;
-using System.IO;
-using System.Net.NetworkInformation;
-using System.Net.Http;
-using System.Text.RegularExpressions;
 using GameUtilityApp.Function.reg_;
 using GameUtilityApp.Function.후원;
 using System.Diagnostics;
 using GameUtilityApp.Properties;
 using GameUtilityApp.Notice;
+using System.Runtime.InteropServices;
+using System.Drawing.Imaging;
+using System.Text;
+using System.Reflection;
+using System.IO;
+using System.Net;
 
 namespace GameUtilityApp
 {
@@ -27,27 +21,14 @@ namespace GameUtilityApp
         public Main()
         {
             InitializeComponent();
-            this.button1.Click += new System.EventHandler(this.KeyboardClick);
-            this.button2.Click += new System.EventHandler(this.ResponseClick);
-            this.button3.Click += new System.EventHandler(this.ToggleKeysClick);
-            this.button8.Click += new System.EventHandler(this.SaveAll);
-            this.button6.Click += new System.EventHandler(this.reloadClick);
-            this.button5.Click += new System.EventHandler(this.recommendReg_Click);
-            this.button10.Click += new System.EventHandler(this.SettingButton_Click);
-            this.button7.Click += new System.EventHandler(this.Utility_Click);
-            this.button9.Click += new System.EventHandler(this.regpluse_Click);
         }
 
-        int thisrelese = 20200813;
-        private void updateCheck()
+        private void UpdateCheck()
         {
-            bool netstate = NetworkInterface.GetIsNetworkAvailable();//네트워크 상태 확인
-            if (netstate == false)
-            {
-                MessageBox.Show("인터넷에 연결되어있지 않습니다.\r\n네트워크 상태를 다시 확인하고 실행해주세요.", "서버오류");
-                Application.Exit();
-                this.Close();
-            }
+            Basic_Check newCheck = new Basic_Check();
+            newCheck.DotNetverCheck();  //업데이트 확인 전 .net 버전 먼저 확인한다.
+            newCheck.NetworkCheck();
+            
             try
             {
                 String path = "http://potatoystudio.pe.kr/"; //사이트 접속
@@ -60,82 +41,30 @@ namespace GameUtilityApp
                 this.Close();
             }
 
-            //서버 페이지 연결 
-            try
+            //서버 페이지 연결 만약 0이면 업데이트가 없는 상태, 1이면 업데이트가 있는 상태
+
+            int updateState = newCheck.UpdateCheck();
+            if (updateState == 1)
             {
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
-
-
-                var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
-                var response = client.GetAsync("https://github.com/Potato-Y/Game-Utility-App/blob/master/release/release%20guide.md").Result; //웹으로부터 다운로드 
-                var html = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다. 
-
-                var last_relese_check_match = Regex.Match(html, "최신 버전 릴리즈 :.+?<"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다.
-                string ver_check_result = last_relese_check_match.Value; //캡쳐 된 내용을 가져온다.
-                int last_relese_ver = Convert.ToInt32(ver_check_result.Substring(11, ver_check_result.Length - 12));
-                var min_relese_check_match = Regex.Match(html, "최소 실행 릴리즈 버전 :.+?<"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다.
-                string min_relese_check_result = min_relese_check_match.Value; //캡쳐 된 내용을 가져온다.
-                int min_relese_ver = Convert.ToInt32(min_relese_check_result.Substring(14, min_relese_check_result.Length - 15));
-
-
-
-                if (thisrelese < last_relese_ver)
-                {
-                    if (thisrelese < min_relese_ver)
-                    {
-                        if (MessageBox.Show("필수 업데이트가 있습니다. 업데이트를 하시겠습니까?\n아니요를 누르면 종료됩니다." + "\n\n" + "버전 정보\n" + "최신 릴리즈 날짜 : " + last_relese_ver + "\n" + "최소 실행 릴리즈 날짜 : " + min_relese_ver + "\n본 앱 릴리즈 날짜 : " + thisrelese, "업데이트 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            AppUpadateForm newForm = new AppUpadateForm();
-                            newForm.ShowDialog();
-                        }
-                        else
-                        {
-                            Application.Exit();
-                        }
-
-                    }
-                    else if (min_relese_ver <= thisrelese)
-                    {
-                        /*
-                        if (MessageBox.Show("현재 최신 버전이 아닙니다. 업데이트를 하시겠습니까?\n아니요를 누르면 업데이트를 하지 않습니다." + "\n\n" + "버전 정보\n" + "최신 릴리즈 날짜 : " + last_relese_ver + "\n" + "최소 실행 릴리즈 날짜 : " + min_relese_ver + "\n본 앱 릴리즈 날짜 : " + thisrelese, "업데이트 확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            AppUpadateForm newForm = new AppUpadateForm();
-                            newForm.ShowDialog();
-                        }
-                        else
-                        {
-                            this.Text += "  :: 업데이트가 있습니다 ::";
-                        }
-                        */
-                        button10.Text += " 💬";
-                        업데이트ToolStripMenuItem.Enabled = true;
-                        toolTip1.SetToolTip(button10, "업데이트가 있습니다.");
-
-                    }
-                    else
-                    {
-                        toolTip1.SetToolTip(button10, "프로그램을 설정합니다.");
-                    }
-
-                }
-
+                button10.Text += " 💬";
+                업데이트ToolStripMenuItem.Enabled = true;
+                toolTip1.SetToolTip(button10, "업데이트가 있습니다.");
             }
-            catch (Exception ex)
+            if (updateState == 0)
             {
-                if (MessageBox.Show("업데이트 확인 서버에 연결할 수 없습니다.\n\n홈페이지로 연결하시겠습니까?\n" + ex, "서버에 연결할 수 없습니다.", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    Process.Start("https://cafe.naver.com/checkmateclub");
-                    Application.Exit();
-                    this.Close();
-                }
-                else
-                {
-                    Application.Exit();
-                    this.Close();
-                }
+                toolTip1.SetToolTip(button10, "프로그램을 설정합니다.");
             }
+            if (updateState == 3)
+            {
+                MessageBox.Show("오류가 발생하였습니다. 수동 패치가 필요할 수 있습니다.");
+                System.Diagnostics.Process.Start("https://cafe.naver.com/checkmateclub");
+                Application.Exit();
+            }
+
+            newCheck.NewUserCheck();
         }
+
+       
 
         private void Form1_Load(object sender, EventArgs e)  //프로그램 로딩
         {
@@ -181,18 +110,16 @@ namespace GameUtilityApp
 
             label9.Text = "Flags";
             //레이블 영역 끝
-            netver_check();
-            updateCheck();
-            usercount();
+
+            UpdateCheck();
+            UserCount();
             //레지 불러오기
             RegReload_keyboard();
             RegReload_Response();
             RegReload_ToggleKeys();
 
-            newusercheck();
             loadtooltip();
             notifyIcon1.Visible = true;
-
         }
 
         //툴팁 영역
@@ -223,12 +150,10 @@ namespace GameUtilityApp
             toolTip1.SetToolTip(button7, "추가 기능을 봅니다.");
             toolTip1.SetToolTip(button11, "후원 안내창을 띄웁니다.");
             toolTip1.SetToolTip(button12, "공식 개발 카페로 연결합니다.");
-
-
         }
 
         //사용자 파악
-        private void usercount()
+        private void UserCount()
         {
             try
             {
@@ -244,25 +169,10 @@ namespace GameUtilityApp
 
             try
             {
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
-
-                var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
-                var response = client.GetAsync("http://potatoystudio.pe.kr/?device=mobile").Result; //웹으로부터 다운로드 
-                var html = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다.
-                                                                        //today
-                var today_match = Regex.Match(html, @"<dt>오늘</dt>\n        <dd>.+?</dd>"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다. 
-                string today_result = today_match.Value; //캡쳐 된 내용을 가져온다.
-                label14.Text = today_result.Substring(24, today_result.Length - 29);
-                //total
-                var total_match = Regex.Match(html, @"<dt>전체</dt>\n        <dd>.+?</dd>"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다. 
-                string total_result = total_match.Value; //캡쳐 된 내용을 가져온다.
-                label15.Text = total_result.Substring(24, total_result.Length - 29);
-
-                var now_match = Regex.Match(html, "<span>.+?</span>"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다. 
-                string now_result = now_match.Value; //캡쳐 된 내용을 가져온다.
-                label11.Text = now_result.Substring(6, now_result.Length - 13);
-
+                Basic_Check userCheck = new Basic_Check();
+                label11.Text = userCheck.GetNowUserCountData();
+                label14.Text = userCheck.GetTodayCountData();
+                label15.Text = userCheck.GetTotalCountData();
             }
             catch (Exception)
             {
@@ -279,105 +189,9 @@ namespace GameUtilityApp
                 }
             }
         }
-
-        private void netver_check()
-        {
-            const string subkey = @"SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\";
-
-            using (var ndpKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(subkey))
-            {
-                if (ndpKey != null && ndpKey.GetValue("Release") != null)
-                {
-                    string ver = CheckFor45PlusVersion((int)ndpKey.GetValue("Release"));
-                    if (ver != "4.7.2")
-                    {
-                        if (ver != "4.8 or later")
-                        {
-                            MessageBox.Show(".NET Framework Version이 낮습니다. 업데이트 후 실행하세요.\n\n4.7.2 이상 버전하고 호환됩니다.", "NET Framework 업데이트 필요");
-                            try
-                            {
-                                NetVerUpdate newForm = new NetVerUpdate();
-                                newForm.ShowDialog();
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("가이드가 실행되지 않습니다.\nError code : " + ex, "Error");
-                                Application.Exit();
-
-                            }
-
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(".NET Framework Version 이 감지되지 않습니다.\n.NET Framework를 설치(업데이트) 후 실행 부탁드립니다.", "NET Framework 업데이트 필요");
-                    try
-                    {
-                        NetVerUpdate newForm = new NetVerUpdate();
-                        newForm.ShowDialog();
-
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("업데이트 가이드를 실행하는 중 문제가 발생하였습니다.", "Error");
-                        Application.Exit();
-                    }
-                }
-            }
-
-            // Checking the version using >= enables forward compatibility.
-            string CheckFor45PlusVersion(int releaseKey)
-            {
-                if (releaseKey >= 528040)
-                    return "4.8 or later";
-                if (releaseKey >= 461808)
-                    return "4.7.2";
-                if (releaseKey >= 461308)
-                    return "4.7.1";
-                if (releaseKey >= 460798)
-                    return "4.7";
-                if (releaseKey >= 394802)
-                    return "4.6.2";
-                if (releaseKey >= 394254)
-                    return "4.6.1";
-                if (releaseKey >= 393295)
-                    return "4.6";
-                if (releaseKey >= 379893)
-                    return "4.5.2";
-                if (releaseKey >= 378675)
-                    return "4.5.1";
-                if (releaseKey >= 378389)
-                    return "4.5";
-                // This code should never execute. A non-null release key should mean
-                // that 4.5 or later is installed.
-                return "No 4.5 or later version detected";
-            }
-        }
-
-        int check;
-        private void newusercheck()
-        {
-            //새로운 유저인지 검색. 기존에 사용자인지, 버전을 확인하며 필요한 레지스트리 업데이트가 적용 합니다.
-            try
-            {
-                RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE");
-                if (reg.OpenSubKey("Game Utility App") == null || Convert.ToString(reg.OpenSubKey("Game Utility App").GetValue("ver release")) == "" || Convert.ToInt32(reg.OpenSubKey("Game Utility App").GetValue("ver release")) != thisrelese)
-                {
-                    reg = Registry.CurrentUser.CreateSubKey("SOFTWARE").CreateSubKey("Game Utility App", true);
-                    reg.SetValue("ver release", thisrelese);
-                }
-                else
-                {
-                    check = Convert.ToInt32(reg.OpenSubKey("Game Utility App").GetValue("ver release"));
-                }
-                reg.Close();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("초기 설정을 하는데 오류가 발생하였습니다.", "초기 설정 오류");
-            }
-        }
+        
+        
+        
 
         //세이브 버튼
         private void KeyboardClick(object sender, EventArgs e)
@@ -385,7 +199,7 @@ namespace GameUtilityApp
             RegSave_keyboard();
             MessageBox.Show("Keyboard 부분을 저장하였습니다.", "Save");
             RegReload_keyboard();
-            usercount(); //버튼 누를 때마다 사용자 수 재설정
+            UserCount(); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void ResponseClick(object sender, EventArgs e)
@@ -393,7 +207,7 @@ namespace GameUtilityApp
             RegSave_Response();
             MessageBox.Show("Keyboard Response 부분을 저장하였습니다.", "Save");
             RegReload_Response();
-            usercount(); //버튼 누를 때마다 사용자 수 재설정
+            UserCount(); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void ToggleKeysClick(object sender, EventArgs e)
@@ -401,7 +215,7 @@ namespace GameUtilityApp
             RegSave_ToggleKeys();
             MessageBox.Show("ToggleKeys 부분을 저장하였습니다.", "Save");
             RegReload_ToggleKeys();
-            usercount(); //버튼 누를 때마다 사용자 수 재설정
+            UserCount(); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void SaveAll(object sender, EventArgs e) //전체 세이브
@@ -413,20 +227,20 @@ namespace GameUtilityApp
             RegReload_keyboard();
             RegReload_Response();
             RegReload_ToggleKeys();
-            usercount(); //버튼 누를 때마다 사용자 수 재설정
+            UserCount(); //버튼 누를 때마다 사용자 수 재설정
         }
         //세이브 버튼 끝
 
-        private void reloadClick(object sender, EventArgs e) //레지 새로고침
+        private void ReloadClick(object sender, EventArgs e) //레지 새로고침
         {
             RegReload_keyboard();
             RegReload_Response();
             RegReload_ToggleKeys();
             MessageBox.Show("모두 저장 전으로 새로고침 되었습니다.", "Reload");
-            usercount(); //버튼 누를 때마다 사용자 수 재설정
+            UserCount(); //버튼 누를 때마다 사용자 수 재설정
         }
 
-        private void recommendReg_Click(object sender, EventArgs e)  //권장 레지로 설정
+        private void RecommendReg_Click(object sender, EventArgs e)  //권장 레지로 설정
         {
             label1.ForeColor = Color.Blue;
             label2.ForeColor = Color.Blue;
@@ -454,34 +268,34 @@ namespace GameUtilityApp
             RegReload_keyboard();
             RegReload_Response();
             RegReload_ToggleKeys();
-            usercount(); //버튼 누를 때마다 사용자 수 재설정
+            UserCount(); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void SettingButton_Click(object sender, EventArgs e)
         {
             MainSetting newForm = new MainSetting();
             newForm.ShowDialog();
-            usercount(); //버튼 누를 때마다 사용자 수 재설정
+            UserCount(); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void Utility_Click(object sender, EventArgs e)
         {
             UtilityChoice newForm = new UtilityChoice();
             newForm.ShowDialog();
-            usercount(); //버튼 누를 때마다 사용자 수 재설정
+            UserCount(); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void Sponsor_Click(object sender, EventArgs e)
         {
             Sponsor newForm = new Sponsor();
             newForm.ShowDialog();
-            usercount();
+            UserCount();
         }
 
         private void UseHelp_Click(object sender, EventArgs e)
         {
             Process.Start("https://repotato.tistory.com/138");
-            usercount();
+            UserCount();
         }
 
         //숫자만 입력되도록 하며 입력시 글자색이 파란색으로 변경
@@ -688,14 +502,14 @@ namespace GameUtilityApp
             }
         }
 
-        private void regpluse_Click(object sender, EventArgs e)
+        private void RegPluse_Click(object sender, EventArgs e)
         {
             RegPlus newForm = new RegPlus();
             newForm.ShowDialog();
             RegReload_keyboard();
             RegReload_Response();
             RegReload_ToggleKeys();
-            usercount(); //버튼 누를 때마다 사용자 수 재설정
+            UserCount(); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void Homepage_Click(object sender, EventArgs e)
