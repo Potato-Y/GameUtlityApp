@@ -1,3 +1,15 @@
+V 1.4.0 패치 노트<br><br>
+
+- 나눔글꼴이 설치되어있어야 프로그램이 실행됩니다.<br>
+- 프로그램 일부가 수정되었습니다.<br>
+<br>
+V 1.4.0 patch notes<br>
+<br><br><br>
+-The program runs only when Nanum font is installed.<br>
+-Part of the program has been modified.<br>
+<br><br>
+
+----------------------------------------------------------------------<br>
 V 1.3.0 패치 노트<br><br>
 
 - 내부 프로그램 구조 일부 변경<br>
