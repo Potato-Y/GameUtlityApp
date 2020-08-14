@@ -5,8 +5,8 @@ V 1.4.0 패치 노트<br><br>
 <br>
 V 1.4.0 patch notes<br>
 <br><br><br>
--The program runs only when Nanum font is installed.<br>
--Part of the program has been modified.<br>
+- The program runs only when Nanum font is installed.<br>
+- Part of the program has been modified.<br>
 <br><br>
 
 ----------------------------------------------------------------------<br>
