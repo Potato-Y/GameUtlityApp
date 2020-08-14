@@ -155,7 +155,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 9F);
+            this.Font = new System.Drawing.Font("나눔고딕", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "UtilityChoice";

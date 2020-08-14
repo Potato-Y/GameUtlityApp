@@ -47,7 +47,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(124, 190);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.Size = new System.Drawing.Size(41, 14);
             this.label6.TabIndex = 28;
             this.label6.Text = "label6";
             // 
@@ -56,7 +56,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(15, 190);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 13);
+            this.label5.Size = new System.Drawing.Size(96, 14);
             this.label5.TabIndex = 27;
             this.label5.Text = "PC에 설치된 bit : ";
             // 
@@ -86,7 +86,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(96, 225);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.Size = new System.Drawing.Size(41, 14);
             this.label4.TabIndex = 24;
             this.label4.Text = "label4";
             // 
@@ -95,7 +95,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 225);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 13);
+            this.label3.Size = new System.Drawing.Size(72, 14);
             this.label3.TabIndex = 23;
             this.label3.Text = "설치된 버전 :";
             // 
@@ -167,7 +167,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 9F);
+            this.Font = new System.Drawing.Font("나눔고딕", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "NetVerUpdate";

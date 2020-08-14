@@ -60,7 +60,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(124, 65);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(120, 17);
+            this.checkBox1.Size = new System.Drawing.Size(120, 18);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "다음부턴 보지 않기";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -77,7 +77,7 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 9F);
+            this.Font = new System.Drawing.Font("나눔고딕", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

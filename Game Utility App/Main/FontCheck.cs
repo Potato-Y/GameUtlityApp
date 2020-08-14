@@ -16,9 +16,9 @@ namespace GameUtilityApp
     {
         public void FontFileCheck()
         {
-            if(IsFontInstalled("나눔스퀘어라운드 Regular") != true)
+            if(IsFontInstalled("나눔고딕") != true)
             {
-                if(MessageBox.Show("폰트가 설치되어 있지 않습니다. 프로그램 정책에 의해 '나눔스퀘어라운드' 글꼴이 설치되어 있어야 합니다. 폰트를 설치하고 다시 실행 부탁드립니다.\r\n글꼴을 다운로드하시겠습니까?","폰트가 없습니다.", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if(MessageBox.Show("폰트가 설치되어 있지 않습니다. 프로그램 정책에 의해 '나눔고딕' 글꼴이 설치되어 있어야 합니다. 폰트를 설치하고 다시 실행 부탁드립니다.\r\n글꼴을 다운로드하시겠습니까?","폰트가 없습니다.", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     try
                     {
@@ -34,7 +34,7 @@ namespace GameUtilityApp
 
 
                         WebClient webClient = new WebClient();
-                        webClient.DownloadFile("https://github.com/Potato-Y/Game-Utility-App/releases/download/font/NanumSquareRoundR.ttf", path + @"\Font.ttf");
+                        webClient.DownloadFile("https://github.com/Potato-Y/Game-Utility-App/releases/download/font/NanumGothic.ttf", path + @"\Font.ttf");
                         System.Diagnostics.Process.Start(path + @"\Font.ttf");
 
 

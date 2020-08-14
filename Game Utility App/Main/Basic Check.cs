@@ -15,7 +15,7 @@ namespace GameUtilityApp
 {
     class Basic_Check
     {
-        int thisrelese = 20200815;
+        int thisrelese = 20200816;
 
         /// <summary>
         /// 이곳은 네트워크 상태 및 버전 업데이트 관련 코드가 있는 영역입니다.

@@ -47,7 +47,7 @@
             this.ClientSize = new System.Drawing.Size(315, 132);
             this.ControlBox = false;
             this.Controls.Add(this.textBox1);
-            this.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 9F);
+            this.Font = new System.Drawing.Font("나눔고딕", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

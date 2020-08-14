@@ -44,9 +44,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(13, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(405, 129);
+            this.groupBox1.Size = new System.Drawing.Size(405, 150);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "NoteBook 추천 옵션";
@@ -54,56 +54,57 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(96, 81);
+            this.label3.Location = new System.Drawing.Point(96, 94);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 12);
+            this.label3.Size = new System.Drawing.Size(41, 14);
             this.label3.TabIndex = 3;
             this.label3.Text = "label3";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 81);
+            this.label2.Location = new System.Drawing.Point(8, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 12);
+            this.label2.Size = new System.Drawing.Size(75, 14);
             this.label2.TabIndex = 2;
             this.label2.Text = "현재 해상도 : ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Location = new System.Drawing.Point(6, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(385, 24);
+            this.label1.Size = new System.Drawing.Size(351, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "해상도를 낮춤으로써 카트창 크기를 키우고 게임 성능을 향상시킵니다.\n16: 9 모니터에서만 사용하길 권장하며, 화면이 흐려집니다.";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(10, 107);
+            this.checkBox1.Location = new System.Drawing.Point(10, 125);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(86, 16);
+            this.checkBox1.Size = new System.Drawing.Size(85, 18);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(13, 148);
+            this.groupBox2.Location = new System.Drawing.Point(13, 173);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(405, 100);
+            this.groupBox2.Size = new System.Drawing.Size(405, 117);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "프로세스 자동 종료";
             // 
             // AdditionSetting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 450);
+            this.ClientSize = new System.Drawing.Size(430, 525);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("나눔고딕", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

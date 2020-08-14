@@ -65,7 +65,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(6, 22);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(87, 17);
+            this.checkBox1.Size = new System.Drawing.Size(85, 18);
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(-4, 230);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(312, 13);
+            this.label1.Size = new System.Drawing.Size(302, 14);
             this.label1.TabIndex = 2;
             this.label1.Text = "Copyright (C) 2020. Potato-Y Studio all rights reserved";
             // 
@@ -111,16 +111,16 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 96);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.Size = new System.Drawing.Size(45, 14);
             this.label5.TabIndex = 10;
-            this.label5.Text = "v 1.4.0";
+            this.label5.Text = "v 1.4.1";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 13);
+            this.label4.Size = new System.Drawing.Size(75, 14);
             this.label4.TabIndex = 9;
             this.label4.Text = "최신 릴리즈 : ";
             // 
@@ -129,7 +129,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.Size = new System.Drawing.Size(64, 14);
             this.label3.TabIndex = 8;
             this.label3.Text = "본 릴리즈 : ";
             // 
@@ -138,7 +138,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 13);
+            this.label2.Size = new System.Drawing.Size(141, 14);
             this.label2.TabIndex = 7;
             this.label2.Text = "최신버전을 사용 중 입니다.";
             // 
@@ -177,7 +177,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(70, 207);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(77, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(76, 14);
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Open source";
@@ -188,7 +188,7 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Location = new System.Drawing.Point(165, 207);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(79, 13);
+            this.linkLabel2.Size = new System.Drawing.Size(75, 14);
             this.linkLabel2.TabIndex = 6;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Font License";
@@ -206,7 +206,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 9F);
+            this.Font = new System.Drawing.Font("나눔고딕", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

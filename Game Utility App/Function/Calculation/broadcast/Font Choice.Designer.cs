@@ -63,7 +63,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(29, 14);
             this.label1.TabIndex = 1;
             this.label1.Text = "글꼴";
             // 
@@ -72,7 +72,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(212, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.Size = new System.Drawing.Size(65, 14);
             this.label2.TabIndex = 2;
             this.label2.Text = "글꼴 스타일";
             // 
@@ -82,7 +82,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(214, 26);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(183, 21);
+            this.comboBox2.Size = new System.Drawing.Size(183, 22);
             this.comboBox2.TabIndex = 3;
             // 
             // comboBox3
@@ -101,7 +101,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(414, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.Size = new System.Drawing.Size(29, 14);
             this.label3.TabIndex = 5;
             this.label3.Text = "색상";
             // 
@@ -110,7 +110,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(414, 192);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(176, 26);
+            this.label4.Size = new System.Drawing.Size(177, 28);
             this.label4.TabIndex = 6;
             this.label4.Text = "※색상코드 사용 가능\r\n이상 코드가 있으면 작동하지 않음.";
             // 
@@ -119,7 +119,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(616, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.Size = new System.Drawing.Size(29, 14);
             this.label5.TabIndex = 7;
             this.label5.Text = "크기";
             // 
@@ -161,7 +161,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(709, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(119, 13);
+            this.label6.Size = new System.Drawing.Size(119, 14);
             this.label6.TabIndex = 11;
             this.label6.Text = "동기화 시간 (단위 : 초)";
             // 
@@ -178,7 +178,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(616, 192);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(217, 26);
+            this.label7.Size = new System.Drawing.Size(218, 28);
             this.label7.TabIndex = 13;
             this.label7.Text = "※일정 크기 이상 안커집니다.\r\n방송 프로그램에서 브라우저를 확대하세요.\r\n";
             // 
@@ -187,7 +187,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(12, 192);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(277, 26);
+            this.label8.Size = new System.Drawing.Size(278, 28);
             this.label8.TabIndex = 14;
             this.label8.Text = "※ 스트리밍시 저작권법에 주의하세요.\r\nPC에 없는 글꼴을 입력하면 작동하지 않을 수 있습니다.";
             // 
@@ -196,7 +196,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(324, 205);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(54, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(54, 14);
             this.linkLabel1.TabIndex = 15;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "무료 폰트";
@@ -225,7 +225,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.textBox1);
-            this.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 9F);
+            this.Font = new System.Drawing.Font("나눔고딕", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

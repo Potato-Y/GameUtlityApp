@@ -39,10 +39,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("나눔고딕", 18F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(346, 26);
+            this.label1.Size = new System.Drawing.Size(345, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "어떤 것이 업데이트 되었습니까?";
             // 
@@ -79,7 +79,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 311);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.Size = new System.Drawing.Size(41, 14);
             this.label2.TabIndex = 4;
             this.label2.Text = "label2";
             // 
@@ -94,7 +94,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 9F);
+            this.Font = new System.Drawing.Font("나눔고딕", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";

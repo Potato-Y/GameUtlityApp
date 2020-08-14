@@ -119,10 +119,10 @@ namespace GameUtilityApp
             RegReload_ToggleKeys();
 
             loadtooltip();
-            notifyIcon1.Visible = true;
 
             FontCheck Check = new FontCheck();
             Check.FontFileCheck();
+            notifyIcon1.Visible = true;
         }
 
         //툴팁 영역
