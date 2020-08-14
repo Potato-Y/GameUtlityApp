@@ -64,7 +64,7 @@ namespace GameUtilityApp
             newCheck.NewUserCheck();
         }
 
-       
+
 
         private void Form1_Load(object sender, EventArgs e)  //프로그램 로딩
         {
@@ -120,6 +120,9 @@ namespace GameUtilityApp
 
             loadtooltip();
             notifyIcon1.Visible = true;
+
+            FontCheck Check = new FontCheck();
+            Check.FontFileCheck();
         }
 
         //툴팁 영역

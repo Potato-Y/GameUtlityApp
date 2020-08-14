@@ -37,10 +37,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 9F);
             this.label1.Location = new System.Drawing.Point(12, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 24);
+            this.label1.Size = new System.Drawing.Size(327, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Windwos 10의 경우에는 제어판에서 최대 31까지만 지원합니다.\r\n그럼에도 설정하실 수 있지만 적용 보장을 할 수 없습니다.";
             // 
@@ -60,7 +60,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(124, 65);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(128, 16);
+            this.checkBox1.Size = new System.Drawing.Size(120, 17);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "다음부턴 보지 않기";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -68,8 +68,8 @@
             // KeyboardSpeed_win10
             // 
             this.AcceptButton = this.button1;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(371, 122);
@@ -77,6 +77,7 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

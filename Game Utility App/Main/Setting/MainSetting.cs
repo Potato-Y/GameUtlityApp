@@ -30,7 +30,7 @@ namespace GameUtilityApp
             button1.Text = "닫기";
             button1.Left = (this.ClientSize.Width - button1.Width) / 2;
             label1.Left = (this.ClientSize.Width - label1.Width) / 2;
-            linkLabel1.Left = (this.ClientSize.Width - linkLabel1.Width) / 2;
+            //linkLabel1.Left = (this.ClientSize.Width - linkLabel1.Width) / 2;
             checkBox1.Text = "Windows 시작시 실행";
             RegistryKey reg;
             reg = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");

@@ -15,8 +15,8 @@ namespace GameUtilityApp.Notice
         public Font_License()
         {
             InitializeComponent();
-            this.Font = new Font(FontLibrary.Families[0], 9);
-
+            this.ActiveControl = label1;
         }
+
     }
 }

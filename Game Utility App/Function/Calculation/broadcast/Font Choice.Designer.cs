@@ -53,26 +53,26 @@
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 24);
+            this.comboBox1.Location = new System.Drawing.Point(12, 26);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 150);
+            this.comboBox1.Size = new System.Drawing.Size(183, 162);
             this.comboBox1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "글꼴";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(212, 9);
+            this.label2.Location = new System.Drawing.Point(212, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 12);
+            this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "글꼴 스타일";
             // 
@@ -80,9 +80,9 @@
             // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(214, 24);
+            this.comboBox2.Location = new System.Drawing.Point(214, 26);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(183, 20);
+            this.comboBox2.Size = new System.Drawing.Size(183, 21);
             this.comboBox2.TabIndex = 3;
             // 
             // comboBox3
@@ -91,35 +91,35 @@
             this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(416, 24);
+            this.comboBox3.Location = new System.Drawing.Point(416, 26);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(183, 150);
+            this.comboBox3.Size = new System.Drawing.Size(183, 162);
             this.comboBox3.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(414, 9);
+            this.label3.Location = new System.Drawing.Point(414, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "색상";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(414, 177);
+            this.label4.Location = new System.Drawing.Point(414, 192);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(193, 24);
+            this.label4.Size = new System.Drawing.Size(176, 26);
             this.label4.TabIndex = 6;
             this.label4.Text = "※색상코드 사용 가능\r\n이상 코드가 있으면 작동하지 않음.";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(616, 9);
+            this.label5.Location = new System.Drawing.Point(616, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "크기";
             // 
@@ -129,17 +129,17 @@
             this.comboBox4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(618, 24);
+            this.comboBox4.Location = new System.Drawing.Point(618, 26);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(75, 150);
+            this.comboBox4.Size = new System.Drawing.Size(75, 162);
             this.comboBox4.TabIndex = 8;
             this.comboBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInterval_KeyPress);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(786, 24);
+            this.button1.Location = new System.Drawing.Point(786, 26);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 25);
             this.button1.TabIndex = 9;
             this.button1.Text = "저장";
             this.button1.UseVisualStyleBackColor = true;
@@ -148,9 +148,9 @@
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(786, 53);
+            this.button2.Location = new System.Drawing.Point(786, 57);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 25);
             this.button2.TabIndex = 10;
             this.button2.Text = "취소";
             this.button2.UseVisualStyleBackColor = true;
@@ -159,15 +159,15 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(709, 9);
+            this.label6.Location = new System.Drawing.Point(709, 10);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 12);
+            this.label6.Size = new System.Drawing.Size(119, 13);
             this.label6.TabIndex = 11;
             this.label6.Text = "동기화 시간 (단위 : 초)";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(711, 24);
+            this.textBox1.Location = new System.Drawing.Point(711, 26);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(55, 21);
             this.textBox1.TabIndex = 12;
@@ -176,27 +176,27 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(616, 177);
+            this.label7.Location = new System.Drawing.Point(616, 192);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(237, 24);
+            this.label7.Size = new System.Drawing.Size(217, 26);
             this.label7.TabIndex = 13;
             this.label7.Text = "※일정 크기 이상 안커집니다.\r\n방송 프로그램에서 브라우저를 확대하세요.\r\n";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 177);
+            this.label8.Location = new System.Drawing.Point(12, 192);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(306, 24);
+            this.label8.Size = new System.Drawing.Size(277, 26);
             this.label8.TabIndex = 14;
             this.label8.Text = "※ 스트리밍시 저작권법에 주의하세요.\r\nPC에 없는 글꼴을 입력하면 작동하지 않을 수 있습니다.";
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(324, 189);
+            this.linkLabel1.Location = new System.Drawing.Point(324, 205);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(57, 12);
+            this.linkLabel1.Size = new System.Drawing.Size(54, 13);
             this.linkLabel1.TabIndex = 15;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "무료 폰트";
@@ -204,11 +204,11 @@
             // 
             // Font_Choice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(873, 205);
+            this.ClientSize = new System.Drawing.Size(873, 222);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -225,6 +225,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.textBox1);
+            this.Font = new System.Drawing.Font("나눔스퀘어라운드 Regular", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
