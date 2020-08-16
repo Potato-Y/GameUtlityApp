@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace dwmKiller
@@ -15,15 +12,25 @@ namespace dwmKiller
         [STAThread]
         static void Main()
         {
-            int time = Convert.ToInt32(DateTime.Now.ToString("HHmmss"));
-            int endTime = time + 5;
-            for (time = Convert.ToInt32(DateTime.Now.ToString("HHmmss")); time < endTime; time = Convert.ToInt32(DateTime.Now.ToString("HHmmss")))
-            {
-                Killer();
-            }
+            WindowsVerCheck();
+            Process[] processesList = Process.GetProcessesByName("Game Utility App");
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            if (processesList.Length > 0)
+            {
+                int time = Convert.ToInt32(DateTime.Now.ToString("HHmmss"));
+                int endTime = time + 5;
+                for (time = Convert.ToInt32(DateTime.Now.ToString("HHmmss")); time < endTime; time = Convert.ToInt32(DateTime.Now.ToString("HHmmss")))
+                {
+                    Killer();
+                }
+            }
+            else
+            {
+                MessageBox.Show("잘못된 접근입니다.", "실행 오류");
+                Application.Exit();
+            }
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
             Application.Exit();
         }
@@ -45,6 +52,16 @@ namespace dwmKiller
 
         }
 
+
+        private static void WindowsVerCheck()
+        {
+            OperatingSystem osVer = Environment.OSVersion;
+            if(osVer.Version.Major != 6 || osVer.Version.Minor != 1)
+            {
+                MessageBox.Show("Windows 7에서만 지원하는 기능입니다.", "Windows 버전 오류");
+                Application.Exit();
+            }
+        }
     
     }
 }
