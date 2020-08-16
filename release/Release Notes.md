@@ -1,3 +1,13 @@
+V 1.5.0 패치노트<br>
+<br>
+- 윈도우7을 위한 새로운 기능! dwm.exe 자동 종료<br>
+<br>
+V 1.5.0 patch notes<br>
+<br>
+- New features for Windows 7! dwm.exe automatic shutdown<br>
+<br>
+<br>
+----------------------------------------------------------------------<br>
 V 1.4.1 패치노트<br><br>
 
 - 글꼴이 '나눔고딕'으로 변경되었습니다.<br><br>
