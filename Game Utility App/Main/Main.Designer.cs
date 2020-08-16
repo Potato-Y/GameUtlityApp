@@ -87,7 +87,6 @@
             this.업데이트ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.열기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.닫기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DwmKiller = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -746,7 +745,6 @@
         private System.Windows.Forms.ToolStripMenuItem 스크린샷폴더ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 라이더데이터폴더ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 업데이트ToolStripMenuItem;
-        private System.ComponentModel.BackgroundWorker DwmKiller;
     }
 }
 

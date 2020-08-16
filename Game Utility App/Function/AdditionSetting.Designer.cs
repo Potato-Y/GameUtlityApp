@@ -35,7 +35,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -90,12 +94,49 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.linkLabel1);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.checkBox2);
             this.groupBox2.Location = new System.Drawing.Point(13, 173);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(405, 117);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "프로세스 자동 종료";
+            this.groupBox2.Text = "프로세스 자동 종료 / Windows7만 지원";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Enabled = false;
+            this.checkBox2.Location = new System.Drawing.Point(152, 93);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(70, 18);
+            this.checkBox2.TabIndex = 0;
+            this.checkBox2.Text = "On / Off";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Click += new System.EventHandler(this.dwmKiller_CheckBox_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(374, 42);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Game Utility App 프로그램이 실행될 때 dwm.exe 프로세스를 자동으로 \r\n종료합니다.\r\n이를 통해 게임이 보다 쾌적하게 작동할 수" +
+    " 있도록 합니다.";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Enabled = false;
+            this.linkLabel1.Location = new System.Drawing.Point(312, 57);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(87, 14);
+            this.linkLabel1.TabIndex = 2;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "바이러스 검사표";
+            this.linkLabel1.Click += new System.EventHandler(this.linkLabel1_Click);
             // 
             // AdditionSetting
             // 
@@ -115,6 +156,8 @@
             this.Load += new System.EventHandler(this.AdditionSetting_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -127,5 +170,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

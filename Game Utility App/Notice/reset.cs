@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -28,6 +29,19 @@ namespace GameUtilityApp.Notice
             textbox1Scroll();
             try
             {
+                Process[] processList = Process.GetProcessesByName("dwmKiller");
+                try
+                {
+                    if (processList.Length > 0)
+                    {
+                        processList[0].Kill();
+                    }
+
+                }
+                catch (Exception)
+                {
+                }
+
                 try
                 {
                     string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\Documents\Game Utility App";

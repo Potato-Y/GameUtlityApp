@@ -106,6 +106,7 @@
     <Compile Include="Function\Calculation\broadcast\Font Choice.Designer.cs">
       <DependentUpon>Font Choice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function\Class1.cs" />
     <Compile Include="Function\reg+\RegPlus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +120,7 @@
       <DependentUpon>Sponsor.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\Basic Check.cs" />
+    <Compile Include="Main\dwmKiller Start.cs" />
     <Compile Include="Main\FontCheck.cs" />
     <Compile Include="Main\Setting\MainSetting.cs">
       <SubType>Form</SubType>

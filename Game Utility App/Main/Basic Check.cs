@@ -15,7 +15,7 @@ namespace GameUtilityApp
 {
     class Basic_Check
     {
-        int thisrelese = 20200816;
+        int thisrelese = 20200817;
 
         /// <summary>
         /// 이곳은 네트워크 상태 및 버전 업데이트 관련 코드가 있는 영역입니다.
@@ -170,11 +170,24 @@ namespace GameUtilityApp
                 {
                     check = Convert.ToInt32(reg.OpenSubKey("Game Utility App").GetValue("ver release"));
                 }
+
+                //dwm.exe Killer On Off check
+                reg = Registry.CurrentUser.OpenSubKey("SOFTWARE").OpenSubKey("Game Utility App", true);
+                if (reg.OpenSubKey("setting") == null || Convert.ToString(reg.OpenSubKey("setting").GetValue("dwmKiller Start")) == "")
+                {
+                    reg.CreateSubKey("setting").SetValue("dwmKiller Start", 0); //0이면 작동 안함, 1이면 작동 함
+                }
+                else if(Convert.ToInt16(reg.OpenSubKey("setting").GetValue("dwmKiller Start")) == 1)
+                {
+                    dwmKiller_Start newCheck = new dwmKiller_Start();
+                    newCheck.StartCheck();
+                }
                 reg.Close();
             }
             catch (Exception)
             {
-                MessageBox.Show("초기 설정을 하는데 오류가 발생하였습니다.", "초기 설정 오류");
+                MessageBox.Show("초기 설정을 하는데 오류가 발생하였습니다.\r\n개발자에게 문의하세요", "초기 설정 오류");
+                Application.Exit();
             }
 
         }
@@ -328,58 +341,5 @@ namespace GameUtilityApp
                 return "0";
             }
         }
-        /*
-
-        [DllImport("gdi32.dll")]
-      
-        private static extern int AddFontResource(string fontFilePath);
-        private static void Main()
-
-        {
-
-            RegisterFont(@"c:\tvN 즐거운이야기 Bold.ttf");
-
-        }
-        private static string _keyName = @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts";
-
-        private static void RegisterFont(string sourceFontFilePath)
-
-        {
-
-            string targetFontFileName = Path.GetFileName(sourceFontFilePath);
-
-            string targetFontFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), targetFontFileName);
-
-            
-
-            if (!File.Exists(targetFontFilePath))
-
-            {
-
-                File.Copy(sourceFontFilePath, targetFontFilePath);
-
-
-
-                PrivateFontCollection collection = new PrivateFontCollection();
-
-                
-
-                collection.AddFontFile(targetFontFilePath);
-
-
-
-                string actualFontName = collection.Families[0].Name;
-
-
-
-                AddFontResource(targetFontFilePath);
-
-
-
-                Registry.SetValue(_keyName, actualFontName, targetFontFileName, RegistryValueKind.String);
-
-            }
-
-        }*/
     }
 }
