@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace netframework_guide.Properties
+namespace dwmKiller.Properties
 {
 
 
