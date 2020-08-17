@@ -624,6 +624,7 @@ namespace GameUtilityApp
                 e.Cancel = true;
             }
         }
+
         /* 최소화 할 때 트레이 아이콘으로 가게 하기
         private void Notify_Resize(object sender, EventArgs e)
         {

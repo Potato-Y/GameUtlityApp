@@ -15,7 +15,8 @@ namespace GameUtilityApp
 {
     class Basic_Check
     {
-        int thisrelese = 20200817;
+        int thisrelese = 20200818;
+        int termsOfUseRelese = 20200818;
 
         /// <summary>
         /// 이곳은 네트워크 상태 및 버전 업데이트 관련 코드가 있는 영역입니다.
@@ -182,6 +183,14 @@ namespace GameUtilityApp
                     dwmKiller_Start newCheck = new dwmKiller_Start();
                     newCheck.StartCheck();
                 }
+                //이용약관 확인
+                reg = Registry.CurrentUser.OpenSubKey("SOFTWARE").OpenSubKey("Game Utility App", true);
+                if (reg.OpenSubKey("setting") == null || Convert.ToString(reg.OpenSubKey("setting").GetValue("Terms of user")) == ""|| Convert.ToInt32(reg.OpenSubKey("setting").GetValue("Terms of user")) != termsOfUseRelese)
+                {
+                    Terms_of_Use newForm = new Terms_of_Use();
+                    newForm.ShowDialog();
+                }
+
                 reg.Close();
             }
             catch (Exception)

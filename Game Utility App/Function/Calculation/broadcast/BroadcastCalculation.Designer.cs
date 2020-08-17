@@ -193,6 +193,7 @@
             this.Controls.Add(this.textBox1);
             this.Font = new System.Drawing.Font("나눔고딕", 9F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "BroadcastCalculation";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "방송 점수판 도우미 (Beta)";

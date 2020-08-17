@@ -106,7 +106,6 @@
     <Compile Include="Function\Calculation\broadcast\Font Choice.Designer.cs">
       <DependentUpon>Font Choice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Function\Class1.cs" />
     <Compile Include="Function\reg+\RegPlus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,19 +118,19 @@
     <Compile Include="Function\후원\Sponsor.Designer.cs">
       <DependentUpon>Sponsor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Basic Check.cs" />
-    <Compile Include="Main\dwmKiller Start.cs" />
-    <Compile Include="Main\FontCheck.cs" />
-    <Compile Include="Main\Setting\MainSetting.cs">
+    <Compile Include="MainForm\Basic Check.cs" />
+    <Compile Include="MainForm\dwmKiller Start.cs" />
+    <Compile Include="MainForm\FontCheck.cs" />
+    <Compile Include="MainForm\Setting\MainSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main\Setting\MainSetting.Designer.cs">
+    <Compile Include="MainForm\Setting\MainSetting.Designer.cs">
       <DependentUpon>MainSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Main.cs">
+    <Compile Include="MainForm\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main\Main.Designer.cs">
+    <Compile Include="MainForm\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Function\Calculation\PrivateCalculationOffline.cs">
@@ -170,6 +169,12 @@
     <Compile Include="Notice\reset.Designer.cs">
       <DependentUpon>reset.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notice\Terms of Use.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notice\Terms of Use.Designer.cs">
+      <DependentUpon>Terms of Use.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Function\Calculation\TeamGameCalculation\TeamGameCalculationOffline.cs">
@@ -178,16 +183,16 @@
     <Compile Include="Function\Calculation\TeamGameCalculation\TeamGameCalculationOffline.Designer.cs">
       <DependentUpon>TeamGameCalculationOffline.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Setting\AppUpadateForm.cs">
+    <Compile Include="MainForm\Setting\AppUpadateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main\Setting\AppUpadateForm.Designer.cs">
+    <Compile Include="MainForm\Setting\AppUpadateForm.Designer.cs">
       <DependentUpon>AppUpadateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\UtilityChoice.cs">
+    <Compile Include="MainForm\UtilityChoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main\UtilityChoice.Designer.cs">
+    <Compile Include="MainForm\UtilityChoice.Designer.cs">
       <DependentUpon>UtilityChoice.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Function\AdditionSetting.resx">
@@ -205,10 +210,10 @@
     <EmbeddedResource Include="Function\후원\Sponsor.resx">
       <DependentUpon>Sponsor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Main.resx">
+    <EmbeddedResource Include="MainForm\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Setting\MainSetting.resx">
+    <EmbeddedResource Include="MainForm\Setting\MainSetting.resx">
       <DependentUpon>MainSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Function\Calculation\PrivateCalculationOffline.resx">
@@ -229,6 +234,9 @@
     <EmbeddedResource Include="Notice\reset.resx">
       <DependentUpon>reset.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Notice\Terms of Use.resx">
+      <DependentUpon>Terms of Use.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -242,10 +250,10 @@
     <EmbeddedResource Include="Function\Calculation\TeamGameCalculation\TeamGameCalculationOffline.resx">
       <DependentUpon>TeamGameCalculationOffline.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Setting\AppUpadateForm.resx">
+    <EmbeddedResource Include="MainForm\Setting\AppUpadateForm.resx">
       <DependentUpon>AppUpadateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\UtilityChoice.resx">
+    <EmbeddedResource Include="MainForm\UtilityChoice.resx">
       <DependentUpon>UtilityChoice.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

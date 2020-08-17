@@ -53,7 +53,15 @@ namespace GameUtilityApp.Function.Calculation
                 checkBox2.Enabled = true;
                 linkLabel1.Enabled = true;
             }
-
+            RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE").OpenSubKey("Game Utility App", true);
+            if (reg.OpenSubKey("setting") == null || Convert.ToString(reg.OpenSubKey("setting").GetValue("dwmKiller Start")) == "")
+            {
+                reg.CreateSubKey("setting").SetValue("dwmKiller Start", 0); //0이면 작동 안함, 1이면 작동 함
+            }
+            else if (Convert.ToInt16(reg.OpenSubKey("setting").GetValue("dwmKiller Start")) == 1)
+            {
+                checkBox2.Checked = true;
+            }
         }
 
         private void dwmKiller_CheckBox_Click(object sender, EventArgs e)
