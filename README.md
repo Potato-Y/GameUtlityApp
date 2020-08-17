@@ -11,7 +11,7 @@
 
 ## 프로그램 간단 설명
 본 프로그램은 키보드 관련 설정을 제어판이 아닌 레지스트리를 통해 변경하며, 쉽게 할 수 있도록 도와줍니다. 본 프로그램의 최신 버전은 <a href="https://github.com/Potato-Y/Game-Utility-App/releases">**여기**</a>에서 확인하실 수 있습니다.<br> 
-다운로드 후에는 Game.Utility.App.exe의 이름을 ***Game Utlity App.exe***로 변경해주시기 바랍니다.
+다운로드 후에는 Game.Utility.App.exe의 이름을 ***Game Utility App.exe***로 변경해주시기 바랍니다.
 
 ## 프로그램에 포함되어있는 기능들
 - 기본적인 키보드 레지스트리 변경 (9개)
