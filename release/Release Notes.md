@@ -4,7 +4,7 @@ V 1.5.2 패치 노트<br>
 - dwmKiller가 on 되어있어도 설정에서 체크가 되지 않는 문제 해결 및 관련 버그 <br>
 - 특정 창이 전체화면 가능한 문제 수정<br>
 <br>
-V 1.5.1 patch notes<br>
+V 1.5.2 patch notes<br>
 <br>
 -Added terms and conditions<br>
 -Solved the problem that the check is not available in the setting even when dwmKiller is on<br>
