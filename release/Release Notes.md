@@ -1,4 +1,18 @@
-V 1.5.0 패치노트<br>
+V 1.5.1 패치 노트<br>
+<br>
+- 이용 약관 추가<br>
+- dwmKiller가 on 되어있어도 설정에서 체크가 되지 않는 문제 해결<br>
+- 특정 창이 전체화면 가능한 문제 수정<br>
+<br>
+V 1.5.1 patch notes<br>
+<br>
+-Added terms and conditions<br>
+-Solved the problem that the check is not available in the setting even when dwmKiller is on<br>
+-Fixed an issue where certain windows could be full screen<br>
+<br>
+<br>
+----------------------------------------------------------------------<br>
+V 1.5.0 패치 노트<br>
 <br>
 - 윈도우7을 위한 새로운 기능! dwm.exe 자동 종료<br>
 <br>
@@ -8,7 +22,7 @@ V 1.5.0 patch notes<br>
 <br>
 <br>
 ----------------------------------------------------------------------<br>
-V 1.4.1 패치노트<br><br>
+V 1.4.1 패치 노트<br><br>
 
 - 글꼴이 '나눔고딕'으로 변경되었습니다.<br><br>
 
