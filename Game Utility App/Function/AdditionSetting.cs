@@ -90,6 +90,29 @@ namespace GameUtilityApp.Function.Calculation
                 }
                 reg.Close();
             }
+            if (checkBox2.Checked == false)
+            {
+                RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE").OpenSubKey("Game Utility App", true);
+
+                try
+                {
+                    if (reg.OpenSubKey("setting") == null || Convert.ToString(reg.OpenSubKey("setting").GetValue("dwmKiller Start")) == "")
+                    {
+                        reg.CreateSubKey("setting", true).SetValue("dwmKiller Start", 0); //0이면 작동 안함, 1이면 작동 함
+                    }
+                    else
+                    {
+                        reg.OpenSubKey("setting", true).SetValue("dwmKiller Start", 0); //0이면 작동 안함, 1이면 작동 함
+                    }
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("설정중 오류가 발생하였습니다.", "오류 발생");
+                    checkBox2.Checked = false;
+                }
+                reg.Close();
+            }
         }
 
         private void screenSetting(object sender, EventArgs e)
