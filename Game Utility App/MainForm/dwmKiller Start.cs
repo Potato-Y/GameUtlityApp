@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -39,6 +40,12 @@ namespace GameUtilityApp
         {
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
+            DirectoryInfo Documents_App_Directory = new DirectoryInfo(path);
+            if (Documents_App_Directory.Exists == false)
+            {
+                Documents_App_Directory.Create();
+            }
            
 
             WebClient webClient = new WebClient();
