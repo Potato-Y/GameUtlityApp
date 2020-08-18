@@ -1,3 +1,15 @@
+V 1.5.3 패치 노트<br>
+<br>
+- dwmKiller 관련 버그 픽스<br>
+- 특정 창 크기가 고정되지 않는 문제 수정<br>
+<br>
+V 1.5.3 patch notes<br>
+<br>
+-Fixed a bug related to dwmKiller<br>
+-Fixed an issue where certain window sizes were not fixed<br>
+<br>
+<br>
+----------------------------------------------------------------------<br>
 V 1.5.2 패치 노트<br>
 <br>
 - 이용 약관 추가<br>
