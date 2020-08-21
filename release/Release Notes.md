@@ -1,3 +1,19 @@
+V 1.5.4 패치 노트<br>
+<br>
+- 방송용 계산기 처음부터 한줄 건너뛰던 문제 수정<br>
+- 방송용 계산기에 승리, 패배 시간 추가<br>
+- 팀전 계산기에 본인팀 승리시 ' 없던 문제 수정<br>
+- 팀전 계산기에 승리, 패배 시간 추가<br>
+<br>
+V 1.5.4 patch notes<br>
+<br>
+-Fixed a problem that skipped one line from the beginning of the broadcast calculator<br>
+-Added victory and defeat time to the broadcast calculator<br>
+-Fixed an issue where there was no'when your team wins' in the team battle calculator<br>
+-Added victory and loss time to the teamfight calculator<br>
+<br>
+<br>
+----------------------------------------------------------------------<br>
 V 1.5.3 패치 노트<br>
 <br>
 - dwmKiller 관련 버그 픽스<br>
