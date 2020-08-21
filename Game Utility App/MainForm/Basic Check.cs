@@ -15,7 +15,7 @@ namespace GameUtilityApp
 {
     class Basic_Check
     {
-        int thisrelese = 20200819;
+        int thisrelese = 20200821;
         int termsOfUseRelese = 20200818;
 
         /// <summary>
