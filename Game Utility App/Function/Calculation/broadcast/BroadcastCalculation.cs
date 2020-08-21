@@ -205,11 +205,11 @@ namespace GameUtilityApp.Function.Calculation.broadcast
         private void Win_Button_Click(object sender, EventArgs e)
         {
             myTeamScore++;
-            if (myTeamScore != 0 || rivalTeamScore != 0)
+            if (myTeamScore != 0 && rivalTeamScore != 0)
             {
                 textBox2.Text += "\r\n";
             }
-            textBox2.Text += comboBox1.Text + " '승리' " + myTeamScore + ":" + rivalTeamScore;
+            textBox2.Text += DateTime.Now.ToString("[hh시mm분]") + comboBox1.Text + " '승리' " + myTeamScore + ":" + rivalTeamScore;
             this.textBox2.SelectionStart = textBox2.Text.Length;
             this.textBox2.ScrollToCaret();
 
@@ -218,11 +218,11 @@ namespace GameUtilityApp.Function.Calculation.broadcast
         private void lose_Button_Click(object sender, EventArgs e)
         {
             rivalTeamScore++;
-            if (myTeamScore != 0 || rivalTeamScore != 0)
+            if (myTeamScore != 0 && rivalTeamScore != 0)
             {
                 textBox2.Text += "\r\n";
             }
-            textBox2.Text += comboBox1.Text + " '패배' " + myTeamScore + ":" + rivalTeamScore;
+            textBox2.Text += DateTime.Now.ToString("[hh시mm분]") + comboBox1.Text + " '패배' " + myTeamScore + ":" + rivalTeamScore;
             this.textBox2.SelectionStart = textBox2.Text.Length;
             this.textBox2.ScrollToCaret();
 

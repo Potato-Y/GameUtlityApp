@@ -203,7 +203,7 @@ namespace GameUtilityApp
                     savedata += "\r\n";
                 }
                 match++;
-                textBox1.Text += match + "번째 판, " + comboBox1.Text + " 승리";
+                textBox1.Text += DateTime.Now.ToString("[hh시mm분] ") + match + "번째 판, " + comboBox1.Text + " '승리'";
                 myscore++;
                 if (myscore >= 10)
                 {
@@ -235,7 +235,7 @@ namespace GameUtilityApp
                     savedata += "\r\n";
                 }
                 match++;
-                textBox2.Text += match + "번째 판, " + comboBox1.Text + " '승리'";
+                textBox2.Text += DateTime.Now.ToString("[hh시mm분] ") + match + "번째 판, " + comboBox1.Text + " '승리'";
                 yourscore++;
                 label5.Text = Convert.ToString(yourscore);
                 label8.Text = Convert.ToString(match);
