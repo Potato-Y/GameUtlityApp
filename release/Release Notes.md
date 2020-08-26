@@ -1,3 +1,15 @@
+V 1.5.7 패치 노트<br>
+<br>
+- 불필요 지시문 제거<br>
+- 방송용 계산기 버그 수정<br>
+<br>
+V 1.5.7 patch notes<br>
+<br>
+-Remove unnecessary directives<br>
+-Broadcast calculator bug fixed<br>
+<br>
+<br>
+----------------------------------------------------------------------<br>
 V 1.5.5~1.5.6 패치 노트<br>
 <br>
 - 버그 수정<br>
