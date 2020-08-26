@@ -2,12 +2,9 @@
 using GameUtilityApp.Properties;
 using Microsoft.Win32;
 using System;
-using System.Drawing.Text;
-using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -15,7 +12,7 @@ namespace GameUtilityApp
 {
     class Basic_Check
     {
-        int thisrelese = 20200826;
+        int thisrelese = 20200827;
         int termsOfUseRelese = 20200818;
 
         /// <summary>

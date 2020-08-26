@@ -1,15 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GameUtilityApp.Function.Calculation.broadcast
@@ -207,12 +201,12 @@ namespace GameUtilityApp.Function.Calculation.broadcast
             myTeamScore++;
             
             textBox2.Text += DateTime.Now.ToString("[hh시mm분]") + comboBox1.Text + " '승리' " + myTeamScore + ":" + rivalTeamScore;
-            this.textBox2.SelectionStart = textBox2.Text.Length;
-            this.textBox2.ScrollToCaret();
             if (myTeamScore != 0 || rivalTeamScore != 0)
             {
                 textBox2.Text += "\r\n";
             }
+            this.textBox2.SelectionStart = textBox2.Text.Length;
+            this.textBox2.ScrollToCaret();
             GameResults();
         }
         private void lose_Button_Click(object sender, EventArgs e)
@@ -220,12 +214,12 @@ namespace GameUtilityApp.Function.Calculation.broadcast
             rivalTeamScore++;
             
             textBox2.Text += DateTime.Now.ToString("[hh시mm분]") + comboBox1.Text + " '패배' " + myTeamScore + ":" + rivalTeamScore;
-            this.textBox2.SelectionStart = textBox2.Text.Length;
-            this.textBox2.ScrollToCaret();
             if (myTeamScore != 0 || rivalTeamScore != 0)
             {
                 textBox2.Text += "\r\n";
             }
+            this.textBox2.SelectionStart = textBox2.Text.Length;
+            this.textBox2.ScrollToCaret();
             GameResults();
         }
 
