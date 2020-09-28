@@ -710,5 +710,10 @@ namespace GameUtilityApp
             this.ShowIcon = true;
 
         }
+
+        private void Discord_Link_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://discord.gg/Mqs46wv");
+        }
     }
 }

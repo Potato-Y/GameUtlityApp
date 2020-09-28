@@ -87,6 +87,8 @@
             this.업데이트ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.열기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.닫기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label16 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -651,6 +653,27 @@
             this.닫기ToolStripMenuItem.Text = "닫기";
             this.닫기ToolStripMenuItem.Click += new System.EventHandler(this.StripExit_Click);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(332, 210);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(274, 70);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Game Utility App 의 새로운 커뮤니티가 생겼습니다!\r\n그리고 완전히 새로운 버전 개발이 시작됩니다.\r\n\r\n새로운 버전의 개발 현황을 " +
+    "알고 싶습니까?\r\n베타 버전을 사용해보고 싶습니까?";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(332, 291);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(184, 14);
+            this.linkLabel1.TabIndex = 13;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "이곳을 클릭하여 개발 디스코드 가기";
+            this.linkLabel1.Click += new System.EventHandler(this.Discord_Link_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -658,6 +681,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(601, 549);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox5);
@@ -683,6 +708,7 @@
             this.tableLayoutPanel2.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -745,6 +771,8 @@
         private System.Windows.Forms.ToolStripMenuItem 스크린샷폴더ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 라이더데이터폴더ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 업데이트ToolStripMenuItem;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
