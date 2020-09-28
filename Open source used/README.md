@@ -24,3 +24,5 @@ Attribution 4.0 International<br>
 No License<br>
 <br><br>
 
+<b>icon</b><br>
+아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon"> www.flaticon.com</a>
