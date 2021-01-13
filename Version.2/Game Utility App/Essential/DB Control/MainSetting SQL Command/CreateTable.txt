@@ -1,0 +1,7 @@
+﻿CREATE TABLE MainSetting (
+	`DB Version` INT NOT NULL,
+	`App Version` INT NOT NULL,
+	`win10` INT NOT NULL,
+	`dwmKiller Start` INT NOT NULL,
+	`Terms of user` INT NOT NULL
+)

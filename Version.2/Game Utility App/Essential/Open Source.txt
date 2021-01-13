@@ -1,0 +1,4 @@
+﻿EntityFramework
+Microsoft
+Apach-2.0 (https://licenses.nuget.org/Apache-2.0)
+
