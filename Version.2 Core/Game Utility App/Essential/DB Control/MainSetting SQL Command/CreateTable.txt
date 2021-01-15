@@ -9,4 +9,4 @@
 	`Terms of user Check` INT NOT NULL
 );
 
-INSERT INTO MainSetting VALUES (1, 2, 0, 0, 0, 0, 1, 0);
+INSERT INTO MainSetting VALUES (1, 2, 0, 0, 0, 0, 202101151, 0);
