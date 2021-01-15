@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
+using GameUtilityApp.Essential.Language;
 
 namespace GameUtilityApp.Essential.DB_Control
 {
@@ -21,6 +22,9 @@ namespace GameUtilityApp.Essential.DB_Control
             {
                 CreateFile(); //파일을 새로 만들기 시작
             }
+
+            //만약 파일이 있으면 업데이트 확인 후 필요시 패치
+            UpdateCheck();
         }
 
         private void CreateFile()
@@ -36,17 +40,45 @@ namespace GameUtilityApp.Essential.DB_Control
                     Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("GameUtilityApp.Essential.DB_Control.MainSetting_SQL_Command.CreateTable.txt");
                     StreamReader reader = new StreamReader(stream);
                     
-                    string sql = reader.ReadToEnd();
+                    string sqlCommand = reader.ReadToEnd();
 
-                    SQLiteCommand cmd = new SQLiteCommand(sql, conn);
+                    SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn);
                     cmd.ExecuteNonQuery();
+                    conn.Close();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show("오류가 발생하였습니다.\n\n" + e);
+                MessageBox.Show(StringLib.ERROR_1); //저장 중 오류가 발생하였습니다.
             }
 
+        }
+
+        private void UpdateCheck()
+        {
+            try
+            {
+                string sqlCommand = "SELECT * FROM MainSetting";
+                using (SQLiteConnection conn = new SQLiteConnection(strConn))
+                {
+                    conn.Open(); //DB 연결
+
+                    SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn);
+                    SQLiteDataReader rdr = cmd.ExecuteReader();
+
+                    rdr.Read();
+                    MessageBox.Show(rdr["DB Version"].ToString());
+                    
+
+                    rdr.Close();
+                    conn.Close();
+                }
+
+            }catch (Exception e)
+            {
+                MessageBox.Show(e+"");
+            }
+            
         }
     }
 }
