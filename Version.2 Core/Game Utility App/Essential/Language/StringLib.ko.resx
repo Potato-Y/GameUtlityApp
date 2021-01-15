@@ -120,6 +120,9 @@
   <data name="App Setting" xml:space="preserve">
     <value>프로그램 설정</value>
   </data>
+  <data name="ERROR-1" xml:space="preserve">
+    <value>저장 중 오류가 발생하였습니다.</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>정보</value>
   </data>
