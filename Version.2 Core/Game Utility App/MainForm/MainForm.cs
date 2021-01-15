@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameUtilityApp.Essential;
 using GameUtilityApp.Essential.Language;
-using GameUtilityApp.Essential.DB_Control;
 using GameUtilityApp.Essential.Reset;
+using GameUtilityApp.Essential.Class;
 
 namespace Game_Utility_App.MainForm
 {
@@ -24,15 +24,15 @@ namespace Game_Utility_App.MainForm
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            languageSetting();
+            LanguageSetting();
 
-            regLoad();
-            Main_Setting_DB mainDB= new Main_Setting_DB();
-            mainDB.FileCheck();
+            RegLoad();
+            BasicCheck bc = new BasicCheck();
+            bc.EssentialCheck();
 
         }
 
-        private void languageSetting()
+        private void LanguageSetting()
         {
             //메뉴
             SettingToolStripMenuItem.Text = StringLib.Setting;
@@ -43,7 +43,7 @@ namespace Game_Utility_App.MainForm
             saveButton.Text = StringLib.save;
         }
 
-        private void regLoad()
+        private void RegLoad()
         {
             try
             {
