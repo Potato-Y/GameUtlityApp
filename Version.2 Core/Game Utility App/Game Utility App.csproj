@@ -99,6 +99,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Essential\Class\BasicCheck.cs" />
     <Compile Include="Essential\Class\KeyBoardRegistry.cs" />
     <Compile Include="Essential\DB Control\Main Setting DB.cs" />
     <Compile Include="Essential\Notic\keyboardspeed Notice.cs">
