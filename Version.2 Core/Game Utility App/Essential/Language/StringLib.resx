@@ -120,6 +120,9 @@
   <data name="App Setting" xml:space="preserve">
     <value>App Setting</value>
   </data>
+  <data name="ERROR-1" xml:space="preserve">
+    <value>An error occurred while saving.</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Information</value>
   </data>
