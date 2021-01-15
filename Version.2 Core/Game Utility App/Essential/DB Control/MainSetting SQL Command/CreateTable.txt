@@ -1,7 +1,12 @@
 ﻿CREATE TABLE MainSetting (
 	`DB Version` INT NOT NULL,
-	`App Version` INT NOT NULL,
+	`App Version Marjor` INT NOT NULL,
+	`App Version Minor` INT NOT NULL,
+	`App Version Patch` INT NOT NULL,
 	`win10` INT NOT NULL,
 	`dwmKiller Start` INT NOT NULL,
-	`Terms of user` INT NOT NULL
-)
+	`Terms of user Ver` INT NOT NULL,
+	`Terms of user Check` INT NOT NULL
+);
+
+INSERT INTO MainSetting VALUES (1, 2, 0, 0, 0, 0, 1, 0);
