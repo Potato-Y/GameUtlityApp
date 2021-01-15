@@ -67,7 +67,7 @@ namespace GameUtilityApp.Essential.DB_Control
                     SQLiteDataReader rdr = cmd.ExecuteReader();
 
                     rdr.Read();
-                    MessageBox.Show(rdr["DB Version"].ToString());
+                    //MessageBox.Show(rdr["DB Version"].ToString());
                     
 
                     rdr.Close();
