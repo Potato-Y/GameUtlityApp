@@ -117,39 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="App Setting" xml:space="preserve">
-    <value>프로그램 설정</value>
-  </data>
-  <data name="Error" xml:space="preserve">
-    <value>오류</value>
-  </data>
-  <data name="ERROR_1" xml:space="preserve">
-    <value>저장 중 오류가 발생하였습니다.</value>
-  </data>
-  <data name="ERROR_2" xml:space="preserve">
-    <value>글꼴이 확인되지 않습니다. 설치하시겠습니까?
-글꼴을 설치하지 않으면 프로그램이 종료됩니다.</value>
-  </data>
-  <data name="Information" xml:space="preserve">
-    <value>정보</value>
-  </data>
-  <data name="keyboardspeed notic" xml:space="preserve">
-    <value>Windwos 10의 경우에는 제어판에서 최대 31까지만 지원합니다.
-그럼에도 설정하실 수 있지만 적용을 보장할 수 없습니다.</value>
-  </data>
-  <data name="Message_1" xml:space="preserve">
-    <value>잠시 후 폰트가 설치되고 프로그램이 시작됩니다.</value>
-  </data>
-  <data name="notSeeAgain" xml:space="preserve">
-    <value>다시 보지 않기</value>
-  </data>
-  <data name="ok" xml:space="preserve">
-    <value>확인</value>
-  </data>
-  <data name="save" xml:space="preserve">
-    <value>저장</value>
-  </data>
-  <data name="Setting" xml:space="preserve">
-    <value>설정</value>
-  </data>
 </root>

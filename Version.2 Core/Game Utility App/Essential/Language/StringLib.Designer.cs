@@ -70,11 +70,30 @@ namespace GameUtilityApp.Essential.Language {
         }
         
         /// <summary>
+        ///   Error과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ERROR {
+            get {
+                return ResourceManager.GetString("ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   An error occurred while saving.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string ERROR_1 {
             get {
-                return ResourceManager.GetString("ERROR-1", resourceCulture);
+                return ResourceManager.GetString("ERROR_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   There is no font. Do you want to install it? 
+        ///If not installed, the program will be terminated.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ERROR_2 {
+            get {
+                return ResourceManager.GetString("ERROR_2", resourceCulture);
             }
         }
         
@@ -94,6 +113,15 @@ namespace GameUtilityApp.Essential.Language {
         internal static string keyboardspeed_notic {
             get {
                 return ResourceManager.GetString("keyboardspeed notic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   After a while, the font is installed and the program starts.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_1 {
+            get {
+                return ResourceManager.GetString("Message_1", resourceCulture);
             }
         }
         

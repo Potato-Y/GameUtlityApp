@@ -13,8 +13,9 @@ namespace GameUtilityApp.Essential.DB_Control
 {
     class Main_Setting_DB
     {
-        string strConn = @"Data Source=" + Application.StartupPath + @"\MainSettings.db";
-        string strFile = Application.StartupPath + @"\MainSettings.db";
+        static string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\AppData\Local\Game Utility App";
+        static string strFile = path + @"\MainSettings.db";
+        static string strConn = @"Data Source=" + strFile;
         public void FileCheck() { 
             //파일 존재 유무 확인
             FileInfo file = new FileInfo(strFile);
@@ -31,6 +32,12 @@ namespace GameUtilityApp.Essential.DB_Control
         {
             try
             {
+                DirectoryInfo Documents_App_Directory = new DirectoryInfo(path);
+                if (Documents_App_Directory.Exists == false)
+                {
+                    Documents_App_Directory.Create();
+                }
+
                 SQLiteConnection.CreateFile(strFile); //DB 파일 생성
 
                 using (SQLiteConnection conn = new SQLiteConnection(strConn))
@@ -47,9 +54,9 @@ namespace GameUtilityApp.Essential.DB_Control
                     conn.Close();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                MessageBox.Show(StringLib.ERROR_1); //저장 중 오류가 발생하였습니다.
+                MessageBox.Show(StringLib.ERROR_1+e); //저장 중 오류가 발생하였습니다.
             }
 
         }

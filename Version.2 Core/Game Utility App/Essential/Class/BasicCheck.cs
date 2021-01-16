@@ -5,11 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameUtilityApp.Essential.DB_Control;
+using GameUtilityApp.Essential.Language;
+using GameUtilityApp.Essential.Forms;
 using System.Drawing.Text;
 using System.Drawing;
 using System.Reflection;
 using System.Security.Principal;
 using System.Diagnostics;
+using System.Threading;
+using System.IO;
+using System.Net.Http;
+using System.Net;
 
 namespace GameUtilityApp.Essential.Class
 {
@@ -32,7 +38,21 @@ namespace GameUtilityApp.Essential.Class
         {
             if (IsFontInstalled("나눔고딕") == false) //폰트가 있는지 없는지 확인
             {
-                GetAdministrator();
+                if(IsRunningAsAdministrator() == false)
+                {
+                    if ((MessageBox.Show(StringLib.ERROR_2, StringLib.ERROR, MessageBoxButtons.YesNo) == DialogResult.Yes)) //폰트를 설치한다면 관리자 권한을 요청하며 재실행한다.
+                    {
+                        GetAdministrator();
+                        FontSetup fm = new Forms.FontSetup();
+                        fm.ShowDialog();
+                    }
+                    else //거부시 프로그램이 종료된다.
+                    {
+                        Application.Exit();
+                    }
+                }
+
+
             }
         }
 
@@ -40,16 +60,22 @@ namespace GameUtilityApp.Essential.Class
         {
             if (!IsRunningAsAdministrator())
             {
-                ProcessStartInfo processStartInfo = new ProcessStartInfo(Assembly.GetEntryAssembly().CodeBase);
+                try
                 {
-                    var withBlock = processStartInfo;
-                    withBlock.UseShellExecute = true;
-                    withBlock.Verb = "runas";
-                    Process.Start(processStartInfo);
-                    Application.Exit();
+                    ProcessStartInfo procInfo = new ProcessStartInfo();
+                    procInfo.UseShellExecute = true;
+                    procInfo.FileName = Application.ExecutablePath;
+                    procInfo.WorkingDirectory = Environment.CurrentDirectory;
+                    procInfo.Verb = "runas";
+                    Process.Start(procInfo);
                 }
-
-
+                catch (Exception ex)
+                {
+                    // 사용자가 프로그램을 관리자 권한으로 실행하기를 원하지 않을 경우에 대한 처리
+                    MessageBox.Show(ex.Message);
+                    Application.Exit();
+                    return;
+                }
             }
         }
 

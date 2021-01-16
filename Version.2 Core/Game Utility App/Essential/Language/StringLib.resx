@@ -120,8 +120,15 @@
   <data name="App Setting" xml:space="preserve">
     <value>App Setting</value>
   </data>
-  <data name="ERROR-1" xml:space="preserve">
+  <data name="ERROR" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ERROR_1" xml:space="preserve">
     <value>An error occurred while saving.</value>
+  </data>
+  <data name="ERROR_2" xml:space="preserve">
+    <value>There is no font. Do you want to install it? 
+If not installed, the program will be terminated.</value>
   </data>
   <data name="Information" xml:space="preserve">
     <value>Information</value>
@@ -129,6 +136,9 @@
   <data name="keyboardspeed notic" xml:space="preserve">
     <value>For Windows 10, only up to 31 are supported in the control panel.
 You can still set it up, but we cannot guarantee its application.</value>
+  </data>
+  <data name="Message_1" xml:space="preserve">
+    <value>After a while, the font is installed and the program starts.</value>
   </data>
   <data name="notSeeAgain" xml:space="preserve">
     <value>Not seeing again</value>
