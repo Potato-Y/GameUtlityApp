@@ -1,0 +1,10 @@
+D:\Files\개발\FontSetup\FontSetup\FontSetup\obj\Debug\FontSetup.csprojAssemblyReference.cache
+D:\Files\개발\FontSetup\FontSetup\FontSetup\obj\Debug\FontSetup.Form1.resources
+D:\Files\개발\FontSetup\FontSetup\FontSetup\obj\Debug\FontSetup.Properties.Resources.resources
+D:\Files\개발\FontSetup\FontSetup\FontSetup\obj\Debug\FontSetup.csproj.GenerateResource.cache
+D:\Files\개발\FontSetup\FontSetup\FontSetup\obj\Debug\FontSetup.csproj.CoreCompileInputs.cache
+D:\Files\개발\FontSetup\FontSetup\FontSetup\bin\Debug\FontSetup.exe.config
+D:\Files\개발\FontSetup\FontSetup\FontSetup\bin\Debug\FontSetup.exe
+D:\Files\개발\FontSetup\FontSetup\FontSetup\bin\Debug\FontSetup.pdb
+D:\Files\개발\FontSetup\FontSetup\FontSetup\obj\Debug\FontSetup.exe
+D:\Files\개발\FontSetup\FontSetup\FontSetup\obj\Debug\FontSetup.pdb
