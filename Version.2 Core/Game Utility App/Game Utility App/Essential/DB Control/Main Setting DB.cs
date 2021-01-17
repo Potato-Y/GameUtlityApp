@@ -24,7 +24,7 @@ namespace GameUtilityApp.Essential.DB_Control
                 CreateFile(); //파일을 새로 만들기 시작
             }
 
-            //만약 파일이 있으면 업데이트 확인 후 필요시 패치
+            //업데이트 확인 후 필요시 패치
             UpdateCheck();
         }
 
@@ -32,10 +32,10 @@ namespace GameUtilityApp.Essential.DB_Control
         {
             try
             {
-                DirectoryInfo Documents_App_Directory = new DirectoryInfo(path);
-                if (Documents_App_Directory.Exists == false)
+                DirectoryInfo Documents_App_Directory = new DirectoryInfo(path); //디렉토리에 폴더가 존재하는지 확인
+                if (Documents_App_Directory.Exists == false) //폴더가 없으면
                 {
-                    Documents_App_Directory.Create();
+                    Documents_App_Directory.Create(); //폴더 생성
                 }
 
                 SQLiteConnection.CreateFile(strFile); //DB 파일 생성
@@ -56,7 +56,7 @@ namespace GameUtilityApp.Essential.DB_Control
             }
             catch (Exception e)
             {
-                MessageBox.Show(StringLib.ERROR_1+e); //저장 중 오류가 발생하였습니다.
+                MessageBox.Show(StringLib.ERROR_1 + "\n" + e); //저장 중 오류가 발생하였습니다.
             }
 
         }

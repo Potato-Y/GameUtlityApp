@@ -117,7 +117,7 @@ namespace GameUtilityApp.Essential.Language {
         }
         
         /// <summary>
-        ///   After a while, the font is installed and the program starts.과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Soon, font installation begins. Complete the font installation in a new window and try again.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Message_1 {
             get {

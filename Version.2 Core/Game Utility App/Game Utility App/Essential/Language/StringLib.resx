@@ -138,7 +138,7 @@ If not installed, the program will be terminated.</value>
 You can still set it up, but we cannot guarantee its application.</value>
   </data>
   <data name="Message_1" xml:space="preserve">
-    <value>After a while, the font is installed and the program starts.</value>
+    <value>Soon, font installation begins. Complete the font installation in a new window and try again.</value>
   </data>
   <data name="notSeeAgain" xml:space="preserve">
     <value>Not seeing again</value>

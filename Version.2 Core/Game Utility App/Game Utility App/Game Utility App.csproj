@@ -102,12 +102,6 @@
     <Compile Include="Essential\Class\BasicCheck.cs" />
     <Compile Include="Essential\Class\KeyBoardRegistry.cs" />
     <Compile Include="Essential\DB Control\Main Setting DB.cs" />
-    <Compile Include="Essential\Forms\FontSetup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Essential\Forms\FontSetup.Designer.cs">
-      <DependentUpon>FontSetup.cs</DependentUpon>
-    </Compile>
     <Compile Include="Essential\Notic\keyboardspeed Notice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,10 +113,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StringLib.resx</DependentUpon>
     </Compile>
-    <Compile Include="Essential\Reset\AppReset.cs">
+    <Compile Include="Essential\Forms\Reset\AppReset.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Essential\Reset\AppReset.Designer.cs">
+    <Compile Include="Essential\Forms\Reset\AppReset.Designer.cs">
       <DependentUpon>AppReset.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm\MainForm.cs">
@@ -133,9 +127,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Essential\Forms\FontSetup.resx">
-      <DependentUpon>FontSetup.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Essential\Notic\keyboardspeed Notice.resx">
       <DependentUpon>keyboardspeed Notice.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,7 +135,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>StringLib.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Essential\Reset\AppReset.resx">
+    <EmbeddedResource Include="Essential\Forms\Reset\AppReset.resx">
       <DependentUpon>AppReset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm\MainForm.resx">

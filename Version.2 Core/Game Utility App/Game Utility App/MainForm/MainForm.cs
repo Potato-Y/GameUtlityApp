@@ -28,8 +28,10 @@ namespace Game_Utility_App.MainForm
 
             RegLoad();
             BasicCheck bc = new BasicCheck();
-            bc.EssentialCheck();
-
+            if (bc.EssentialCheck()==false)
+            {
+                Application.Exit();
+            }
         }
 
         private void LanguageSetting()
