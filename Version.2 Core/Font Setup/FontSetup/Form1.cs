@@ -34,6 +34,9 @@ namespace FontSetup
             string message = "설치가 완료되었습니다. 폰트 오픈소스 라이센스를 확인하시겠습니까?\nInstallation is complete. Would you like to check the font open source license?";
             if (MessageBox.Show(message, "Complete",MessageBoxButtons.YesNo)==DialogResult.Yes)
             {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
                 var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
                 var response = client.GetAsync("https://raw.githubusercontent.com/Potato-Y/Game-Utility-App/master/Open%20source%20used/Font%20License.md").Result; //웹으로부터 다운로드 
                 var html = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다. 
@@ -57,6 +60,9 @@ namespace FontSetup
             {
                 using (WebClient fileDownloader = new WebClient())
                 {
+                    ServicePointManager.Expect100Continue = true;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
                     string tmpSetupPath = Path.Combine(path, "NanumGothic.ttf");
                     fileDownloader.DownloadProgressChanged += fileDownloader_DownloadProgressChanged; // 다운로드 진행 상황 표시하기 위해
                     fileDownloader.DownloadFileCompleted += fileDownloader_DownloadFileCompleted;        // 다운로드가 완료되면 실행
