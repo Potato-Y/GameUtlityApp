@@ -12,11 +12,14 @@ using GameUtilityApp.Essential;
 using GameUtilityApp.Essential.Language;
 using GameUtilityApp.Essential.Reset;
 using GameUtilityApp.Essential.Class;
+using System.Data.SQLite;
 
 namespace Game_Utility_App.MainForm
 {
     public partial class MainForm : Form
     {
+        int win10MessageCount = 0;  //win10 알림 메시지 카운터
+
         public MainForm()
         {
             InitializeComponent();
@@ -32,6 +35,8 @@ namespace Game_Utility_App.MainForm
             {
                 Application.Exit();
             }
+
+            LoadSetting();
         }
 
         private void LanguageSetting() //지역화된 문자열 적용
@@ -43,6 +48,39 @@ namespace Game_Utility_App.MainForm
 
             //버튼
             saveButton.Text = StringLib.save;
+        }
+
+        private void LoadSetting()
+        {
+            string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\AppData\Local\Game Utility App";
+            string strFile = path + @"\MainSettings.db";
+            string strConn = @"Data Source=" + strFile;
+
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(strConn))
+                {
+                    conn.Open(); //DB 연결
+
+                    string sqlCommand = "SELECT * FROM MainSetting";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                    {
+                        using(SQLiteDataReader rdr = cmd.ExecuteReader())
+                        {
+                            rdr.Read();
+                            win10MessageCount = Convert.ToInt32(rdr["Win10 RegMessage"].ToString()); 
+                        }
+                    }
+                    //MessageBox.Show(win10MessageCount+""); //값 확인용
+                    conn.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("설정값을 불러오는 중 문제가 발생하였습니다.\n"+e);
+                Application.Exit();
+            }
+            
         }
 
         private void RegLoad()
@@ -219,7 +257,6 @@ namespace Game_Utility_App.MainForm
             label13.ForeColor = Color.Black;
         }
 
-        int win10MessageCount = 0;
         private void textBox3_KeyUp(object sender, KeyEventArgs e)
         {
             //windows 10에서 31이 넘으면 알림창을 표시하는 부분

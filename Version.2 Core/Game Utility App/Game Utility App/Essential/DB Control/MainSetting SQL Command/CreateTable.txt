@@ -3,7 +3,7 @@
 	`App Version Marjor` INT NOT NULL,
 	`App Version Minor` INT NOT NULL,
 	`App Version Patch` INT NOT NULL,
-	`win10` INT NOT NULL,
+	`Win10 RegMessage` INT NOT NULL,
 	`dwmKiller Start` INT NOT NULL,
 	`Terms of user Ver` INT NOT NULL,
 	`Terms of user Check` INT NOT NULL

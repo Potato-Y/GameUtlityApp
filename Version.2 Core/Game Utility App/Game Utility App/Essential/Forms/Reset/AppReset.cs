@@ -35,6 +35,17 @@ namespace GameUtilityApp.Essential.Reset
 
             textBox_Update("dwmKiller 프로그램이 실행중인지 확인합니다.\r\n실행중일 경우 종료합니다.");
             Process[] processList = Process.GetProcessesByName("dwmKiller");
+            try
+            {
+                if (processList.Length > 0)
+                {
+                    processList[0].Kill();
+                }
+
+            }
+            catch (Exception)
+            {
+            }
 
             Thread.Sleep(50);
             textBox_Update("\r\n설정 값을 삭제 합니다.");

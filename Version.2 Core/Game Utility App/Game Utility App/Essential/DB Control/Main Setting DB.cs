@@ -52,9 +52,12 @@ namespace GameUtilityApp.Essential.DB_Control
                     
                     string sqlCommand = reader.ReadToEnd();
 
-                    SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn);
-                    cmd.ExecuteNonQuery();
+                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
                     conn.Close();
+                    reader.Close();
                 }
             }
             catch (Exception e)
@@ -75,13 +78,12 @@ namespace GameUtilityApp.Essential.DB_Control
                     conn.Open(); //DB 연결
 
                     SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn);
-                    SQLiteDataReader rdr = cmd.ExecuteReader();
-
-                    rdr.Read();
-                    //MessageBox.Show(rdr["DB Version"].ToString());
-                    
-
-                    rdr.Close();
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                    {
+                        rdr.Read();
+                        //MessageBox.Show(rdr["DB Version"].ToString());
+                        rdr.Close();
+                    }
                     conn.Close();
                 }
 
