@@ -8,34 +8,26 @@ using GameUtilityApp.Essential.DB_Control;
 using GameUtilityApp.Essential.Language;
 using System.Drawing.Text;
 using System.Drawing;
-using System.Reflection;
-using System.Security.Principal;
-using System.Diagnostics;
-using System.Threading;
-using System.IO;
-using System.Net.Http;
-using System.Net;
 
 namespace GameUtilityApp.Essential.Class
 {
     class BasicCheck
     {
 
-        public bool EssentialCheck()
+        public bool EssentialCheck()  //필수 확인 요소
         {
-            DB_Check();
-            if (!FontCheck())
-            {
-                return false;
-            }
+            if (!DB_Check()) return false;
+            if (!FontCheck()) return false;
 
-            return true;
+            return true;  //정상 작업 완료
         }
 
-        public void DB_Check()
+        public bool DB_Check()
         {
             Main_Setting_DB mainDB = new Main_Setting_DB();
-            mainDB.FileCheck();
+            if (!mainDB.FileCheck()) return false;
+
+            return true; //작업 정상 완료
         }
 
         public bool FontCheck()

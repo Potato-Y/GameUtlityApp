@@ -16,19 +16,22 @@ namespace GameUtilityApp.Essential.DB_Control
         static string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\AppData\Local\Game Utility App";
         static string strFile = path + @"\MainSettings.db";
         static string strConn = @"Data Source=" + strFile;
-        public void FileCheck() { 
+
+        public bool FileCheck() { //비정상 작동이 있을 경우 false 반환
             //파일 존재 유무 확인
             FileInfo file = new FileInfo(strFile);
             if (!file.Exists) //파일이 없으면 새로운 파일 등록
             {
-                CreateFile(); //파일을 새로 만들기 시작
+                if (!CreateFile()) return false;   //파일을 새로 만들기 시작              
             }
 
             //업데이트 확인 후 필요시 패치
-            UpdateCheck();
+            if (!UpdateCheck()) return false;
+
+            return true; //모두 정상 작동
         }
 
-        private void CreateFile()
+        private bool CreateFile()
         {
             try
             {
@@ -57,11 +60,12 @@ namespace GameUtilityApp.Essential.DB_Control
             catch (Exception e)
             {
                 MessageBox.Show(StringLib.ERROR_1 + "\n" + e); //저장 중 오류가 발생하였습니다.
+                return false;
             }
-
+            return true;
         }
 
-        private void UpdateCheck()
+        private bool UpdateCheck()
         {
             try
             {
@@ -84,7 +88,10 @@ namespace GameUtilityApp.Essential.DB_Control
             }catch (Exception e)
             {
                 MessageBox.Show(e+"");
+                return false;
             }
+
+            return true; //정상 작업 완료
             
         }
     }

@@ -24,7 +24,7 @@ namespace Game_Utility_App.MainForm
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            LanguageSetting();
+            LanguageSetting(); //지역화된 문자열 적용
 
             RegLoad();
             BasicCheck bc = new BasicCheck();
@@ -34,7 +34,7 @@ namespace Game_Utility_App.MainForm
             }
         }
 
-        private void LanguageSetting()
+        private void LanguageSetting() //지역화된 문자열 적용
         {
             //메뉴
             SettingToolStripMenuItem.Text = StringLib.Setting;
