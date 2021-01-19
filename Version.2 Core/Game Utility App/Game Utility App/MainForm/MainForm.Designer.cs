@@ -61,7 +61,7 @@ namespace Game_Utility_App.MainForm
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ico_pictureBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.SettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.appSettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +71,7 @@ namespace Game_Utility_App.MainForm
             this.groupBox1.SuspendLayout();
             this.registrygroupBox_1.SuspendLayout();
             this.registrygroupBox_2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ico_pictureBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,7 +87,7 @@ namespace Game_Utility_App.MainForm
             this.registrygroupBox.Size = new System.Drawing.Size(301, 476);
             this.registrygroupBox.TabIndex = 0;
             this.registrygroupBox.TabStop = false;
-            this.registrygroupBox.Text = "RegistrygroupBox";
+            this.registrygroupBox.Text = "Registry";
             // 
             // saveButton
             // 
@@ -431,17 +431,18 @@ namespace Game_Utility_App.MainForm
             this.label4.TabIndex = 4;
             this.label4.Text = "AutoRepeatDelay";
             // 
-            // pictureBox1
+            // ico_pictureBox
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.ImageLocation = "";
-            this.pictureBox1.Location = new System.Drawing.Point(183, 142);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.ico_pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ico_pictureBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.ico_pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("ico_pictureBox.Image")));
+            this.ico_pictureBox.ImageLocation = "";
+            this.ico_pictureBox.Location = new System.Drawing.Point(183, 142);
+            this.ico_pictureBox.Name = "ico_pictureBox";
+            this.ico_pictureBox.Size = new System.Drawing.Size(100, 100);
+            this.ico_pictureBox.TabIndex = 1;
+            this.ico_pictureBox.TabStop = false;
+            this.ico_pictureBox.Click += new System.EventHandler(this.ico_pictureBox_Click);
             // 
             // menuStrip1
             // 
@@ -468,19 +469,19 @@ namespace Game_Utility_App.MainForm
             // appSettingToolStripMenuItem
             // 
             this.appSettingToolStripMenuItem.Name = "appSettingToolStripMenuItem";
-            this.appSettingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.appSettingToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.appSettingToolStripMenuItem.Text = "App Setting";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
             this.toolStripSeparator1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.toolStripSeparator1_MouseDown);
             // 
             // informationToolStripMenuItem
             // 
             this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
-            this.informationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.informationToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.informationToolStripMenuItem.Text = "Information";
             // 
             // MainForm
@@ -490,7 +491,7 @@ namespace Game_Utility_App.MainForm
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 495);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ico_pictureBox);
             this.Controls.Add(this.registrygroupBox);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -508,7 +509,7 @@ namespace Game_Utility_App.MainForm
             this.registrygroupBox_1.PerformLayout();
             this.registrygroupBox_2.ResumeLayout(false);
             this.registrygroupBox_2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ico_pictureBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -549,7 +550,7 @@ namespace Game_Utility_App.MainForm
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ico_pictureBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem SettingToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

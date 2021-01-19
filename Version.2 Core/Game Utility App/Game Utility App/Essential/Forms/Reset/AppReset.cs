@@ -49,7 +49,7 @@ namespace GameUtilityApp.Essential.Reset
 
             Thread.Sleep(50);
             textBox_Update("\r\n설정 값을 삭제 합니다.");
-            System.IO.FileInfo file_info = new System.IO.FileInfo(path+ @"\MainSettings.db");
+            System.IO.FileInfo file_info = new System.IO.FileInfo(path+ @"\MainDB.db");
             try
             {
                 file_info.Delete();

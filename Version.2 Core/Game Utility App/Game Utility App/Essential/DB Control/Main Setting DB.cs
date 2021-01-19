@@ -14,7 +14,7 @@ namespace GameUtilityApp.Essential.DB_Control
     class Main_Setting_DB
     {
         static string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\AppData\Local\Game Utility App";
-        static string strFile = path + @"\MainSettings.db";
+        static string strFile = path + @"\MainDB.db";
         static string strConn = @"Data Source=" + strFile;
 
         public bool FileCheck() { //비정상 작동이 있을 경우 false 반환
