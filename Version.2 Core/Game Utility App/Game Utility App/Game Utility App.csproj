@@ -125,12 +125,13 @@
     <Compile Include="Essential\Forms\Reset\AppReset.Designer.cs">
       <DependentUpon>AppReset.cs</DependentUpon>
     </Compile>
-    <Compile Include="Function\Registry Preset.cs">
+    <Compile Include="Function\Registry Function\Registry Preset.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Function\Registry Preset.Designer.cs">
+    <Compile Include="Function\Registry Function\Registry Preset.Designer.cs">
       <DependentUpon>Registry Preset.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function\Registry Function\Registry Read Num Check.cs" />
     <Compile Include="MainForm\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,7 +154,7 @@
     <EmbeddedResource Include="Essential\Forms\Reset\AppReset.resx">
       <DependentUpon>AppReset.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Function\Registry Preset.resx">
+    <EmbeddedResource Include="Function\Registry Function\Registry Preset.resx">
       <DependentUpon>Registry Preset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm\MainForm.resx">

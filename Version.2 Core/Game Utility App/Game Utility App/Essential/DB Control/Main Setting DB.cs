@@ -17,6 +17,16 @@ namespace GameUtilityApp.Essential.DB_Control
         static string strFile = path + @"\MainDB.db";
         static string strConn = @"Data Source=" + strFile;
 
+        public string GetstrConn()
+        {
+            return strConn;
+        }
+
+        public string GetstrFile()
+        {
+            return strFile;
+        }
+
         public bool FileCheck() { //비정상 작동이 있을 경우 false 반환
             //파일 존재 유무 확인
             FileInfo file = new FileInfo(strFile);

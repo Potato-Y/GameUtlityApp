@@ -98,6 +98,15 @@ namespace GameUtilityApp.Essential.Language {
         }
         
         /// <summary>
+        ///   An error occurred while saving the registry.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string ERROR_3 {
+            get {
+                return ResourceManager.GetString("ERROR_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Information과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Information {

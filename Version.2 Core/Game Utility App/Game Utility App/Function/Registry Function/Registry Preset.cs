@@ -1,87 +1,62 @@
-﻿using System;
+﻿using GameUtilityApp.Essential.DB_Control;
+using GameUtilityApp.Function.Registry_Funtion;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GameUtilityApp.Essential;
-using GameUtilityApp.Essential.Language;
-using GameUtilityApp.Essential.Reset;
-using GameUtilityApp.Essential.Class;
-using System.Data.SQLite;
-using GameUtilityApp.Essential.Forms;
 
-namespace Game_Utility_App.MainForm
+namespace GameUtilityApp.Function
 {
-    public partial class MainForm : Form
+    public partial class Registry_Preset : Form
     {
-        int win10MessageCount = 0;  //win10 알림 메시지 카운터
-
-        public MainForm()
+        public Registry_Preset()
         {
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void Registry_Preset_Load(object sender, EventArgs e)
         {
-            LanguageSetting(); //지역화된 문자열 적용
-
             RegLoad();
-            BasicCheck bc = new BasicCheck();
-            if (bc.EssentialCheck()==false)
-            {
-                Application.Exit();
-            }
-            LoadSetting();
-
+            ComboBoxLoad();
+            this.ActiveControl = presetChoiceComboBox;
         }
 
-        private void LanguageSetting() //지역화된 문자열 적용
+        private void ComboBoxLoad()
         {
-            //메뉴
-            SettingToolStripMenuItem.Text = StringLib.Setting;
-            appSettingToolStripMenuItem.Text = StringLib.App_Setting;
-            informationToolStripMenuItem.Text = StringLib.Information;
-
-            //버튼
-            saveButton.Text = StringLib.save;
-        }
-
-        private void LoadSetting()
-        {
-            string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\AppData\Local\Game Utility App";
-            string strFile = path + @"\MainDB.db";
-            string strConn = @"Data Source=" + strFile;
-
             try
             {
+                Main_Setting_DB msd = new Main_Setting_DB();
+                string strConn = msd.GetstrConn();  //strConn 주소 받아오기
+
+                string sqlCommand = "SELECT * FROM `Registry Default Preset`";
                 using (SQLiteConnection conn = new SQLiteConnection(strConn))
                 {
                     conn.Open(); //DB 연결
 
-                    string sqlCommand = "SELECT * FROM MainSetting";
-                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                    SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn);
+                    using (SQLiteDataReader rdr = cmd.ExecuteReader())
                     {
-                        using(SQLiteDataReader rdr = cmd.ExecuteReader())
+                        while (rdr.Read()) //모든 항목들을 받아오기 위해 반복
                         {
-                            rdr.Read();
-                            win10MessageCount = Convert.ToInt32(rdr["Win10 RegMessage"].ToString()); 
+                            presetChoiceComboBox.Items.Add(rdr["Name"].ToString()); //받아온 레지스트리의 이름 저장하기
                         }
+                        rdr.Close();
                     }
-                    //MessageBox.Show(win10MessageCount+""); //값 확인용
                     conn.Close();
                 }
+
             }
             catch (Exception e)
             {
-                MessageBox.Show("설정값을 불러오는 중 문제가 발생하였습니다.\n"+e);
-                Application.Exit();
+                MessageBox.Show(e + "");
             }
-            
         }
 
         private void RegLoad()
@@ -91,7 +66,7 @@ namespace Game_Utility_App.MainForm
                 RegistryKey reg;
                 reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("KeyBoard");
                 textBox1.Text = Convert.ToString(reg.GetValue("InitialKeyboardIndicators", ""));
-                textBox2.Text = Convert.ToString(reg.GetValue("KeyboardDelay", "")); 
+                textBox2.Text = Convert.ToString(reg.GetValue("KeyboardDelay", ""));
                 textBox3.Text = Convert.ToString(reg.GetValue("KeyboardSpeed", ""));
                 reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("Keyboard Response");
                 textBox4.Text = Convert.ToString(reg.GetValue("AutoRepeatDelay", ""));
@@ -106,7 +81,8 @@ namespace Game_Utility_App.MainForm
                 reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("ToggleKeys");
                 textBox9.Text = Convert.ToString(reg.GetValue("Flags", ""));
                 reg.Close();
-            }catch(Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show("레지스트리를 불러오는데 오류가 발생하였습니다.");
             }
@@ -182,7 +158,7 @@ namespace Game_Utility_App.MainForm
             {
                 label1.ForeColor = Color.Blue;
             }
-            else if(sender == textBox2)
+            else if (sender == textBox2)
             {
                 label2.ForeColor = Color.Blue;
             }
@@ -241,30 +217,6 @@ namespace Game_Utility_App.MainForm
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            KeyBoardRegistry kr = new KeyBoardRegistry();
-            Int64 v1 = Convert.ToInt64(textBox1.Text);
-            Int64 v2 = Convert.ToInt64(textBox2.Text);
-            Int64 v3 = Convert.ToInt64(textBox3.Text);
-            Int64 v4 = Convert.ToInt64(textBox4.Text);
-            Int64 v5 = Convert.ToInt64(textBox5.Text);
-            Int64 v6 = Convert.ToInt64(textBox6.Text);
-            Int64 v7 = Convert.ToInt64(textBox7.Text);
-            Int64 v8 = Convert.ToInt64(textBox8.Text);
-            Int64 v9 = Convert.ToInt64(textBox9.Text);
-            Int64 v10 = Convert.ToInt64(textBox10.Text);
-            Int64 v11 = Convert.ToInt64(textBox11.Text);
-            Int64 v12 = Convert.ToInt64(textBox12.Text);
-            Int64 v13 = Convert.ToInt64(textBox13.Text);
-
-            try
-            {
-                kr.Keyboard_Registry_All_Apply(v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13);
-            }catch(Exception)
-            {
-                MessageBox.Show(StringLib.ERROR_3, StringLib.ERROR);
-            }
-            
-
             label1.ForeColor = Color.Black;
             label2.ForeColor = Color.Black;
             label3.ForeColor = Color.Black;
@@ -278,61 +230,53 @@ namespace Game_Utility_App.MainForm
             label11.ForeColor = Color.Black;
             label12.ForeColor = Color.Black;
             label13.ForeColor = Color.Black;
-            
         }
 
-        private void textBox3_KeyUp(object sender, KeyEventArgs e)
+        private void presetChoiceComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //windows 10에서 31이 넘으면 알림창을 표시하는 부분
-
-            OperatingSystem os = Environment.OSVersion;
-            Version vs = os.Version;
-
-            if (win10MessageCount == 0)
+            ComboBox cb = (ComboBox)sender;
+            if(cb.SelectedIndex>-1)
             {
-                if (vs.Major == 10)
+                try
                 {
-                    try
+                    Main_Setting_DB msd = new Main_Setting_DB();
+                    string strConn = msd.GetstrConn();  //strConn 주소 받아오기
+
+                    string sqlCommand = "SELECT * FROM `Registry Default Preset` WHERE Name=\"" + presetChoiceComboBox.Text + "\"";
+                    using (SQLiteConnection conn = new SQLiteConnection(strConn))
                     {
-                        if (win10MessageCount == 0)
+                        conn.Open(); //DB 연결
+
+                        SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn);
+                        using (SQLiteDataReader rdr = cmd.ExecuteReader())
                         {
-                            keyboardspeed_Notice newForm = new keyboardspeed_Notice();
-                            newForm.ShowDialog();
-                            win10MessageCount++;
-                            newForm = null;
+                            rdr.Read();
+                            Registry_Read_Num_Check rrnc = new Registry_Read_Num_Check();
+                            textBox1.Text = rrnc.NumChackAndChange(rdr["1_InitialKeyboardIndicators"].ToString());
+                            textBox2.Text = rrnc.NumChackAndChange(rdr["1_KeyboardDelay"].ToString());
+                            textBox3.Text = rrnc.NumChackAndChange(rdr["1_KeyboardSpeed"].ToString());
+                            textBox4.Text = rrnc.NumChackAndChange(rdr["2_AutoRepeatDelay"].ToString());
+                            textBox5.Text = rrnc.NumChackAndChange(rdr["2_AutoRepeatRate"].ToString());
+                            textBox6.Text = rrnc.NumChackAndChange(rdr["2_BounceTime"].ToString());
+                            textBox7.Text = rrnc.NumChackAndChange(rdr["2_DelayBeforeAcceptance"].ToString());
+                            textBox8.Text = rrnc.NumChackAndChange(rdr["2_Flags"].ToString());
+                            textBox9.Text = rrnc.NumChackAndChange(rdr["2_Last BounceKey Setting"].ToString());
+                            textBox10.Text = rrnc.NumChackAndChange(rdr["2_Last Valid Delay"].ToString());
+                            textBox11.Text = rrnc.NumChackAndChange(rdr["2_Last Valid Repeat"].ToString());
+                            textBox12.Text = rrnc.NumChackAndChange(rdr["2_Last Valid Wait"].ToString());
+                            textBox13.Text = rrnc.NumChackAndChange(rdr["3_Flags"].ToString());
+                            rdr.Close();
                         }
-                    }
-                    catch (FormatException)
-                    {
-                        win10MessageCount = 0;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("레지스트리 알림 기능에 오류가 발생하였습니다." + ex, "오류");
+                        conn.Close();
                     }
 
                 }
-            }
-        }
-
-
-        private void toolStripSeparator1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                if (MessageBox.Show("Do you want App reset?", "?", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                catch (Exception ex)
                 {
-                    AppReset nf = new AppReset();
-                    nf.ShowDialog();
+                    MessageBox.Show(ex + "");
                 }
             }
-        
         }
 
-        private void ico_pictureBox_Click(object sender, EventArgs e)
-        {
-            MenuForms nf = new MenuForms();
-            nf.ShowDialog();
-        }
     }
 }

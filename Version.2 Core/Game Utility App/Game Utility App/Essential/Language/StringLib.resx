@@ -130,6 +130,9 @@
     <value>There is no font. Do you want to install it? 
 If not installed, the program will be terminated.</value>
   </data>
+  <data name="ERROR_3" xml:space="preserve">
+    <value>An error occurred while saving the registry.</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Information</value>
   </data>

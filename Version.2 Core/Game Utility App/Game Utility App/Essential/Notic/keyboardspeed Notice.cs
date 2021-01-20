@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameUtilityApp.Essential.DB_Control;
 using GameUtilityApp.Essential.Language;
 
 namespace GameUtilityApp.Essential
@@ -30,9 +31,8 @@ namespace GameUtilityApp.Essential
         {
             if (checkBox1.Checked)
             {
-                string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\AppData\Local\Game Utility App";
-                string strFile = path + @"\MainSettings.db";
-                string strConn = @"Data Source=" + strFile;
+                Main_Setting_DB msd = new Main_Setting_DB();
+                string strConn = msd.GetstrConn();
 
                 try
                 {

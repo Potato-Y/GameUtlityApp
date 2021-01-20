@@ -130,6 +130,9 @@
     <value>글꼴이 확인되지 않습니다. 설치하시겠습니까?
 글꼴을 설치하지 않으면 프로그램이 종료됩니다.</value>
   </data>
+  <data name="ERROR_3" xml:space="preserve">
+    <value>레지스트리를 저장하는 중 오류가 발생하였습니다.</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>정보</value>
   </data>

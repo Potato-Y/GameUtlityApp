@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Threading;
+using GameUtilityApp.Essential.DB_Control;
 
 namespace GameUtilityApp.Essential.Reset
 {
@@ -49,7 +50,10 @@ namespace GameUtilityApp.Essential.Reset
 
             Thread.Sleep(50);
             textBox_Update("\r\n설정 값을 삭제 합니다.");
-            System.IO.FileInfo file_info = new System.IO.FileInfo(path+ @"\MainDB.db");
+            Main_Setting_DB msd = new Main_Setting_DB();
+            string dbpath = msd.GetstrFile();
+
+            System.IO.FileInfo file_info = new System.IO.FileInfo(dbpath);
             try
             {
                 file_info.Delete();

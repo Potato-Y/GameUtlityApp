@@ -30,6 +30,24 @@ CREATE TABLE `Registry Default Preset`(
 	`3_Flags` INT NOT NULL
 );
 
+CREATE TABLE `Past Registry` (
+	`Num` INT NOT NULL,
+	`Name` TEXT PRIMARY KEY NOT NULL,
+	`1_InitialKeyboardIndicators` INTEGER NOT NULL,
+	`1_KeyboardDelay` INT NOT NULL,
+	`1_KeyboardSpeed` INT NOT NULL,
+	`2_AutoRepeatDelay` INT NOT NULL,
+	`2_AutoRepeatRate` INT NOT NULL,
+	`2_BounceTime` INT NOT NULL,
+	`2_DelayBeforeAcceptance` INT NOT NULL,
+	`2_Flags` INT NOT NULL,
+	`2_Last BounceKey Setting` INT NOT NULL,
+	`2_Last Valid Delay` INT NOT NULL,
+	`2_Last Valid Repeat` INT NOT NULL,
+	`2_Last Valid Wait` INT NOT NULL,
+	`3_Flags` INT NOT NULL
+);
+
 INSERT INTO `Registry Default Preset` VALUES (1,"Windows10",2,1,31,1000,500,0,1000,126,62,0,0,0,1000);
 INSERT INTO `Registry Default Preset` VALUES (2,"Windows7",0,1,31,1000,500,0,1000,126,0,0,0,1000,62);
 INSERT INTO `Registry Default Preset` VALUES (3,"ㅇㅈㄷ 님",2,0,48,300,300,0,0,2,0,300,300,0,62);
