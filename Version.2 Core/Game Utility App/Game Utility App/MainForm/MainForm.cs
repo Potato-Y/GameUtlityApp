@@ -88,24 +88,35 @@ namespace Game_Utility_App.MainForm
         {
             try
             {
-                RegistryKey reg;
-                reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("KeyBoard");
-                textBox1.Text = Convert.ToString(reg.GetValue("InitialKeyboardIndicators", ""));
-                textBox2.Text = Convert.ToString(reg.GetValue("KeyboardDelay", "")); 
-                textBox3.Text = Convert.ToString(reg.GetValue("KeyboardSpeed", ""));
-                reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("Keyboard Response");
-                textBox4.Text = Convert.ToString(reg.GetValue("AutoRepeatDelay", ""));
-                textBox5.Text = Convert.ToString(reg.GetValue("AutoRepeatRate", ""));
-                textBox6.Text = Convert.ToString(reg.GetValue("BounceTime", ""));
-                textBox7.Text = Convert.ToString(reg.GetValue("DelayBeforeAcceptance", ""));
-                textBox8.Text = Convert.ToString(reg.GetValue("Flags", ""));
-                textBox10.Text = Convert.ToString(reg.GetValue("Last BounceKey Setting", ""));
-                textBox11.Text = Convert.ToString(reg.GetValue("Last Valid Delay", ""));
-                textBox12.Text = Convert.ToString(reg.GetValue("Last Valid Repeat", ""));
-                textBox13.Text = Convert.ToString(reg.GetValue("Last Valid Wait", ""));
-                reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("ToggleKeys");
-                textBox9.Text = Convert.ToString(reg.GetValue("Flags", ""));
-                reg.Close();
+                using (RegistryKey reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("KeyBoard"))
+                {
+                    textBox1.Text = Convert.ToString(reg.GetValue("InitialKeyboardIndicators", ""));
+                    textBox2.Text = Convert.ToString(reg.GetValue("KeyboardDelay", ""));
+                    textBox3.Text = Convert.ToString(reg.GetValue("KeyboardSpeed", ""));
+                    reg.Close();
+                }
+
+                using (RegistryKey reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("Keyboard Response"))
+                {
+                    textBox4.Text = Convert.ToString(reg.GetValue("AutoRepeatDelay", ""));
+                    textBox5.Text = Convert.ToString(reg.GetValue("AutoRepeatRate", ""));
+                    textBox6.Text = Convert.ToString(reg.GetValue("BounceTime", ""));
+                    textBox7.Text = Convert.ToString(reg.GetValue("DelayBeforeAcceptance", ""));
+                    textBox8.Text = Convert.ToString(reg.GetValue("Flags", ""));
+                    textBox10.Text = Convert.ToString(reg.GetValue("Last BounceKey Setting", ""));
+                    textBox11.Text = Convert.ToString(reg.GetValue("Last Valid Delay", ""));
+                    textBox12.Text = Convert.ToString(reg.GetValue("Last Valid Repeat", ""));
+                    textBox13.Text = Convert.ToString(reg.GetValue("Last Valid Wait", ""));
+                    reg.Close();
+                }
+                
+                using(RegistryKey reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("ToggleKeys"))
+                {
+                    textBox9.Text = Convert.ToString(reg.GetValue("Flags", ""));
+                    reg.Close();
+                }
+
+                
             }catch(Exception)
             {
                 MessageBox.Show("레지스트리를 불러오는데 오류가 발생하였습니다.");

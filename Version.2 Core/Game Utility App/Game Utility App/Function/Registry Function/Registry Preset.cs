@@ -1,4 +1,6 @@
-﻿using GameUtilityApp.Essential.DB_Control;
+﻿using GameUtilityApp.Essential;
+using GameUtilityApp.Essential.DB_Control;
+using GameUtilityApp.Essential.Language;
 using GameUtilityApp.Function.Registry_Funtion;
 using Microsoft.Win32;
 using System;
@@ -217,6 +219,31 @@ namespace GameUtilityApp.Function
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            KeyBoardRegistry kr = new KeyBoardRegistry();
+            Int64 v1 = Convert.ToInt64(textBox1.Text);
+            Int64 v2 = Convert.ToInt64(textBox2.Text);
+            Int64 v3 = Convert.ToInt64(textBox3.Text);
+            Int64 v4 = Convert.ToInt64(textBox4.Text);
+            Int64 v5 = Convert.ToInt64(textBox5.Text);
+            Int64 v6 = Convert.ToInt64(textBox6.Text);
+            Int64 v7 = Convert.ToInt64(textBox7.Text);
+            Int64 v8 = Convert.ToInt64(textBox8.Text);
+            Int64 v9 = Convert.ToInt64(textBox9.Text);
+            Int64 v10 = Convert.ToInt64(textBox10.Text);
+            Int64 v11 = Convert.ToInt64(textBox11.Text);
+            Int64 v12 = Convert.ToInt64(textBox12.Text);
+            Int64 v13 = Convert.ToInt64(textBox13.Text);
+
+            try
+            {
+                kr.Keyboard_Registry_All_Apply(v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(StringLib.ERROR_3, StringLib.ERROR);
+            }
+
+
             label1.ForeColor = Color.Black;
             label2.ForeColor = Color.Black;
             label3.ForeColor = Color.Black;

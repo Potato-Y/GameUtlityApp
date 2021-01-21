@@ -8,6 +8,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
 using GameUtilityApp.Essential.Language;
+using Microsoft.Win32;
 
 namespace GameUtilityApp.Essential.DB_Control
 {
@@ -66,6 +67,32 @@ namespace GameUtilityApp.Essential.DB_Control
                     {
                         cmd.ExecuteNonQuery();
                     }
+
+                    //레지 기본값 저장  sqlCommand 새로운 값 넣기
+
+                    using (RegistryKey reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("KeyBoard"))
+                    {
+                        sqlCommand = "INSERT INTO `Past Registry` VALUES (" + Convert.ToString(reg.GetValue("InitialKeyboardIndicators", "")) + ", " + Convert.ToString(reg.GetValue("KeyboardDelay", "")) + ", " + Convert.ToString(reg.GetValue("KeyboardSpeed", "")) + ", ";
+                        reg.Close();
+                    }
+
+                    using(RegistryKey reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("Keyboard Response"))
+                    {
+                        sqlCommand += Convert.ToString(reg.GetValue("AutoRepeatDelay", "")) + ", " + Convert.ToString(reg.GetValue("AutoRepeatRate", "")) + ", " + Convert.ToString(reg.GetValue("BounceTime", "")) + ", " + Convert.ToString(reg.GetValue("DelayBeforeAcceptance", "")) + ", " + Convert.ToString(reg.GetValue("Flags", "")) + ", " + Convert.ToString(reg.GetValue("Last BounceKey Setting", "")) + ", " + Convert.ToString(reg.GetValue("Last Valid Delay", "")) + ", " + Convert.ToString(reg.GetValue("Last Valid Repeat", "")) + ", " + Convert.ToString(reg.GetValue("Last Valid Wait", "")) + ", ";
+                    }
+
+                    using (RegistryKey reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("ToggleKeys"))
+                    {
+                        sqlCommand += Convert.ToString(reg.GetValue("Flags", ""));
+                    }
+
+                    sqlCommand += ");";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+
                     conn.Close();
                     reader.Close();
                 }

@@ -33,12 +33,13 @@ namespace GameUtilityApp.Essential.Forms
             this.kartriderGroup = new System.Windows.Forms.GroupBox();
             this.registryGroup = new System.Windows.Forms.GroupBox();
             this.buttonRegistryPreset = new System.Windows.Forms.Button();
+            this.buttonSetRecommended = new System.Windows.Forms.Button();
             this.registryGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // kartriderGroup
             // 
-            this.kartriderGroup.Location = new System.Drawing.Point(12, 73);
+            this.kartriderGroup.Location = new System.Drawing.Point(12, 131);
             this.kartriderGroup.Name = "kartriderGroup";
             this.kartriderGroup.Size = new System.Drawing.Size(200, 100);
             this.kartriderGroup.TabIndex = 0;
@@ -47,10 +48,11 @@ namespace GameUtilityApp.Essential.Forms
             // 
             // registryGroup
             // 
+            this.registryGroup.Controls.Add(this.buttonSetRecommended);
             this.registryGroup.Controls.Add(this.buttonRegistryPreset);
             this.registryGroup.Location = new System.Drawing.Point(12, 13);
             this.registryGroup.Name = "registryGroup";
-            this.registryGroup.Size = new System.Drawing.Size(200, 54);
+            this.registryGroup.Size = new System.Drawing.Size(200, 100);
             this.registryGroup.TabIndex = 1;
             this.registryGroup.TabStop = false;
             this.registryGroup.Text = "Registry";
@@ -64,6 +66,15 @@ namespace GameUtilityApp.Essential.Forms
             this.buttonRegistryPreset.Text = "Registry Preset";
             this.buttonRegistryPreset.UseVisualStyleBackColor = true;
             this.buttonRegistryPreset.Click += new System.EventHandler(this.buttonRegistryPreset_Click);
+            // 
+            // buttonSetRecommended
+            // 
+            this.buttonSetRecommended.Location = new System.Drawing.Point(7, 51);
+            this.buttonSetRecommended.Name = "buttonSetRecommended";
+            this.buttonSetRecommended.Size = new System.Drawing.Size(187, 23);
+            this.buttonSetRecommended.TabIndex = 1;
+            this.buttonSetRecommended.Text = "Set to recommended value";
+            this.buttonSetRecommended.UseVisualStyleBackColor = true;
             // 
             // MenuForms
             // 
@@ -92,5 +103,6 @@ namespace GameUtilityApp.Essential.Forms
         private System.Windows.Forms.GroupBox kartriderGroup;
         private System.Windows.Forms.GroupBox registryGroup;
         private System.Windows.Forms.Button buttonRegistryPreset;
+        private System.Windows.Forms.Button buttonSetRecommended;
     }
 }

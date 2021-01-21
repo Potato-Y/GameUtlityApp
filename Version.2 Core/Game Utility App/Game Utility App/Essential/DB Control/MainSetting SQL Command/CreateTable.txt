@@ -7,10 +7,11 @@
 	`dwmKiller Start` INT NOT NULL,
 	`Terms of user Ver` INT NOT NULL,
 	`Terms of user Check` INT NOT NULL,
-	`RegistryDefaultPreset Ver` INT NOT NULL 
+	`RegistryDefaultPreset Ver` INT NOT NULL,
+	`Apply registry at startup` INT NOT NULL
 );
 
-INSERT INTO MainSetting VALUES (1, 2, 0, 0, 0, 0, 202101151, 0, 1);
+INSERT INTO MainSetting VALUES (1, 2, 0, 0, 0, 0, 202101151, 0, 1, 0);
 
 CREATE TABLE `Registry Default Preset`(
 	`Num` INT NOT NULL,
@@ -31,8 +32,6 @@ CREATE TABLE `Registry Default Preset`(
 );
 
 CREATE TABLE `Past Registry` (
-	`Num` INT NOT NULL,
-	`Name` TEXT PRIMARY KEY NOT NULL,
 	`1_InitialKeyboardIndicators` INTEGER NOT NULL,
 	`1_KeyboardDelay` INT NOT NULL,
 	`1_KeyboardSpeed` INT NOT NULL,

@@ -1,9 +1,12 @@
-﻿using Microsoft.Win32;
+﻿using GameUtilityApp.Essential.DB_Control;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GameUtilityApp.Essential
 {
@@ -48,7 +51,7 @@ namespace GameUtilityApp.Essential
         {
             try
             {
-                using(RegistryKey reg=Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("KeyBoard", true))
+                using (RegistryKey reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("KeyBoard", true))
                 {
                     reg.SetValue("InitialKeyboardIndicators", InitialKeyboardIndicators1, RegistryValueKind.String);
                     reg.SetValue("KeyboardDelay", KeyboardDelay1, RegistryValueKind.String);
@@ -56,7 +59,7 @@ namespace GameUtilityApp.Essential
                     reg.Close();
                 }
 
-                using(RegistryKey reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("Keyboard Response", true))
+                using (RegistryKey reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("Keyboard Response", true))
                 {
                     reg.SetValue("AutoRepeatDelay", AutoRepeatDelay2, RegistryValueKind.String);
                     reg.SetValue("AutoRepeatRate", AutoRepeatRate2, RegistryValueKind.String);
@@ -70,12 +73,42 @@ namespace GameUtilityApp.Essential
                     reg.Close();
                 }
 
-                using(RegistryKey reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("ToggleKeys", true))
+                using (RegistryKey reg = Registry.CurrentUser.OpenSubKey("Control Panel").OpenSubKey("Accessibility").OpenSubKey("ToggleKeys", true))
                 {
                     reg.SetValue("Flags", Flags3, RegistryValueKind.String);
                     reg.Close();
                 }
+
+                Main_Setting_DB msd = new Main_Setting_DB();
+                string strConn = msd.GetstrConn();
+
+                using (SQLiteConnection conn = new SQLiteConnection(strConn)) //마지막 레지스트리 저장
+                {
+                    conn.Open(); //DB 연결
+
+                    string sqlCommand = "UPDATE `Past Registry` SET ";
+                    sqlCommand += "`1_InitialKeyboardIndicators` = " + InitialKeyboardIndicators1+", ";
+                    sqlCommand += "`1_KeyboardDelay` = " + KeyboardDelay1 + ", ";
+                    sqlCommand += "`1_KeyboardSpeed` = " + KeyboardSpeed1 + ", ";
+                    sqlCommand += "`2_AutoRepeatDelay` = " + AutoRepeatDelay2 + ", ";
+                    sqlCommand += "`2_AutoRepeatRate` = " + AutoRepeatRate2 + ", ";
+                    sqlCommand += "`2_BounceTime` = " + BounceTime2 + ", ";
+                    sqlCommand += "`2_DelayBeforeAcceptance` = " + DelayBeforeAcceptance2 + ", ";
+                    sqlCommand += "`2_Flags` = " + Flags2 + ", ";
+                    sqlCommand += "`2_Last BounceKey Setting` = " + LastBounceKeySetting2 + ", ";
+                    sqlCommand += "`2_Last Valid Delay` = " + LastValidDelay2 + ", ";
+                    sqlCommand += "`2_Last Valid Repeat` = " + LastValidRepeat2 + ", ";
+                    sqlCommand += "`2_Last Valid Wait` = " + LastValidWait2 + ", ";
+                    sqlCommand += "`3_Flags` = " + Flags3 + ";";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    conn.Close();
+                }
             }
+
             catch (Exception)
             {
                 return false;
