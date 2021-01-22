@@ -16,15 +16,16 @@ namespace GameUtilityApp.Essential.Class
 
         public bool EssentialCheck()  //필수 확인 요소
         {
-            if (!DB_Check()) return false;
-            if (!FontCheck()) return false;
+            if (!DB_Check()) return false; //DB 상태 체크 및 업데이트
+            if (!FontCheck()) return false; //폰트 상태 체크 밑 설치 안내
+            if (!RegistryStartingAutoSave()) return false; //레지스트리 자동 저장 기능 사용시 자동 저장
 
             return true;  //정상 작업 완료
         }
 
         public bool DB_Check()
         {
-            Main_Setting_DB mainDB = new Main_Setting_DB();
+            Main_DB_Setting mainDB = new Main_DB_Setting();
             if (!mainDB.FileCheck()) return false;
 
             return true; //작업 정상 완료
@@ -68,6 +69,13 @@ namespace GameUtilityApp.Essential.Class
                 }
             }
             return false;
+        }
+
+        private bool RegistryStartingAutoSave()
+        {
+            KeyBoardRegistry kbr = new KeyBoardRegistry();
+            if (!kbr.StartingAutoSave()) return false;
+            return true;
         }
     }
 }

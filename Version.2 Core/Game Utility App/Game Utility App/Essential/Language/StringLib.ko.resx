@@ -140,8 +140,14 @@
     <value>Windwos 10의 경우에는 제어판에서 최대 31까지만 지원합니다.
 그럼에도 설정하실 수 있지만 적용을 보장할 수 없습니다.</value>
   </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
   <data name="Message_1" xml:space="preserve">
     <value>곧, 폰트 설치가 시작됩니다. 새로운 창에서 폰트 설치를 완료하고 다시 시도하세요.</value>
+  </data>
+  <data name="Message_2" xml:space="preserve">
+    <value>적용하였습니다.</value>
   </data>
   <data name="notSeeAgain" xml:space="preserve">
     <value>다시 보지 않기</value>

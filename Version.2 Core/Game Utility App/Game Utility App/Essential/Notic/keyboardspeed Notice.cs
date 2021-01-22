@@ -31,7 +31,7 @@ namespace GameUtilityApp.Essential
         {
             if (checkBox1.Checked)
             {
-                Main_Setting_DB msd = new Main_Setting_DB();
+                Main_DB_Setting msd = new Main_DB_Setting();
                 string strConn = msd.GetstrConn();
 
                 try
@@ -40,7 +40,7 @@ namespace GameUtilityApp.Essential
                     {
                         conn.Open(); //DB 연결
 
-                        string sqlCommand = "UPDATE `MainSetting` SET `Win10 RegMessage`=1;";
+                        string sqlCommand = "UPDATE `Main Setting` SET `Win10 RegMessage`=1;";
                         using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
                         {
                             cmd.ExecuteNonQuery();

@@ -34,7 +34,7 @@ namespace GameUtilityApp.Function
         {
             try
             {
-                Main_Setting_DB msd = new Main_Setting_DB();
+                Main_DB_Setting msd = new Main_DB_Setting();
                 string strConn = msd.GetstrConn();  //strConn 주소 받아오기
 
                 string sqlCommand = "SELECT * FROM `Registry Default Preset`";
@@ -266,7 +266,7 @@ namespace GameUtilityApp.Function
             {
                 try
                 {
-                    Main_Setting_DB msd = new Main_Setting_DB();
+                    Main_DB_Setting msd = new Main_DB_Setting();
                     string strConn = msd.GetstrConn();  //strConn 주소 받아오기
 
                     string sqlCommand = "SELECT * FROM `Registry Default Preset` WHERE Name=\"" + presetChoiceComboBox.Text + "\"";

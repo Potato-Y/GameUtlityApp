@@ -126,11 +126,29 @@ namespace GameUtilityApp.Essential.Language {
         }
         
         /// <summary>
+        ///   메시지과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message {
+            get {
+                return ResourceManager.GetString("Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Soon, font installation begins. Complete the font installation in a new window and try again.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Message_1 {
             get {
                 return ResourceManager.GetString("Message_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Applied.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_2 {
+            get {
+                return ResourceManager.GetString("Message_2", resourceCulture);
             }
         }
         

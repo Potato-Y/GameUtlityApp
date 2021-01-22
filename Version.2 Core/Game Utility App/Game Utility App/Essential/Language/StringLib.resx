@@ -140,8 +140,14 @@ If not installed, the program will be terminated.</value>
     <value>For Windows 10, only up to 31 are supported in the control panel.
 You can still set it up, but we cannot guarantee its application.</value>
   </data>
+  <data name="Message" xml:space="preserve">
+    <value>메시지</value>
+  </data>
   <data name="Message_1" xml:space="preserve">
     <value>Soon, font installation begins. Complete the font installation in a new window and try again.</value>
+  </data>
+  <data name="Message_2" xml:space="preserve">
+    <value>Applied.</value>
   </data>
   <data name="notSeeAgain" xml:space="preserve">
     <value>Not seeing again</value>

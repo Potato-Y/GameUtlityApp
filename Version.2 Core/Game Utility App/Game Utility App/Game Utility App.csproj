@@ -100,8 +100,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Essential\Class\BasicCheck.cs" />
-    <Compile Include="Essential\Class\KeyBoardRegistry.cs" />
-    <Compile Include="Essential\DB Control\Main Setting DB.cs" />
+    <Compile Include="Function\Calculator\Team Match Score Calculator\Team Match Score Calculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\Calculator\Team Match Score Calculator\Team Match Score Calculator.Designer.cs">
+      <DependentUpon>Team Match Score Calculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\Registry Function\KeyBoardRegistry.cs" />
+    <Compile Include="Essential\DB Control\Main DB Setting.cs" />
     <Compile Include="Essential\Forms\MenuForms.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,12 @@
     </Compile>
     <Compile Include="Essential\Forms\Reset\AppReset.Designer.cs">
       <DependentUpon>AppReset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\Registry Function\Registry Additional Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\Registry Function\Registry Additional Settings.Designer.cs">
+      <DependentUpon>Registry Additional Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="Function\Registry Function\Registry Preset.cs">
       <SubType>Form</SubType>
@@ -153,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Essential\Forms\Reset\AppReset.resx">
       <DependentUpon>AppReset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\Calculator\Team Match Score Calculator\Team Match Score Calculator.resx">
+      <DependentUpon>Team Match Score Calculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\Registry Function\Registry Additional Settings.resx">
+      <DependentUpon>Registry Additional Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Function\Registry Function\Registry Preset.resx">
       <DependentUpon>Registry Preset.cs</DependentUpon>
@@ -187,7 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\gamepad.png" />
-    <EmbeddedResource Include="Essential\DB Control\MainSetting SQL Command\CreateTable.txt" />
+    <EmbeddedResource Include="Essential\DB Control\MainDB SQL Command\NewCreateTable.txt" />
     <EmbeddedResource Include="dll\EntityFramework.dll" />
     <EmbeddedResource Include="dll\EntityFramework.SqlServer.dll" />
     <EmbeddedResource Include="dll\System.Data.SQLite.dll" />

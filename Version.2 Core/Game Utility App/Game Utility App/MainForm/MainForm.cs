@@ -63,7 +63,7 @@ namespace Game_Utility_App.MainForm
                 {
                     conn.Open(); //DB 연결
 
-                    string sqlCommand = "SELECT * FROM MainSetting";
+                    string sqlCommand = "SELECT * FROM `Main Setting`";
                     using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
                     {
                         using(SQLiteDataReader rdr = cmd.ExecuteReader())

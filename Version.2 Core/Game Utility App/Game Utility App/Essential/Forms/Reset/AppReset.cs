@@ -50,7 +50,7 @@ namespace GameUtilityApp.Essential.Reset
 
             Thread.Sleep(50);
             textBox_Update("\r\n설정 값을 삭제 합니다.");
-            Main_Setting_DB msd = new Main_Setting_DB();
+            Main_DB_Setting msd = new Main_DB_Setting();
             string dbpath = msd.GetstrFile();
 
             System.IO.FileInfo file_info = new System.IO.FileInfo(dbpath);
