@@ -32,6 +32,8 @@ namespace GameUtilityApp.Function.Calculator.Team_Match_Score_Calculator
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Team_Match_Score_Calculator));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.buttonTracking = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -50,13 +52,33 @@ namespace GameUtilityApp.Function.Calculator.Team_Match_Score_Calculator
             this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 1;
             // 
+            // buttonTracking
+            // 
+            this.buttonTracking.Location = new System.Drawing.Point(165, 9);
+            this.buttonTracking.Name = "buttonTracking";
+            this.buttonTracking.Size = new System.Drawing.Size(75, 23);
+            this.buttonTracking.TabIndex = 2;
+            this.buttonTracking.Text = "Tracking";
+            this.buttonTracking.UseVisualStyleBackColor = true;
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(246, 9);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(75, 23);
+            this.buttonReset.TabIndex = 3;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            // 
             // Team_Match_Score_Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(338, 450);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.buttonTracking);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -74,5 +96,7 @@ namespace GameUtilityApp.Function.Calculator.Team_Match_Score_Calculator
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buttonTracking;
+        private System.Windows.Forms.Button buttonReset;
     }
 }
