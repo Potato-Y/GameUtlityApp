@@ -70,6 +70,15 @@ namespace GameUtilityApp.Essential.Language {
         }
         
         /// <summary>
+        ///   Cancel과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Error과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string ERROR {
@@ -126,7 +135,7 @@ namespace GameUtilityApp.Essential.Language {
         }
         
         /// <summary>
-        ///   메시지과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   Message과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Message {
             get {
@@ -149,6 +158,24 @@ namespace GameUtilityApp.Essential.Language {
         internal static string Message_2 {
             get {
                 return ResourceManager.GetString("Message_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   There is no nickname.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_3 {
+            get {
+                return ResourceManager.GetString("Message_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Your nickname has been confirmed. Click the Save button.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_4 {
+            get {
+                return ResourceManager.GetString("Message_4", resourceCulture);
             }
         }
         

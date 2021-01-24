@@ -13,7 +13,6 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
 {
     class NickName_Tracker_DB_set
     {
-
         static ThisGET get = new ThisGET();
         static string path = get.FolderPath() + @"\KartRider";
         static string strFile = path + @"\NickName.db";
@@ -27,6 +26,10 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             return true;
         }
 
+        public string GetstrConn()
+        {
+            return strConn;
+        }
         private bool DB_File_Check()
         {
             try

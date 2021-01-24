@@ -1,7 +1,7 @@
 ﻿
 namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
 {
-    partial class Add_my_nickname
+    partial class Add_user_nickname
     {
         /// <summary>
         /// Required designer variable.
@@ -32,11 +32,10 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_my_nickname));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonUserCheck = new System.Windows.Forms.Button();
-            this.panelSaveCancel = new System.Windows.Forms.Panel();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelSaveCancel.SuspendLayout();
+            this.panelOkCancel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panelOkCancel.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -45,8 +44,6 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(158, 21);
             this.textBox1.TabIndex = 0;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // buttonUserCheck
             // 
@@ -56,48 +53,33 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.buttonUserCheck.TabIndex = 1;
             this.buttonUserCheck.Text = "User Check";
             this.buttonUserCheck.UseVisualStyleBackColor = true;
-            this.buttonUserCheck.Click += new System.EventHandler(this.buttonUserCheck_Click);
             // 
-            // panelSaveCancel
+            // panelOkCancel
             // 
-            this.panelSaveCancel.Controls.Add(this.buttonCancel);
-            this.panelSaveCancel.Controls.Add(this.buttonSave);
-            this.panelSaveCancel.Location = new System.Drawing.Point(60, 55);
-            this.panelSaveCancel.Name = "panelSaveCancel";
-            this.panelSaveCancel.Size = new System.Drawing.Size(162, 30);
-            this.panelSaveCancel.TabIndex = 2;
+            this.panelOkCancel.Controls.Add(this.button2);
+            this.panelOkCancel.Controls.Add(this.button1);
+            this.panelOkCancel.Location = new System.Drawing.Point(59, 40);
+            this.panelOkCancel.Name = "panelOkCancel";
+            this.panelOkCancel.Size = new System.Drawing.Size(162, 30);
+            this.panelOkCancel.TabIndex = 2;
             // 
-            // buttonCancel
+            // button1
             // 
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(84, 3);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 1;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // buttonSave
+            // button2
             // 
-            this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(3, 3);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 0;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 14);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "dd";
-            this.label1.Visible = false;
+            this.button2.Location = new System.Drawing.Point(84, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Add_my_nickname
             // 
@@ -105,10 +87,8 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(281, 97);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panelSaveCancel);
+            this.ClientSize = new System.Drawing.Size(281, 75);
+            this.Controls.Add(this.panelOkCancel);
             this.Controls.Add(this.buttonUserCheck);
             this.Controls.Add(this.textBox1);
             this.Font = new System.Drawing.Font("나눔고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
@@ -119,9 +99,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add_my_nickname";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Add_my_nickname_FormClosing);
-            this.Load += new System.EventHandler(this.Add_my_nickname_Load);
-            this.panelSaveCancel.ResumeLayout(false);
+            this.panelOkCancel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,9 +109,8 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonUserCheck;
-        private System.Windows.Forms.Panel panelSaveCancel;
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelOkCancel;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

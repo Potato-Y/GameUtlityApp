@@ -107,6 +107,12 @@
     <Compile Include="Function\KartRider\Calculator\Team Match Score Calculator\Team Match Score Calculator.Designer.cs">
       <DependentUpon>Team Match Score Calculator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function\KartRider\Nickname Tracker\Add user nickname.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\KartRider\Nickname Tracker\Add user nickname.Designer.cs">
+      <DependentUpon>Add user nickname.cs</DependentUpon>
+    </Compile>
     <Compile Include="Function\KartRider\Nickname Tracker\Add my nickname.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Function\KartRider\Calculator\Team Match Score Calculator\Team Match Score Calculator.resx">
       <DependentUpon>Team Match Score Calculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\KartRider\Nickname Tracker\Add user nickname.resx">
+      <DependentUpon>Add user nickname.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Function\KartRider\Nickname Tracker\Add my nickname.resx">
       <DependentUpon>Add my nickname.cs</DependentUpon>

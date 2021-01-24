@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GameUtilityApp.Function.Calculator.Team_Match_Score_Calculator
+namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
 {
-    public partial class Team_Match_Score_Calculator : Form
+    public delegate void DataGetEventHandler2(string type, string value); //delegate 선언
+    public partial class Add_user_nickname : Form
     {
-        public Team_Match_Score_Calculator()
+        public Add_user_nickname()
         {
             InitializeComponent();
         }
+
+        public DataGetEventHandler DataSendEvent;
     }
 }
