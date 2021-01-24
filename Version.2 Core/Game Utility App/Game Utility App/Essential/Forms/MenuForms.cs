@@ -1,6 +1,7 @@
 ﻿using GameUtilityApp.Essential.Language;
 using GameUtilityApp.Function;
 using GameUtilityApp.Function.Registry_Function;
+using GameUtilityApp.Function.KartRider.Nickname_Tracker;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +41,13 @@ namespace GameUtilityApp.Essential.Forms
         {
             Registry_Additional_Settings ras = new Registry_Additional_Settings();
             ras.ShowDialog();
+            this.Close();
+        }
+
+        private void buttonNickNameTracker_Click(object sender, EventArgs e)
+        {
+            Nickname_Tracker nt = new Nickname_Tracker();
+            nt.Show();
             this.Close();
         }
     }

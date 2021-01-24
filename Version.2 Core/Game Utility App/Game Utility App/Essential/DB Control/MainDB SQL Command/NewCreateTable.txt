@@ -13,7 +13,7 @@
 
 INSERT INTO `Main Setting` VALUES (1, 2, 0, 0, 0, 0, 202101151, 0, 1, "false");
 
-CREATE TABLE `
+
 
 CREATE TABLE `Registry Default Preset`(
 	`Num` INT NOT NULL,

@@ -31,17 +31,19 @@ namespace GameUtilityApp.Essential.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForms));
             this.kartriderGroup = new System.Windows.Forms.GroupBox();
+            this.buttonNickNameTracker = new System.Windows.Forms.Button();
+            this.buttonTeamScoreCalculator = new System.Windows.Forms.Button();
             this.registryGroup = new System.Windows.Forms.GroupBox();
             this.buttonAdditionalsettings = new System.Windows.Forms.Button();
             this.buttonSetRecommended = new System.Windows.Forms.Button();
             this.buttonRegistryPreset = new System.Windows.Forms.Button();
-            this.buttonTeamScoreCalculator = new System.Windows.Forms.Button();
             this.kartriderGroup.SuspendLayout();
             this.registryGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // kartriderGroup
             // 
+            this.kartriderGroup.Controls.Add(this.buttonNickNameTracker);
             this.kartriderGroup.Controls.Add(this.buttonTeamScoreCalculator);
             this.kartriderGroup.Location = new System.Drawing.Point(12, 133);
             this.kartriderGroup.Name = "kartriderGroup";
@@ -49,6 +51,27 @@ namespace GameUtilityApp.Essential.Forms
             this.kartriderGroup.TabIndex = 0;
             this.kartriderGroup.TabStop = false;
             this.kartriderGroup.Text = "KartRider";
+            // 
+            // buttonNickNameTracker
+            // 
+            this.buttonNickNameTracker.BackColor = System.Drawing.Color.White;
+            this.buttonNickNameTracker.Location = new System.Drawing.Point(7, 20);
+            this.buttonNickNameTracker.Name = "buttonNickNameTracker";
+            this.buttonNickNameTracker.Size = new System.Drawing.Size(187, 23);
+            this.buttonNickNameTracker.TabIndex = 1;
+            this.buttonNickNameTracker.Text = "Nickname tracker";
+            this.buttonNickNameTracker.UseVisualStyleBackColor = false;
+            this.buttonNickNameTracker.Click += new System.EventHandler(this.buttonNickNameTracker_Click);
+            // 
+            // buttonTeamScoreCalculator
+            // 
+            this.buttonTeamScoreCalculator.BackColor = System.Drawing.Color.White;
+            this.buttonTeamScoreCalculator.Location = new System.Drawing.Point(7, 49);
+            this.buttonTeamScoreCalculator.Name = "buttonTeamScoreCalculator";
+            this.buttonTeamScoreCalculator.Size = new System.Drawing.Size(187, 23);
+            this.buttonTeamScoreCalculator.TabIndex = 0;
+            this.buttonTeamScoreCalculator.Text = "Team Match Score Calculator";
+            this.buttonTeamScoreCalculator.UseVisualStyleBackColor = false;
             // 
             // registryGroup
             // 
@@ -95,16 +118,6 @@ namespace GameUtilityApp.Essential.Forms
             this.buttonRegistryPreset.UseVisualStyleBackColor = false;
             this.buttonRegistryPreset.Click += new System.EventHandler(this.buttonRegistryPreset_Click);
             // 
-            // buttonTeamScoreCalculator
-            // 
-            this.buttonTeamScoreCalculator.BackColor = System.Drawing.Color.White;
-            this.buttonTeamScoreCalculator.Location = new System.Drawing.Point(7, 21);
-            this.buttonTeamScoreCalculator.Name = "buttonTeamScoreCalculator";
-            this.buttonTeamScoreCalculator.Size = new System.Drawing.Size(187, 23);
-            this.buttonTeamScoreCalculator.TabIndex = 0;
-            this.buttonTeamScoreCalculator.Text = "Team Match Score Calculator";
-            this.buttonTeamScoreCalculator.UseVisualStyleBackColor = false;
-            // 
             // MenuForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -136,5 +149,6 @@ namespace GameUtilityApp.Essential.Forms
         private System.Windows.Forms.Button buttonSetRecommended;
         private System.Windows.Forms.Button buttonAdditionalsettings;
         private System.Windows.Forms.Button buttonTeamScoreCalculator;
+        private System.Windows.Forms.Button buttonNickNameTracker;
     }
 }

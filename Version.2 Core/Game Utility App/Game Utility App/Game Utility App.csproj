@@ -100,13 +100,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Essential\Class\BasicCheck.cs" />
-    <Compile Include="Function\Calculator\Team Match Score Calculator\Team Match Score Calculator.cs">
+    <Compile Include="Essential\Class\ThisGET.cs" />
+    <Compile Include="Function\KartRider\Calculator\Team Match Score Calculator\Team Match Score Calculator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Function\Calculator\Team Match Score Calculator\Team Match Score Calculator.Designer.cs">
+    <Compile Include="Function\KartRider\Calculator\Team Match Score Calculator\Team Match Score Calculator.Designer.cs">
       <DependentUpon>Team Match Score Calculator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Function\Registry Function\KeyBoardRegistry.cs" />
+    <Compile Include="Function\KartRider\Nickname Tracker\Add my nickname.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\KartRider\Nickname Tracker\Add my nickname.Designer.cs">
+      <DependentUpon>Add my nickname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\KartRider\Nickname Tracker\DB Control\NickName Tracker DB set.cs" />
+    <Compile Include="Function\KartRider\Nickname Tracker\Nickname Tracker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Function\KartRider\Nickname Tracker\Nickname Tracker.Designer.cs">
+      <DependentUpon>Nickname Tracker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\KartRider\Registry Function\KeyBoardRegistry.cs" />
     <Compile Include="Essential\DB Control\Main DB Setting.cs" />
     <Compile Include="Essential\Forms\MenuForms.cs">
       <SubType>Form</SubType>
@@ -131,19 +145,19 @@
     <Compile Include="Essential\Forms\Reset\AppReset.Designer.cs">
       <DependentUpon>AppReset.cs</DependentUpon>
     </Compile>
-    <Compile Include="Function\Registry Function\Registry Additional Settings.cs">
+    <Compile Include="Function\KartRider\Registry Function\Registry Additional Settings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Function\Registry Function\Registry Additional Settings.Designer.cs">
+    <Compile Include="Function\KartRider\Registry Function\Registry Additional Settings.Designer.cs">
       <DependentUpon>Registry Additional Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Function\Registry Function\Registry Preset.cs">
+    <Compile Include="Function\KartRider\Registry Function\Registry Preset.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Function\Registry Function\Registry Preset.Designer.cs">
+    <Compile Include="Function\KartRider\Registry Function\Registry Preset.Designer.cs">
       <DependentUpon>Registry Preset.cs</DependentUpon>
     </Compile>
-    <Compile Include="Function\Registry Function\Registry Read Num Check.cs" />
+    <Compile Include="Function\KartRider\Registry Function\Registry Read Num Check.cs" />
     <Compile Include="MainForm\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,13 +180,19 @@
     <EmbeddedResource Include="Essential\Forms\Reset\AppReset.resx">
       <DependentUpon>AppReset.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Function\Calculator\Team Match Score Calculator\Team Match Score Calculator.resx">
+    <EmbeddedResource Include="Function\KartRider\Calculator\Team Match Score Calculator\Team Match Score Calculator.resx">
       <DependentUpon>Team Match Score Calculator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Function\Registry Function\Registry Additional Settings.resx">
+    <EmbeddedResource Include="Function\KartRider\Nickname Tracker\Add my nickname.resx">
+      <DependentUpon>Add my nickname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\KartRider\Nickname Tracker\Nickname Tracker.resx">
+      <DependentUpon>Nickname Tracker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\KartRider\Registry Function\Registry Additional Settings.resx">
       <DependentUpon>Registry Additional Settings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Function\Registry Function\Registry Preset.resx">
+    <EmbeddedResource Include="Function\KartRider\Registry Function\Registry Preset.resx">
       <DependentUpon>Registry Preset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm\MainForm.resx">
@@ -213,6 +233,7 @@
     <EmbeddedResource Include="dll\System.Data.SQLite.Linq.dll" />
     <EmbeddedResource Include="dll\Game Utility App.resources.dll" />
     <Content Include="Essential\Open Source.txt" />
+    <EmbeddedResource Include="Function\KartRider\Nickname Tracker\DB Control\NewCreateTable.txt" />
     <Content Include="MainIcon.ico" />
   </ItemGroup>
   <ItemGroup>

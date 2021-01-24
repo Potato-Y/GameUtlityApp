@@ -9,12 +9,14 @@ using System.IO;
 using System.Windows.Forms;
 using GameUtilityApp.Essential.Language;
 using Microsoft.Win32;
+using GameUtilityApp.Essential.Class;
 
 namespace GameUtilityApp.Essential.DB_Control
 {
     class Main_DB_Setting
     {
-        static string path = @"C:\Users\" + ((System.Security.Principal.WindowsIdentity.GetCurrent().Name).Split('\\')[1]) + @"\AppData\Local\Game Utility App";
+        static ThisGET getPath = new ThisGET();
+        static string path = getPath.FolderPath();
         static string strFile = path + @"\MainDB.db";
         static string strConn = @"Data Source=" + strFile;
 
