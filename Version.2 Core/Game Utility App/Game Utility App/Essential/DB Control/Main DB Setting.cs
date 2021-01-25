@@ -15,8 +15,7 @@ namespace GameUtilityApp.Essential.DB_Control
 {
     class Main_DB_Setting
     {
-        static ThisGET getPath = new ThisGET();
-        static string path = getPath.FolderPath();
+        static string path = new ThisGET().FolderPath();
         static string strFile = path + @"\MainDB.db";
         static string strConn = @"Data Source=" + strFile;
 

@@ -18,6 +18,6 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             InitializeComponent();
         }
 
-        public DataGetEventHandler DataSendEvent;
+        public DataGetEventHandler2 DataSendEvent;
     }
 }

@@ -20,10 +20,19 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
 
         public bool DB_Check()
         {
-            if (!DB_File_Check()) return false; //DB 파일이 존재하는지 확인
+            //비정상 작동이 있을 경우 false 반환
+            //파일 존재 유무 확인
+            FileInfo file = new FileInfo(strFile);
+            if (!file.Exists) //파일이 없으면 새로운 파일 등록
+            {
+                if (!DB_File_Check()) return false;   //파일을 새로 만들기 시작              
+            }
+
+            //업데이트 확인 후 필요시 패치
             if (!DB_Update_Check()) return false;
 
-            return true;
+            return true; //모두 정상 작동
+            
         }
 
         public string GetstrConn()

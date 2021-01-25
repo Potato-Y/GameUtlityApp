@@ -49,9 +49,9 @@ namespace GameUtilityApp.Essential
                         conn.Close();
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show("설정값을 저장하는 중 문제가 발생하였습니다.\n"+ex);
+                    MessageBox.Show(StringLib.ERROR_1,StringLib.ERROR); //저장 중 에러 발생
                     Application.Exit();
                 }
             }

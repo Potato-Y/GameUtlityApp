@@ -18,4 +18,4 @@ CREATE TABLE `Friend nickname DB`(
 	REFERENCES `Friend nickname group DB`(`group name`)
 );
 
-INSERT INTO `Main DB` VALUES ("NULL",1);
+INSERT INTO `Main DB` VALUES ("!NULL",1);
