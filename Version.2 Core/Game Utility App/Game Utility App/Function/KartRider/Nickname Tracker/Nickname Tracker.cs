@@ -169,11 +169,37 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
         private void userArray() //모든 유저 추가하기
         {
             treeView1.Nodes.Clear();
-            TreeNode tn = new TreeNode("MY");
-            tn.Nodes.Add(nicknametemp);
-            treeView1.Nodes.Add(tn);
-            treeView1.ExpandAll();
-            treeView1.Nodes[0].Expand();
+            TreeNode[] tn;
+            string sqlCommand;
+            int groupcount;
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(new NickName_Tracker_DB_set().GetstrConn()))
+                {
+                    conn.Open(); //DB 연결
+
+                    sqlCommand = "SELECT COUNT(*) FROM `Friend nickname group`";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                    {
+                        using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                        {
+                            rdr.Read();
+                            groupcount = Convert.ToInt32(rdr["COUNT(*)"].ToString()); //그룹 수를 가져오기
+                            if (groupcount > 0) //그룹이 있으면 실행
+                            {
+                                tn = new TreeNode[groupcount];
+                            }
+                            
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("설정값을 불러오는 중 문제가 발생하였습니다.\n" + e);
+                this.Close();
+            }
         }
 
         private void treeView1_DoubleClick(object sender, EventArgs e)
