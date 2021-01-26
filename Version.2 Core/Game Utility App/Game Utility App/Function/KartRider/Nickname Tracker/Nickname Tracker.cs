@@ -187,13 +187,46 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                             groupcount = Convert.ToInt32(rdr["COUNT(*)"].ToString()); //그룹 수를 가져오기
                             if (groupcount > 0) //그룹이 있으면 실행
                             {
-                                tn = new TreeNode[groupcount];
+                                tn = new TreeNode[groupcount + 1];
+                                tn[0] = new TreeNode("MY");
                             }
-                            
+                            else
+                            {
+                                tn = new TreeNode[1];
+                                tn[0] = new TreeNode("MY");
+                            }
+
                         }
                     }
+                    if (groupcount > 0)
+                    {
+                        sqlCommand = "SELECT * FROM `Friend nickname group`";
+                        using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                        {
+                            using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                            {
+                                int i = 1;
+                                while (rdr.Read())
+                                {
+                                    tn[i] = new TreeNode(rdr["group name"].ToString());
+                                    i++;
+                                }
+
+                            }
+                        }
+
+                    }
+
+                    tn[0].Nodes.Add(nicknametemp);
+                    
                     conn.Close();
                 }
+                for(int i = 0; i < groupcount + 1; i++)
+                {
+                    treeView1.Nodes.Add(tn[i]);
+                }
+                
+                treeView1.ExpandAll();
             }
             catch (Exception e)
             {
