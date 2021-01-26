@@ -5,17 +5,17 @@ CREATE TABLE `Main DB`(
 	`DB version` INT NOT NULL	
 );
 
-CREATE TABLE `Friend nickname group DB`(
+CREATE TABLE `Friend nickname group`(
 	`group name` TEXT PRIMARY KEY NOT NULL
 );
 
-CREATE TABLE `Friend nickname DB`(
+CREATE TABLE `Friend nickname`(
 	`group name` TEXT DEFAULT `default group`,
 	`access ID` TEXT PRIMARY KEY NOT NULL,
 	`user nickname` TEXT NOT NULL,
 	`memo` TEXT NOT NULL,
 	FOREIGN KEY(`group name`)
-	REFERENCES `Friend nickname group DB`(`group name`)
+	REFERENCES `Friend nickname group`(`group name`)
 );
 
 INSERT INTO `Main DB` VALUES ("!NULL",1);
