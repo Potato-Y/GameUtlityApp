@@ -166,12 +166,15 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             }
         }
 
+        static string groupTag = "||DB User Group||:"; //그룹 key에 붙는 구분용 태그
+        static Dictionary<string, string> userMemo = new Dictionary<string, string>();
         private void userArray() //모든 유저 추가하기
         {
-            treeView1.Nodes.Clear();
-            TreeNode[] tn;
+            treeView1.Nodes.Clear(); //초기화
+            TreeNode[] tn; 
+            Dictionary<string, string> tnGroupKey = new Dictionary<string, string>(); //유저의 그룹 연결
             string sqlCommand;
-            int groupcount;
+            int groupcount; //그룹 수
             try
             {
                 using (SQLiteConnection conn = new SQLiteConnection(new NickName_Tracker_DB_set().GetstrConn()))
@@ -205,22 +208,46 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                         {
                             using (SQLiteDataReader rdr = cmd.ExecuteReader())
                             {
-                                int i = 1;
+                                int i = 1; //그룹 id는 1부터 시작. 0은 기본 유저용
+
                                 while (rdr.Read())
                                 {
-                                    tn[i] = new TreeNode(rdr["group name"].ToString());
+                                    if(rdr["group name"].ToString().Equals("DB System default group"))
+                                    {
+                                        tn[i] = new TreeNode(StringLib.Text_1);
+                                    }
+                                    else
+                                    {
+                                        tn[i] = new TreeNode(rdr["group name"].ToString());
+                                    }
+                                    tnGroupKey.Add(rdr["group name"].ToString(), groupTag + i);
                                     i++;
                                 }
 
                             }
                         }
 
+                        sqlCommand = "SELECT * FROM `Friend nickname`";
+                        using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                        {
+                            using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                            {
+                                while (rdr.Read())
+                                {
+                                    tn[Convert.ToInt32(tnGroupKey[rdr["group name"].ToString()].Replace(groupTag, ""))].Nodes.Add(rdr["access ID"].ToString(),rdr["user nickname"].ToString());
+                                    
+                                }
+                            }
+                        }
                     }
 
-                    tn[0].Nodes.Add(nicknametemp);
+                    
                     
                     conn.Close();
                 }
+                
+                tn[0].Nodes.Add(nicknametemp);
+                
                 for(int i = 0; i < groupcount + 1; i++)
                 {
                     treeView1.Nodes.Add(tn[i]);
@@ -237,8 +264,13 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
 
         private void treeView1_DoubleClick(object sender, EventArgs e)
         {
-            if (this.treeView1.Nodes[0].IsSelected)
+            if (treeView1.Nodes[0].IsSelected||treeView1.Nodes[1].IsSelected)
             {
+                return;
+            }
+            else if (treeView1.SelectedNode.Name.Equals("")) 
+            {
+                MessageBox.Show("메뉴임");
                 return; //그룹을 선택한 경우 종료
             }
             else if(treeView1.Nodes[0].Nodes[0].IsSelected)
@@ -246,6 +278,90 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                 Add_my_nickname amn = new Add_my_nickname();
                 amn.DataSendEvent += new DataGetEventHandler(this.DataGet);
                 amn.ShowDialog();
+                return;
+            }
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (treeView1.Nodes[0].IsSelected || treeView1.Nodes[1].IsSelected || treeView1.Nodes[0].Nodes[0].IsSelected || treeView1.SelectedNode.Name.Equals("")) 
+            { //그룹이거나, 내 닉네임을 선택하면 패스
+                textBoxMemo.Text = "";
+                textBoxNickname.Text = treeView1.SelectedNode.Text;
+                textBoxFirstNickname.Text = "";
+                textBoxFirstNickname.Enabled = false;
+                textBoxMemo.Enabled = false;
+                buttonSave.Enabled = true;
+                return;
+            }
+            else
+            {
+                try
+                {
+                    using (SQLiteConnection conn = new SQLiteConnection(new NickName_Tracker_DB_set().GetstrConn()))
+                    {
+                        conn.Open(); //DB 연결
+
+                        string sqlCommand = "SELECT * FROM `Friend nickname` WHERE `access ID` =\"" + treeView1.SelectedNode.Name + "\";";
+                        using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                        {
+                            using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                            {
+                                rdr.Read();
+                                string memo= rdr["memo"].ToString();
+                                if (memo.Equals(""))
+                                {
+                                    textBoxMemo.Text = "";
+                                }
+                                else
+                                {
+                                    textBoxMemo.Text = memo;
+                                }
+                                textBoxFirstNickname.Text = rdr["first nickname"].ToString();
+                                
+                                textBoxMemo.Enabled = true;
+                                buttonSave.Enabled = true;
+                                textBoxFirstNickname.Enabled = true;
+                                textBoxNickname.Text = rdr["user nickname"].ToString();
+                            }
+                        }
+                        return;
+                    }
+                }catch (Exception)
+                {
+                    MessageBox.Show("오류");
+                }
+            }
+        }
+
+        private void buttonFriendAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(new NickName_Tracker_DB_set().GetstrConn())) //새로운 유저의 ID로 교체
+                {
+                    conn.Open(); //DB 연결
+
+                    string sqlCommand = "SELECT * FROM `Main DB`";
+
+                    sqlCommand = "UPDATE `Friend nickname` SET `memo`=\"" + textBoxMemo.Text + "\" WHERE `access ID`=\"" + treeView1.SelectedNode.Name + "\";";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    conn.Close();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(StringLib.ERROR_1, StringLib.ERROR); //저장 중 에러 발생
+                this.Close();
             }
         }
     }

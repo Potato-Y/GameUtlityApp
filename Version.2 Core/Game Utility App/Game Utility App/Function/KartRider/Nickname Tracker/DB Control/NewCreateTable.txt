@@ -6,16 +6,19 @@ CREATE TABLE `Main DB`(
 );
 
 CREATE TABLE `Friend nickname group`(
-	`group name` TEXT PRIMARY KEY NOT NULL
+	`group name` TEXT PRIMARY KEY NOT NULL,
+	`open state` INT DEFAULT 1
 );
 
 CREATE TABLE `Friend nickname`(
-	`group name` TEXT DEFAULT `default group`,
+	`group name` TEXT DEFAULT `DB System default group`,
 	`access ID` TEXT PRIMARY KEY NOT NULL,
 	`user nickname` TEXT NOT NULL,
-	`memo` TEXT NOT NULL,
+	`first nickname` TEXT NOT NULL,
+	`memo` TEXT,
 	FOREIGN KEY(`group name`)
 	REFERENCES `Friend nickname group`(`group name`)
 );
 
 INSERT INTO `Main DB` VALUES ("!NULL",1);
+INSERT INTO `Friend nickname group` (`group name`) VALUES ("DB System default group");

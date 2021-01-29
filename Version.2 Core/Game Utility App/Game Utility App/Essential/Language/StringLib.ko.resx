@@ -170,4 +170,7 @@
   <data name="Setting" xml:space="preserve">
     <value>설정</value>
   </data>
+  <data name="Text_1" xml:space="preserve">
+    <value>기본 그룹</value>
+  </data>
 </root>
