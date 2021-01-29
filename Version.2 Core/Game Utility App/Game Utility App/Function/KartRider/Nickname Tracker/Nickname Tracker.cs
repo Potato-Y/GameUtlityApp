@@ -170,6 +170,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
         static Dictionary<string, string> userMemo = new Dictionary<string, string>();
         private void userArray() //모든 유저 추가하기
         {
+            comboBoxGroupChoose.Items.Clear();
             treeView1.Nodes.Clear(); //초기화
             TreeNode[] tn; 
             Dictionary<string, string> tnGroupKey = new Dictionary<string, string>(); //유저의 그룹 연결
@@ -192,7 +193,6 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                             {
                                 tn = new TreeNode[groupcount + 1];
                                 tn[0] = new TreeNode("MY");
-                                comboBoxGroupChoose.Items.Add("MY");
                             }
                             else
                             {
@@ -217,6 +217,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                                     if(rdr["group name"].ToString().Equals("DB System default group"))
                                     {
                                         tn[i] = new TreeNode(StringLib.Text_1);
+                                        comboBoxGroupChoose.Items.Add(StringLib.Text_1);
                                     }
                                     else
                                     {
@@ -292,6 +293,8 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                 textBoxMemo.Text = "";
                 textBoxNickname.Text = treeView1.SelectedNode.Text;
                 textBoxFirstNickname.Text = "";
+                comboBoxGroupChoose.Text = "MY";
+                comboBoxGroupChoose.Enabled = false;
                 textBoxFirstNickname.Enabled = false;
                 textBoxMemo.Enabled = false;
                 buttonSave.Enabled = true;
@@ -311,21 +314,19 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                             using (SQLiteDataReader rdr = cmd.ExecuteReader())
                             {
                                 rdr.Read();
-                                string memo= rdr["memo"].ToString();
-                                if (memo.Equals(""))
-                                {
-                                    textBoxMemo.Text = "";
-                                }
-                                else
-                                {
-                                    textBoxMemo.Text = memo;
-                                }
+                                textBoxMemo.Text = rdr["memo"].ToString();
                                 textBoxFirstNickname.Text = rdr["first nickname"].ToString();
-                                
+                                textBoxNickname.Text = rdr["user nickname"].ToString();
+                                string groupNameTemp = rdr["group name"].ToString();
+
+                                //기본 그룹이면 다르게 처리
+                                if (groupNameTemp.Equals("DB System default group")) comboBoxGroupChoose.Text = StringLib.Text_1;
+                                else comboBoxGroupChoose.Text = groupNameTemp;
+
+                                comboBoxGroupChoose.Enabled = true;
                                 textBoxMemo.Enabled = true;
                                 buttonSave.Enabled = true;
                                 textBoxFirstNickname.Enabled = true;
-                                textBoxNickname.Text = rdr["user nickname"].ToString();
                             }
                         }
                         return;
@@ -350,9 +351,9 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                 {
                     conn.Open(); //DB 연결
 
-                    string sqlCommand = "SELECT * FROM `Main DB`";
-
-                    sqlCommand = "UPDATE `Friend nickname` SET `memo`=\"" + textBoxMemo.Text + "\" WHERE `access ID`=\"" + treeView1.SelectedNode.Name + "\";";
+                    string groupChooseTemp = comboBoxGroupChoose.Text;
+                    if (groupChooseTemp.Equals(StringLib.Text_1)) groupChooseTemp = "DB System default group"; //만약 기본 그룹이면 맞게 변경
+                    string sqlCommand = "UPDATE `Friend nickname` SET `memo`=\"" + textBoxMemo.Text + "\",`group name`=\"" + groupChooseTemp + "\" WHERE `access ID`=\"" + treeView1.SelectedNode.Name + "\";";
                     using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
                     {
                         cmd.ExecuteNonQuery();
@@ -366,6 +367,8 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                 MessageBox.Show(StringLib.ERROR_1, StringLib.ERROR); //저장 중 에러 발생
                 this.Close();
             }
+
+            userArray();
         }
     }
 }
