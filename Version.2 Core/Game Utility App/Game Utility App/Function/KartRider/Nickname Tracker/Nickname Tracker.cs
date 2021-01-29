@@ -192,11 +192,13 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                             {
                                 tn = new TreeNode[groupcount + 1];
                                 tn[0] = new TreeNode("MY");
+                                comboBoxGroupChoose.Items.Add("MY");
                             }
                             else
                             {
                                 tn = new TreeNode[1];
                                 tn[0] = new TreeNode("MY");
+                                comboBoxGroupChoose.Items.Add("MY");
                             }
 
                         }
@@ -219,6 +221,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                                     else
                                     {
                                         tn[i] = new TreeNode(rdr["group name"].ToString());
+                                        comboBoxGroupChoose.Items.Add(rdr["group name"].ToString());
                                     }
                                     tnGroupKey.Add(rdr["group name"].ToString(), groupTag + i);
                                     i++;

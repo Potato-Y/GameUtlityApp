@@ -45,6 +45,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.textBoxNickname = new System.Windows.Forms.TextBox();
             this.textBoxFirstNickname = new System.Windows.Forms.TextBox();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.comboBoxGroupChoose = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -92,10 +93,10 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             // textBoxMemo
             // 
             this.textBoxMemo.Enabled = false;
-            this.textBoxMemo.Location = new System.Drawing.Point(255, 83);
+            this.textBoxMemo.Location = new System.Drawing.Point(255, 111);
             this.textBoxMemo.Multiline = true;
             this.textBoxMemo.Name = "textBoxMemo";
-            this.textBoxMemo.Size = new System.Drawing.Size(218, 220);
+            this.textBoxMemo.Size = new System.Drawing.Size(218, 192);
             this.textBoxMemo.TabIndex = 4;
             // 
             // menuStrip1
@@ -172,6 +173,16 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             // 
+            // comboBoxGroupChoose
+            // 
+            this.comboBoxGroupChoose.BackColor = System.Drawing.Color.White;
+            this.comboBoxGroupChoose.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGroupChoose.FormattingEnabled = true;
+            this.comboBoxGroupChoose.Location = new System.Drawing.Point(255, 83);
+            this.comboBoxGroupChoose.Name = "comboBoxGroupChoose";
+            this.comboBoxGroupChoose.Size = new System.Drawing.Size(218, 22);
+            this.comboBoxGroupChoose.TabIndex = 10;
+            // 
             // Nickname_Tracker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -179,6 +190,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(483, 361);
+            this.Controls.Add(this.comboBoxGroupChoose);
             this.Controls.Add(this.textBoxFirstNickname);
             this.Controls.Add(this.textBoxNickname);
             this.Controls.Add(this.statusStrip1);
@@ -222,5 +234,6 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
         private System.Windows.Forms.TextBox textBoxNickname;
         private System.Windows.Forms.TextBox textBoxFirstNickname;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ComboBox comboBoxGroupChoose;
     }
 }
