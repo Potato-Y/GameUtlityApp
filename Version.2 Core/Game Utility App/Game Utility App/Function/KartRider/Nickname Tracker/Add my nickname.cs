@@ -45,12 +45,13 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
         bool saveButton = false;
         private void buttonUserCheck_Click(object sender, EventArgs e)
         {
-            ServicePointManager.Expect100Continue = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
-
+            
             string responseText = string.Empty;
             try
             {
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.nexon.co.kr/kart/v1.0/users/nickname/"+textBox1.Text);
                 request.Method = "GET";
                 request.Timeout = 10 * 1000;

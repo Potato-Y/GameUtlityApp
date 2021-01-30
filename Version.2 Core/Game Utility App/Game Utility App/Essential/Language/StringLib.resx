@@ -158,6 +158,12 @@ You can still set it up, but we cannot guarantee its application.</value>
   <data name="Message_4" xml:space="preserve">
     <value>Your nickname has been confirmed. Click the Save button.</value>
   </data>
+  <data name="Message_5" xml:space="preserve">
+    <value>Already registered.</value>
+  </data>
+  <data name="Message_6" xml:space="preserve">
+    <value>Please enter and try again.</value>
+  </data>
   <data name="notSeeAgain" xml:space="preserve">
     <value>Not seeing again</value>
   </data>

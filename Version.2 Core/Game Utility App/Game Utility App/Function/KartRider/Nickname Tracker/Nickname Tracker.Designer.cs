@@ -41,10 +41,10 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonSave = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBoxNickname = new System.Windows.Forms.TextBox();
             this.textBoxFirstNickname = new System.Windows.Forms.TextBox();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.comboBoxGroupChoose = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -68,6 +68,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.buttonGroupAdd.TabIndex = 1;
             this.buttonGroupAdd.Text = "Group ➕";
             this.buttonGroupAdd.UseVisualStyleBackColor = false;
+            this.buttonGroupAdd.Click += new System.EventHandler(this.buttonGroupAdd_Click);
             // 
             // buttonFriendAdd
             // 
@@ -144,6 +145,11 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
@@ -167,11 +173,6 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.textBoxFirstNickname.ReadOnly = true;
             this.textBoxFirstNickname.Size = new System.Drawing.Size(218, 21);
             this.textBoxFirstNickname.TabIndex = 9;
-            // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             // 
             // comboBoxGroupChoose
             // 

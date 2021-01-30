@@ -145,9 +145,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                     {
                         conn.Open(); //DB 연결
 
-                        string sqlCommand = "SELECT * FROM `Main DB`";
-                        
-                        sqlCommand = "UPDATE `Main DB` SET `My access ID`="+accessID+";";
+                        string sqlCommand = "UPDATE `Main DB` SET `My access ID`="+accessID+";";
                         using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
                         {
                             cmd.ExecuteNonQuery();
@@ -294,6 +292,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                 textBoxNickname.Text = treeView1.SelectedNode.Text;
                 textBoxFirstNickname.Text = "";
                 comboBoxGroupChoose.Text = "MY";
+                comboBoxGroupChoose.Text = "";
                 comboBoxGroupChoose.Enabled = false;
                 textBoxFirstNickname.Enabled = false;
                 textBoxMemo.Enabled = false;
@@ -340,7 +339,9 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
 
         private void buttonFriendAdd_Click(object sender, EventArgs e)
         {
-
+            User_NickName_Add una = new User_NickName_Add();
+            una.ShowDialog();
+            userArray();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -368,6 +369,13 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                 this.Close();
             }
 
+            userArray();
+        }
+
+        private void buttonGroupAdd_Click(object sender, EventArgs e)
+        {
+            Add_Group ag = new Add_Group();
+            ag.ShowDialog();
             userArray();
         }
     }

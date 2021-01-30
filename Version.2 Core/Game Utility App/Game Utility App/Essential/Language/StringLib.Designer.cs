@@ -180,6 +180,24 @@ namespace GameUtilityApp.Essential.Language {
         }
         
         /// <summary>
+        ///   Already registered.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_5 {
+            get {
+                return ResourceManager.GetString("Message_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Please enter and try again.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_6 {
+            get {
+                return ResourceManager.GetString("Message_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Not seeing again과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string notSeeAgain {

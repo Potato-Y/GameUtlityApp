@@ -158,6 +158,12 @@
   <data name="Message_4" xml:space="preserve">
     <value>닉네임이 확인되었습니다. 저장 버튼을 누르세요.</value>
   </data>
+  <data name="Message_5" xml:space="preserve">
+    <value>이미 등록되어 있습니다.</value>
+  </data>
+  <data name="Message_6" xml:space="preserve">
+    <value>입력 후 다시 시도하세요.</value>
+  </data>
   <data name="notSeeAgain" xml:space="preserve">
     <value>다시 보지 않기</value>
   </data>
