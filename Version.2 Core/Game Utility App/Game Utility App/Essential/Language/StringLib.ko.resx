@@ -164,6 +164,9 @@
   <data name="Message_6" xml:space="preserve">
     <value>입력 후 다시 시도하세요.</value>
   </data>
+  <data name="Message_7" xml:space="preserve">
+    <value>불러오기</value>
+  </data>
   <data name="notSeeAgain" xml:space="preserve">
     <value>다시 보지 않기</value>
   </data>

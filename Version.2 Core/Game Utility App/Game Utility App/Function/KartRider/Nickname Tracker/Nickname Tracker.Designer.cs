@@ -90,6 +90,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.buttonRefresh.TabIndex = 3;
             this.buttonRefresh.Text = "Refresh";
             this.buttonRefresh.UseVisualStyleBackColor = false;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // textBoxMemo
             // 
@@ -153,8 +154,8 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(124, 17);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(88, 17);
+            this.toolStripStatusLabel1.Text = "Last sync date:";
             // 
             // textBoxNickname
             // 

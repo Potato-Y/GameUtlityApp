@@ -164,6 +164,9 @@ You can still set it up, but we cannot guarantee its application.</value>
   <data name="Message_6" xml:space="preserve">
     <value>Please enter and try again.</value>
   </data>
+  <data name="Message_7" xml:space="preserve">
+    <value>Load</value>
+  </data>
   <data name="notSeeAgain" xml:space="preserve">
     <value>Not seeing again</value>
   </data>

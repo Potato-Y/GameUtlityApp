@@ -46,9 +46,18 @@ namespace GameUtilityApp.Essential.Forms
 
         private void buttonNickNameTracker_Click(object sender, EventArgs e)
         {
-            Nickname_Tracker nt = new Nickname_Tracker();
-            nt.Show();
-            this.Close();
+            //이미 열려있는지 확인
+            Form fc = Application.OpenForms["Nickname_Tracker"];
+            if (fc != null)
+            {
+                fc.Activate();
+            }
+            else
+            {
+                Nickname_Tracker nt = new Nickname_Tracker();
+                nt.Show();
+            }
+            //this.Close();
         }
     }
 }

@@ -2,6 +2,7 @@
 
 CREATE TABLE `Main DB`(
 	`My access ID` TEXT NOT NULL,
+	`Last sync date` TEXT,
 	`DB version` INT NOT NULL	
 );
 
@@ -20,5 +21,5 @@ CREATE TABLE `Friend nickname`(
 	REFERENCES `Friend nickname group`(`group name`)
 );
 
-INSERT INTO `Main DB` VALUES ("!NULL",1);
+INSERT INTO `Main DB` VALUES ("!NULL", "No information",1);
 INSERT INTO `Friend nickname group` (`group name`) VALUES ("DB System default group");

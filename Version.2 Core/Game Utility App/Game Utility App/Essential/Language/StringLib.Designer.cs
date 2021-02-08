@@ -198,6 +198,15 @@ namespace GameUtilityApp.Essential.Language {
         }
         
         /// <summary>
+        ///   Load과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_7 {
+            get {
+                return ResourceManager.GetString("Message_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Not seeing again과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string notSeeAgain {

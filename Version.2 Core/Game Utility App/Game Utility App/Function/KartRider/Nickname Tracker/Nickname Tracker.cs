@@ -378,5 +378,72 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             ag.ShowDialog();
             userArray();
         }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            NicknameSynchronization();
+            userArray();
+        }
+
+        /// <summary>
+        /// 친구 닉네임을 최신 상태로 동기화 합니다.
+        /// </summary>
+        /// <returns></returns>
+        public bool NicknameSynchronization()
+        {
+            try
+            {
+                string sqlCommand = ""; 
+                int friendsNumber = 0; //친구 수
+                using (SQLiteConnection conn = new SQLiteConnection(new NickName_Tracker_DB_set().GetstrConn()))
+                {
+                    conn.Open(); //DB 연결
+
+                    sqlCommand = "SELECT COUNT(*) FROM `Friend nickname`";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn)) //친구 수 받아오기
+                    {
+                        using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                        {
+                            rdr.Read();
+                            friendsNumber = Convert.ToInt32(rdr["COUNT(*)"].ToString()); //그룹 수를 가져오기
+                            if (friendsNumber > 0) //그룹이 있으면 실행
+                            {
+                                toolStripProgressBar1.Maximum = friendsNumber*2;
+                            }
+                            else
+                            {
+                                MessageBox.Show("friends 0");
+                                return true;
+                            }
+                        }
+                    }
+                    Stack<string> friends = new Stack<string>();
+                    //친구 리스트 가져오기
+                    sqlCommand = "SELECT * FROM `Friend nickname`";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                    {
+                        using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                        {
+                            int i=0;
+                            while (!rdr.Read())
+                            {
+                                friends.Push(rdr["access ID"].ToString());
+                                i++;
+                                toolStripStatusLabel1.Text = StringLib.Message_7 + "... (" + i + "/" + friendsNumber + ")";
+                            }
+                        }
+
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+            return true;
+        }
     }
 }
