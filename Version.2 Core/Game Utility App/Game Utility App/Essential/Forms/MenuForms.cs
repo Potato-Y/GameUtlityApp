@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GameUtilityApp.Function.Calculator.Team_Match_Score_Calculator;
 
 namespace GameUtilityApp.Essential.Forms
 {
@@ -20,6 +21,9 @@ namespace GameUtilityApp.Essential.Forms
         public MenuForms()
         {
             InitializeComponent();
+            this.ActiveControl = registryGroup;
+            buttonNickNameTracker.Text = StringLib.Title_2;
+            buttonTeamScoreCalculator.Text = StringLib.Title_1;
         }
 
         private void buttonRegistryPreset_Click(object sender, EventArgs e)
@@ -47,7 +51,7 @@ namespace GameUtilityApp.Essential.Forms
         private void buttonNickNameTracker_Click(object sender, EventArgs e)
         {
             //이미 열려있는지 확인
-            Form fc = Application.OpenForms["Nickname_Tracker"];
+            Form fc = Application.OpenForms[StringLib.Title_2];
             if (fc != null)
             {
                 fc.Activate();
@@ -58,6 +62,20 @@ namespace GameUtilityApp.Essential.Forms
                 nt.Show();
             }
             //this.Close();
+        }
+
+        private void buttonTeamScoreCalculator_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms[StringLib.Title_1];
+            if (fc != null)
+            {
+                fc.Activate();
+            }
+            else
+            {
+                Team_Match_Score_Calculator tmsc = new Team_Match_Score_Calculator();
+                tmsc.Show();
+            }
         }
     }
 }

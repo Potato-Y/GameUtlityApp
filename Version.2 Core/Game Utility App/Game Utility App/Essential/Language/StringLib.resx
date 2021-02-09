@@ -149,6 +149,18 @@ You can still set it up, but we cannot guarantee its application.</value>
   <data name="Message_1" xml:space="preserve">
     <value>Soon, font installation begins. Complete the font installation in a new window and try again.</value>
   </data>
+  <data name="Message_10" xml:space="preserve">
+    <value>Are you sure you want to delete the user?</value>
+  </data>
+  <data name="Message_11" xml:space="preserve">
+    <value>The user has been deleted.</value>
+  </data>
+  <data name="Message_12" xml:space="preserve">
+    <value>Are you sure you want to delete the group?</value>
+  </data>
+  <data name="Message_13" xml:space="preserve">
+    <value>The group has been deleted.</value>
+  </data>
   <data name="Message_2" xml:space="preserve">
     <value>Applied.</value>
   </data>
@@ -167,6 +179,12 @@ You can still set it up, but we cannot guarantee its application.</value>
   <data name="Message_7" xml:space="preserve">
     <value>Load</value>
   </data>
+  <data name="Message_8" xml:space="preserve">
+    <value>Save a new nick</value>
+  </data>
+  <data name="Message_9" xml:space="preserve">
+    <value>Last sync: </value>
+  </data>
   <data name="notSeeAgain" xml:space="preserve">
     <value>Not seeing again</value>
   </data>
@@ -181,5 +199,11 @@ You can still set it up, but we cannot guarantee its application.</value>
   </data>
   <data name="Text_1" xml:space="preserve">
     <value>Default Group</value>
+  </data>
+  <data name="Title_1" xml:space="preserve">
+    <value>Team Match Score Calculator</value>
+  </data>
+  <data name="Title_2" xml:space="preserve">
+    <value>Nickname Tracker</value>
   </data>
 </root>

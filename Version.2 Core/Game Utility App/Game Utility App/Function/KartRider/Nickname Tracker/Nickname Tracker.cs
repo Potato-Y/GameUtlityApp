@@ -1,5 +1,6 @@
 ﻿using GameUtilityApp.Essential.Class;
 using GameUtilityApp.Essential.Language;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,6 +27,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
 
         private void Nickname_Tracker_Load(object sender, EventArgs e)
         {
+            this.Text = StringLib.Title_2;
             DB_Check();
             MyNameCheck();
         }
@@ -37,8 +40,6 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                 MessageBox.Show("DB를 설정하는 도중 오류가 발생하였습니다.");
                 this.Close(); //닫아버리기
             }
-
-
         }
 
         string nicknametemp = "";
@@ -243,8 +244,16 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                         }
                     }
 
-                    
-                    
+                    sqlCommand = "SELECT * FROM `Main DB`";
+                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                    {
+                        using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                        {
+                            rdr.Read();
+                            toolStripStatusLabel1.Text = StringLib.Message_9 + rdr["Last sync date"];
+                        }
+                    }
+
                     conn.Close();
                 }
                 
@@ -272,7 +281,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             }
             else if (treeView1.SelectedNode.Name.Equals("")) 
             {
-                MessageBox.Show("메뉴임");
+                //MessageBox.Show("메뉴임");
                 return; //그룹을 선택한 경우 종료
             }
             else if(treeView1.Nodes[0].Nodes[0].IsSelected)
@@ -296,7 +305,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                 comboBoxGroupChoose.Enabled = false;
                 textBoxFirstNickname.Enabled = false;
                 textBoxMemo.Enabled = false;
-                buttonSave.Enabled = true;
+                buttonSave.Enabled = false;
                 return;
             }
             else
@@ -370,6 +379,8 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             }
 
             userArray();
+            //treeView1.SelectedNode = treeView1.Nodes[0];
+            this.ActiveControl = treeView1; //오류 방지
         }
 
         private void buttonGroupAdd_Click(object sender, EventArgs e)
@@ -395,6 +406,10 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             {
                 string sqlCommand = ""; 
                 int friendsNumber = 0; //친구 수
+                int i = 0;
+                toolStripProgressBar1.Value = 0; //0으로 조절
+                toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
+                Stack<string> friends = new Stack<string>(); //친구 리스트 저장
                 using (SQLiteConnection conn = new SQLiteConnection(new NickName_Tracker_DB_set().GetstrConn()))
                 {
                     conn.Open(); //DB 연결
@@ -409,6 +424,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                             if (friendsNumber > 0) //그룹이 있으면 실행
                             {
                                 toolStripProgressBar1.Maximum = friendsNumber*2;
+                                toolStripStatusLabel1.Text = StringLib.Message_7 + "... (0/" + friendsNumber + ")";
                             }
                             else
                             {
@@ -417,33 +433,211 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                             }
                         }
                     }
-                    Stack<string> friends = new Stack<string>();
+                    
                     //친구 리스트 가져오기
                     sqlCommand = "SELECT * FROM `Friend nickname`";
                     using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
                     {
                         using (SQLiteDataReader rdr = cmd.ExecuteReader())
                         {
-                            int i=0;
-                            while (!rdr.Read())
+                            i=0;
+                            while (rdr.Read())
                             {
                                 friends.Push(rdr["access ID"].ToString());
                                 i++;
                                 toolStripStatusLabel1.Text = StringLib.Message_7 + "... (" + i + "/" + friendsNumber + ")";
+                                toolStripProgressBar1.Value++;
+                            }
+                        }
+                    }
+                    conn.Close();
+                }
+                i = 0;
+
+                //최신 버전으로 업데이트 하기
+                while (friends.Count != 0)
+                {
+                    i++;
+                    ServicePointManager.Expect100Continue = true;
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                    string accessIdTemp = friends.Pop();
+                    string responseText = string.Empty;
+
+                    //toolStripStatusLabel1.Text = StringLib.Message_8 + "... (" + i + "/" + friendsNumber + ")";
+                    toolStripProgressBar1.Value++;
+                    //유저 새로운 이름 가져오기
+                    try
+                    {
+                        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.nexon.co.kr/kart/v1.0/users/" + accessIdTemp);
+                        request.Method = "GET";
+                        request.Timeout = 10 * 1000;
+                        request.Headers.Add("Authorization", new ThisGET().OpenApiKey());
+
+                        using (HttpWebResponse resp = (HttpWebResponse)request.GetResponse())
+                        {
+                            HttpStatusCode status = resp.StatusCode;
+
+                            Stream respStream = resp.GetResponseStream();
+                            using (StreamReader sr = new StreamReader(respStream))
+                            {
+                                responseText = sr.ReadToEnd();
                             }
                         }
 
+                        JObject json = JObject.Parse(responseText);
+                        JToken jToken = json["name"];
+
+                        //DB에서 해당 유저 정보 가져오기
+                        using (SQLiteConnection conn = new SQLiteConnection(new NickName_Tracker_DB_set().GetstrConn()))
+                        {
+                            conn.Open(); //DB 연결
+
+                            bool newNickname = false; //새로운 닉네임인지 확인
+                            sqlCommand = "SELECT * FROM `Friend nickname` WHERE `access ID`=\"" + accessIdTemp + "\"";
+                            using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                            {
+                                using (SQLiteDataReader rdr = cmd.ExecuteReader())
+                                {
+                                    rdr.Read();
+                                    if(!rdr["user nickname"].ToString().Equals(jToken.ToString()))
+                                    {
+                                        newNickname = true; //닉네임이 다르다면
+                                    }
+                                }
+                            }
+
+                            if (newNickname) //새로운 닉네임이면 실행
+                            {
+                                sqlCommand = "UPDATE `Friend nickname` SET `user nickname`=\"" + (string)jToken + "\" WHERE `access ID`=\"" + accessIdTemp + "\";";
+                                using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                                {
+                                    cmd.ExecuteReader();
+                                }
+                            }
+                            conn.Close();
+                        }
 
                     }
+                    catch (WebException) //없는 유저
+                    {
+                        using (SQLiteConnection conn = new SQLiteConnection(new NickName_Tracker_DB_set().GetstrConn()))
+                        {
+                            conn.Open(); //DB 연결
+                            sqlCommand = "UPDATE `Friend nickname` SET `user nickname`=\"" + "NOT FOUND" + "\" WHERE `access ID`=\"" + accessIdTemp + "\";";
+                            using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                            {
+                                cmd.ExecuteReader();
+                            }
+                            conn.Close();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("" + e);
+                    }
+                    Thread.Sleep(500); //api 네트워크 과부하 방지
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
 
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(new NickName_Tracker_DB_set().GetstrConn()))
+                {
+                    conn.Open(); //DB 연결
+                    string date = System.DateTime.Now.ToString("yy-MM-mm  HH:mm:s");
+                    string sqlCommand = "UPDATE `Main DB` SET `Last sync date`=\"" + date + "\";";
+                    toolStripStatusLabel1.Text = StringLib.Message_9 + date;
+                    using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                    {
+                        cmd.ExecuteReader();
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e + "");
                 return false;
             }
 
             return true;
+        }
+
+
+        private void treeView1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) //마우스 오른쪽 클릭 시
+            {
+                if (treeView1.Nodes[0].IsSelected || treeView1.Nodes[1].IsSelected || treeView1.Nodes[0].Nodes[0].IsSelected)
+                {
+                    //그룹이거나, 내 닉네임을 선택하면 패스
+                    return;
+                }
+                else if (treeView1.SelectedNode.Name.Equals("")) //그룹을 삭제
+                {
+                    if(MessageBox.Show("'" + treeView1.SelectedNode.Text + "' " + StringLib.Message_12, StringLib.Message, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            using (SQLiteConnection conn = new SQLiteConnection(new NickName_Tracker_DB_set().GetstrConn()))
+                            {
+                                conn.Open(); //DB 연결
+                                string sqlCommand = "";
+                                sqlCommand= "UPDATE `Friend nickname` SET `group name`=\"DB System default group\";"; //기존 유저들 그룹을 디폴트로 이전
+                                using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                                {
+                                    cmd.ExecuteReader();
+                                }
+                                //해당 그룹 삭제
+                                sqlCommand = "DELETE FROM `Friend nickname group` where `group name`=\"" + treeView1.SelectedNode.Text + "\";";
+                                using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                                {
+                                    cmd.ExecuteReader();
+                                }
+                                conn.Close();
+                            }
+                            MessageBox.Show("'" + treeView1.SelectedNode.Text + "' " + StringLib.Message_13, StringLib.Message);
+                        }catch(Exception ex)
+                        {
+                            MessageBox.Show("ERROR \r\n" + ex, StringLib.ERROR);
+                        }
+                        userArray();
+                    }
+                }
+                else
+                {
+                    if (MessageBox.Show("'" + treeView1.SelectedNode.Text + "' " + StringLib.Message_10, StringLib.Message, MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        //유저를 삭제하고자 한다면
+                        try
+                        {
+                            using (SQLiteConnection conn = new SQLiteConnection(new NickName_Tracker_DB_set().GetstrConn()))
+                            {
+                                conn.Open(); //DB 연결
+                                string sqlCommand = "DELETE FROM `Friend nickname` where `access ID`=\"" + treeView1.SelectedNode.Name + "\";";
+                                using (SQLiteCommand cmd = new SQLiteCommand(sqlCommand, conn))
+                                {
+                                    cmd.ExecuteReader();
+                                }
+                                conn.Close();
+                            }
+                            MessageBox.Show("'" + treeView1.SelectedNode.Text + "' " + StringLib.Message_11, StringLib.Message);
+                        } 
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("ERROR\r\n" + ex, StringLib.ERROR);
+                        }
+                        userArray();
+
+                    }
+                    
+                }
+            }
         }
     }
 }

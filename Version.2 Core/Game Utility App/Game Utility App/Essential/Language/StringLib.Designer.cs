@@ -153,6 +153,42 @@ namespace GameUtilityApp.Essential.Language {
         }
         
         /// <summary>
+        ///   Are you sure you want to delete the user?과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_10 {
+            get {
+                return ResourceManager.GetString("Message_10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The user has been deleted.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_11 {
+            get {
+                return ResourceManager.GetString("Message_11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Are you sure you want to delete the group?과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_12 {
+            get {
+                return ResourceManager.GetString("Message_12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The group has been deleted.과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_13 {
+            get {
+                return ResourceManager.GetString("Message_13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Applied.과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string Message_2 {
@@ -207,6 +243,24 @@ namespace GameUtilityApp.Essential.Language {
         }
         
         /// <summary>
+        ///   Save a new nick과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_8 {
+            get {
+                return ResourceManager.GetString("Message_8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Last sync: 과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Message_9 {
+            get {
+                return ResourceManager.GetString("Message_9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Not seeing again과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string notSeeAgain {
@@ -248,6 +302,24 @@ namespace GameUtilityApp.Essential.Language {
         internal static string Text_1 {
             get {
                 return ResourceManager.GetString("Text_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Team Match Score Calculator과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Title_1 {
+            get {
+                return ResourceManager.GetString("Title_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Nickname Tracker과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Title_2 {
+            get {
+                return ResourceManager.GetString("Title_2", resourceCulture);
             }
         }
     }

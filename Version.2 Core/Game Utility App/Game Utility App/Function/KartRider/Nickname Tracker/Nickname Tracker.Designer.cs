@@ -58,6 +58,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
+            this.treeView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseUp);
             // 
             // buttonGroupAdd
             // 
@@ -209,7 +210,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             this.MaximizeBox = false;
             this.Name = "Nickname_Tracker";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Nickname_Tracker";
+            this.Text = "Nickname Tracker";
             this.Load += new System.EventHandler(this.Nickname_Tracker_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

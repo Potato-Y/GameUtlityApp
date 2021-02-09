@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameUtilityApp.Essential.Language;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace GameUtilityApp.Function.Calculator.Team_Match_Score_Calculator
         public Team_Match_Score_Calculator()
         {
             InitializeComponent();
+            this.Text = StringLib.Title_1;
         }
     }
 }

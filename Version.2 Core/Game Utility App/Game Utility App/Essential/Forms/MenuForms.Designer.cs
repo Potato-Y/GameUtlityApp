@@ -72,6 +72,7 @@ namespace GameUtilityApp.Essential.Forms
             this.buttonTeamScoreCalculator.TabIndex = 0;
             this.buttonTeamScoreCalculator.Text = "Team Match Score Calculator";
             this.buttonTeamScoreCalculator.UseVisualStyleBackColor = false;
+            this.buttonTeamScoreCalculator.Click += new System.EventHandler(this.buttonTeamScoreCalculator_Click);
             // 
             // registryGroup
             // 

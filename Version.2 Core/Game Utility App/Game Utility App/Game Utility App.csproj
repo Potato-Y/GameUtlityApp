@@ -253,6 +253,7 @@
     <EmbeddedResource Include="dll\System.Data.SQLite.EF6.dll" />
     <EmbeddedResource Include="dll\System.Data.SQLite.Linq.dll" />
     <EmbeddedResource Include="dll\Game Utility App.resources.dll" />
+    <EmbeddedResource Include="dll\Newtonsoft.Json.dll" />
     <Content Include="Essential\Open Source.txt" />
     <EmbeddedResource Include="Function\KartRider\Nickname Tracker\DB Control\NewCreateTable.txt" />
     <Content Include="MainIcon.ico" />

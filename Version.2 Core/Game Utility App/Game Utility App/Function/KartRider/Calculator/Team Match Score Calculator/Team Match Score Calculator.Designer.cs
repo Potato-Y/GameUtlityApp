@@ -86,7 +86,7 @@ namespace GameUtilityApp.Function.Calculator.Team_Match_Score_Calculator
             this.MaximizeBox = false;
             this.Name = "Team_Match_Score_Calculator";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Team_Match_Score_Calculator";
+            this.Text = "Team Match Score Calculator";
             this.ResumeLayout(false);
             this.PerformLayout();
 
