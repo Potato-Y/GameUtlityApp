@@ -405,8 +405,8 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
             try
             {
                 string sqlCommand = ""; 
-                int friendsNumber = 0; //친구 수
-                int i = 0;
+                Int64 friendsNumber = 0; //친구 수
+                Int64 i = 0;
                 toolStripProgressBar1.Value = 0; //0으로 조절
                 toolStripProgressBar1.Style = ProgressBarStyle.Blocks;
                 Stack<string> friends = new Stack<string>(); //친구 리스트 저장
@@ -423,7 +423,7 @@ namespace GameUtilityApp.Function.KartRider.Nickname_Tracker
                             friendsNumber = Convert.ToInt32(rdr["COUNT(*)"].ToString()); //그룹 수를 가져오기
                             if (friendsNumber > 0) //그룹이 있으면 실행
                             {
-                                toolStripProgressBar1.Maximum = friendsNumber*2;
+                                toolStripProgressBar1.Maximum = Convert.ToInt32(friendsNumber * 2);
                                 toolStripStatusLabel1.Text = StringLib.Message_7 + "... (0/" + friendsNumber + ")";
                             }
                             else

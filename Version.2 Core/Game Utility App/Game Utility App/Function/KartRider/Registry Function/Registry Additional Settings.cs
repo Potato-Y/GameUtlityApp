@@ -1,4 +1,5 @@
 ﻿using GameUtilityApp.Essential.DB_Control;
+using GameUtilityApp.Essential.Language;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace GameUtilityApp.Function.Registry_Function
         public Registry_Additional_Settings()
         {
             InitializeComponent();
+            this.Text = StringLib.Title_5;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

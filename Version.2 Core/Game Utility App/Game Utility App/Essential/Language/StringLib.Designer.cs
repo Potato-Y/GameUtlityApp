@@ -322,5 +322,32 @@ namespace GameUtilityApp.Essential.Language {
                 return ResourceManager.GetString("Title_2", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Registry Preset과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Title_3 {
+            get {
+                return ResourceManager.GetString("Title_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Set to recommended value과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Title_4 {
+            get {
+                return ResourceManager.GetString("Title_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Additional settings과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string Title_5 {
+            get {
+                return ResourceManager.GetString("Title_5", resourceCulture);
+            }
+        }
     }
 }

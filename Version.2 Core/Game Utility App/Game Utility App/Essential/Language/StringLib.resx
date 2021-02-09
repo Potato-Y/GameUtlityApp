@@ -206,4 +206,13 @@ You can still set it up, but we cannot guarantee its application.</value>
   <data name="Title_2" xml:space="preserve">
     <value>Nickname Tracker</value>
   </data>
+  <data name="Title_3" xml:space="preserve">
+    <value>Registry Preset</value>
+  </data>
+  <data name="Title_4" xml:space="preserve">
+    <value>Set to recommended value</value>
+  </data>
+  <data name="Title_5" xml:space="preserve">
+    <value>Additional settings</value>
+  </data>
 </root>

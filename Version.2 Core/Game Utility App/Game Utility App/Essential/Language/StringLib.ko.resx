@@ -206,4 +206,13 @@
   <data name="Title_2" xml:space="preserve">
     <value>닉네임 트래커</value>
   </data>
+  <data name="Title_3" xml:space="preserve">
+    <value>레지스트리 프리셋</value>
+  </data>
+  <data name="Title_4" xml:space="preserve">
+    <value>권장 값으로 설정</value>
+  </data>
+  <data name="Title_5" xml:space="preserve">
+    <value>추가 설정</value>
+  </data>
 </root>

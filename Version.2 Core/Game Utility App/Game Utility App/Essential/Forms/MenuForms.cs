@@ -24,6 +24,9 @@ namespace GameUtilityApp.Essential.Forms
             this.ActiveControl = registryGroup;
             buttonNickNameTracker.Text = StringLib.Title_2;
             buttonTeamScoreCalculator.Text = StringLib.Title_1;
+            buttonRegistryPreset.Text = StringLib.Title_3;
+            buttonSetRecommended.Text = StringLib.Title_4;
+            buttonAdditionalsettings.Text = StringLib.Title_5;
         }
 
         private void buttonRegistryPreset_Click(object sender, EventArgs e)
@@ -51,7 +54,7 @@ namespace GameUtilityApp.Essential.Forms
         private void buttonNickNameTracker_Click(object sender, EventArgs e)
         {
             //이미 열려있는지 확인
-            Form fc = Application.OpenForms[StringLib.Title_2];
+            Form fc = Application.OpenForms["Nickname_Tracker"];
             if (fc != null)
             {
                 fc.Activate();
@@ -66,7 +69,7 @@ namespace GameUtilityApp.Essential.Forms
 
         private void buttonTeamScoreCalculator_Click(object sender, EventArgs e)
         {
-            Form fc = Application.OpenForms[StringLib.Title_1];
+            Form fc = Application.OpenForms["Team_Match_Score_Calculator"];
             if (fc != null)
             {
                 fc.Activate();

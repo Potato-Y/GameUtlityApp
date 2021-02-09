@@ -21,6 +21,7 @@ namespace GameUtilityApp.Function
         public Registry_Preset()
         {
             InitializeComponent();
+            this.Text = StringLib.Title_3;
         }
 
         private void Registry_Preset_Load(object sender, EventArgs e)
