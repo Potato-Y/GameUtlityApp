@@ -60,7 +60,7 @@ namespace GameUtilityApp.Function.Calculator.Team_Match_Score_Calculator
         }
 
         string accessId = "";
-        string endTime = "";
+        string startTime = "";
 
         private void Tracking()
         {
@@ -118,10 +118,8 @@ namespace GameUtilityApp.Function.Calculator.Team_Match_Score_Calculator
                         responseText = sr.ReadToEnd();
                     }
                 }
-                JObject json = JObject.Parse(responseText);
-
-
-                MessageBox.Show((string)j3);
+                startTime = GetKartMatchesJson("startTime", responseText);
+                textBoxStateTextAdd("기본 정보를 불러왔습니다. 5초 간격으로 동기화 합니다.");
             }
             catch(Exception ex)
             {
@@ -130,13 +128,92 @@ namespace GameUtilityApp.Function.Calculator.Team_Match_Score_Calculator
 
             while (true)
             {
+                Thread.Sleep(5000);//처음 시작 5초 딜레이
 
+                try
+                {
+                    string url = "https://api.nexon.co.kr/kart/v1.0/users/" + accessId + "/matches?start_date=&end_date=&offset=&limit=1&match_types=";
+                    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                    request.Method = "GET";
+                    request.Timeout = 10 * 1000;
+                    request.Headers.Add("Authorization", new ThisGET().OpenApiKey());
+
+                    using (HttpWebResponse resp = (HttpWebResponse)request.GetResponse())
+                    {
+                        HttpStatusCode status = resp.StatusCode;
+
+                        Stream respStream = resp.GetResponseStream();
+                        using (StreamReader sr = new StreamReader(respStream))
+                        {
+                            responseText = sr.ReadToEnd();
+                        }
+                    }
+                    if (!startTime.Equals(GetKartMatchesJson("startTime", responseText)))
+                    {
+                        string channelName = GetKartMatchesJson("channelName", responseText);
+                        if (channelName.Equals("speedTeamFastest") || channelName.Equals("speedTeamFast") || channelName.Equals("speedTeamInfinit") || channelName.Equals("itemNewItemTeam") || channelName.Equals("itemNewItemTeamFastest2Enchant")) 
+                        {
+                            string result = GetKartMatchesJson("matchResult", responseText);
+                            if (result.Equals("1"))
+                            {
+                                myScore++;
+                                labelMyScore.BeginInvoke(new Action(() => labelMyScore.Text = myScore.ToString()));
+                                textBoxStateTextAdd(System.DateTime.Now.ToString("[HH:mm:ss]") + "승리하여 점수가 수정되었습니다.");
+                            }
+                            else if (result.Equals("0"))
+                            {
+                                relativeScore++;
+                                labelRelativeScore.BeginInvoke(new Action(() => labelRelativeScore.Text = relativeScore.ToString()));
+                                textBoxStateTextAdd(System.DateTime.Now.ToString("[HH:mm:ss]") + "패배하여 점수가 수정되었습니다.");
+                            }
+                            else
+                            {
+                                textBoxStateTextAdd(System.DateTime.Now.ToString("[HH:mm:ss]") + "경기중 나간 것으로 확인되었습니다.");
+                            }
+                            startTime = GetKartMatchesJson("startTime", responseText);
+                        }
+                        
+                    }
+                    else
+                    {
+                        textBoxStateTextAdd(System.DateTime.Now.ToString("[HH:mm:ss]") + "새로운 경기가 확인되지 않습니다.");
+                    }
+                    
+                }
+                catch (WebException)
+                {
+                    textBoxStateTextAdd("유저 정보를 가져오는 동안에 오류가 발생하여 중단되었습니다.");
+                    return;
+                }
+                catch (Exception e)
+                {
+                    textBoxStateTextAdd("알 수 없는 오류가 발생하여 중단되었습니다.");
+                    MessageBox.Show(e + "");
+                    return;
+                }
             }
 
         }
+        
 
+        private string GetKartMatchesJson(string type, string responseText) //원하는거 얻을 수 있도록 가공 후 리턴
+        {
+            JObject json = JObject.Parse(responseText); //본래 받은 것
+            JToken jToken = json["matches"]; //1차적으로 matches 배열 가져오기 
+            JArray jArray = (JArray)jToken;
+            json = JObject.Parse(jArray[0].ToString()); //1차적으로 걸러온 것 가져오기
+            jToken = json["matches"];
+            jArray = (JArray)jToken;
+            json = JObject.Parse(jArray[0].ToString());
+            jToken = json[type]; //가지고 오고자 했던 타입으로 가져오기
+            return (string)jToken;
+        }
         private void textBoxStateTextAdd(string msg)
         {
+            if (textBoxState.Text.Length > 0)
+            {
+                textBoxState.BeginInvoke(new Action(() => textBoxState.Text += "\r\n"));
+            }
             textBoxState.BeginInvoke(new Action(() => textBoxState.Text += msg));
             textBoxState.BeginInvoke(new Action(() => this.textBoxState.SelectionStart = textBoxState.Text.Length));
             textBoxState.BeginInvoke(new Action(() => this.textBoxState.ScrollToCaret()));

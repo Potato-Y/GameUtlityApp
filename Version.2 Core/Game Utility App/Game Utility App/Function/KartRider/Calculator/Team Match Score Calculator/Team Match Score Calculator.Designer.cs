@@ -170,7 +170,7 @@ namespace GameUtilityApp.Function.Calculator.Team_Match_Score_Calculator
             this.buttonRelativeScoreP.Name = "buttonRelativeScoreP";
             this.buttonRelativeScoreP.Size = new System.Drawing.Size(80, 23);
             this.buttonRelativeScoreP.TabIndex = 8;
-            this.buttonRelativeScoreP.Text = "상대 점수 -1";
+            this.buttonRelativeScoreP.Text = "상대 점수 +1";
             this.buttonRelativeScoreP.UseVisualStyleBackColor = true;
             this.buttonRelativeScoreP.Click += new System.EventHandler(this.buttonRelativeScoreP_Click);
             // 
