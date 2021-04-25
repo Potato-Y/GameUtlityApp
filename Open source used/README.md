@@ -28,5 +28,5 @@ No License<br>
 아이콘 제작자 <a href="https://www.flaticon.com/kr/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/kr/" title="Flaticon"> www.flaticon.com</a>
 
 <b>Json.NET</b></br>
-Newtonsoft
+Newtonsoft<br>
 MIT (https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md)
