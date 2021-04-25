@@ -1,7 +1,9 @@
 ﻿using GameUtilityApp.Notice;
 using GameUtilityApp.Properties;
 using Microsoft.Win32;
+using Newtonsoft.Json.Linq;
 using System;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
@@ -12,7 +14,7 @@ namespace GameUtilityApp
 {
     class Basic_Check
     {
-        int thisrelese = 20200929;
+        int thisrelese = 20210425;
         int termsOfUseRelese = 20200818;
 
         /// <summary>
@@ -282,18 +284,35 @@ namespace GameUtilityApp
         /// </summary>
 
         string UserCountHomepageHtml;
+        public readonly int LOAD = 0;
+        public readonly int RELOAD = 1;
+        string userDataResponseText = string.Empty;
 
         //서버에서 정보 가져오기
-        private void GetUserCountData()
-        {
+        private void GetUserCountData(int type)
+        { 
             try
             {
                 ServicePointManager.Expect100Continue = true;
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-                var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
+                /*var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
                 var response = client.GetAsync("http://potatoystudio.pe.kr/?device=mobile").Result; //웹으로부터 다운로드 
-                UserCountHomepageHtml = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다.
+                UserCountHomepageHtml = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다.*/
+
+                string url = "https://script.google.com/macros/s/AKfycbyQ9B-jOm6yGr2bF3n-6SEX3l4C1p8-_M-l8poJPDWfbjd_S5Gaha4EF_lL1GsnMSwW/exec";
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.Method = "GET";
+                request.Timeout = 10 * 1000;
+
+                using (HttpWebResponse resp = (HttpWebResponse)request.GetResponse())
+                {
+                    Stream respStream = resp.GetResponseStream();
+                    using (StreamReader sr = new StreamReader(respStream))
+                    {
+                        userDataResponseText = sr.ReadToEnd();
+                    }
+                }
             }
             catch (Exception)
             {
@@ -301,30 +320,14 @@ namespace GameUtilityApp
             }
         }
 
-        public string GetNowUserCountData()
+        public string GetTodayCountData(int type)
         {
-            GetUserCountData();
+            GetUserCountData(type);
             try
             {
-                var now_match = Regex.Match(UserCountHomepageHtml, "<span>.+?</span>"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다. 
-                string now_result = now_match.Value; //캡쳐 된 내용을 가져온다.
-                return now_result.Substring(6, now_result.Length - 13);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("유저 데이터를 가져오는데 오류가 발생하였습니다.");
-                return "0";
-            }
-
-        }
-
-        public string GetTodayCountData()
-        {
-            try
-            {
-                var today_match = Regex.Match(UserCountHomepageHtml, @"<dt>오늘</dt>\n        <dd>.+?</dd>"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다. 
-                string today_result = today_match.Value; //캡쳐 된 내용을 가져온다.
-                return today_result.Substring(24, today_result.Length - 29);
+                JObject json = JObject.Parse(userDataResponseText);
+                JToken jToken = json["today"];
+                return jToken.ToString();
             }
             catch (Exception)
             {
@@ -337,9 +340,9 @@ namespace GameUtilityApp
         {
             try
             {
-                var total_match = Regex.Match(UserCountHomepageHtml, @"<dt>전체</dt>\n        <dd>.+?</dd>"); //정규식을 사용해서 위의 문장과 동일한 패턴을 가져온다. 
-                string total_result = total_match.Value; //캡쳐 된 내용을 가져온다.
-                return total_result.Substring(24, total_result.Length - 29);
+                JObject json = JObject.Parse(userDataResponseText);
+                JToken jToken = json["total"];
+                return jToken.ToString();
             }
             catch (Exception)
             {

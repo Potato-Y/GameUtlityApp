@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("GameUtilityApp")]
-[assembly: AssemblyCopyright("Copyright ©  2020 Potato-Y Studio")]
+[assembly: AssemblyCopyright("Copyright ©  2020-2021. Potato-Y Studio")]
 [assembly: AssemblyTrademark("Project Potato-Y Studio")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // 모든 값을 지정하거나 아래와 같이 '*'를 사용하여 빌드 번호 및 수정 번호를
 // 기본값으로 할 수 있습니다.
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.5.8.0")]
-[assembly: AssemblyFileVersion("1.5.8.0")]
+[assembly: AssemblyVersion("1.5.9.0")]
+[assembly: AssemblyFileVersion("1.5.9.0")]

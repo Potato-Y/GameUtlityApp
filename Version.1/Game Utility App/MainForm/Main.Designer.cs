@@ -66,11 +66,9 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button8 = new System.Windows.Forms.Button();
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
-            this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -477,19 +475,10 @@
             this.webBrowser2.TabIndex = 7;
             this.webBrowser2.Url = new System.Uri("", System.UriKind.Relative);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 14);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "현재 사용자 : ";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 20);
+            this.label12.Location = new System.Drawing.Point(3, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(75, 14);
             this.label12.TabIndex = 8;
@@ -498,7 +487,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 40);
+            this.label13.Location = new System.Drawing.Point(3, 20);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(100, 14);
             this.label13.TabIndex = 9;
@@ -509,12 +498,10 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.48819F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.51181F));
-            this.tableLayoutPanel2.Controls.Add(this.label13, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label10, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label12, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label11, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label14, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label15, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label12, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label14, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label13, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label15, 1, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(335, 134);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
@@ -524,19 +511,10 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(254, 61);
             this.tableLayoutPanel2.TabIndex = 11;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(116, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 14);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "label11";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(116, 20);
+            this.label14.Location = new System.Drawing.Point(116, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(48, 14);
             this.label14.TabIndex = 11;
@@ -545,7 +523,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(116, 40);
+            this.label15.Location = new System.Drawing.Point(116, 20);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(48, 14);
             this.label15.TabIndex = 12;
@@ -748,11 +726,9 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.WebBrowser webBrowser2;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button11;

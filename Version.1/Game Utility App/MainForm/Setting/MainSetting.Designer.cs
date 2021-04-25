@@ -76,16 +76,16 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(-4, 230);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(302, 14);
+            this.label1.Size = new System.Drawing.Size(334, 14);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Copyright (C) 2020. Potato-Y Studio all rights reserved";
+            this.label1.Text = "Copyright (C) 2020-2021. Potato-Y Studio all rights reserved";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Location = new System.Drawing.Point(12, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 52);
+            this.groupBox1.Size = new System.Drawing.Size(308, 52);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "자동 시작";
@@ -101,7 +101,7 @@
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Location = new System.Drawing.Point(12, 72);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(295, 121);
+            this.groupBox2.Size = new System.Drawing.Size(308, 121);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "프로그램";
@@ -113,7 +113,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 14);
             this.label5.TabIndex = 10;
-            this.label5.Text = "v 1.5.8";
+            this.label5.Text = "v 1.5.9";
             // 
             // label4
             // 
@@ -144,7 +144,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(176, 22);
+            this.button4.Location = new System.Drawing.Point(189, 22);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(113, 25);
             this.button4.TabIndex = 6;
@@ -154,7 +154,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(176, 53);
+            this.button3.Location = new System.Drawing.Point(189, 53);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(113, 25);
             this.button3.TabIndex = 5;
@@ -164,7 +164,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(176, 85);
+            this.button2.Location = new System.Drawing.Point(189, 84);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 25);
             this.button2.TabIndex = 0;
@@ -199,7 +199,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(319, 287);
+            this.ClientSize = new System.Drawing.Size(332, 287);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.groupBox2);

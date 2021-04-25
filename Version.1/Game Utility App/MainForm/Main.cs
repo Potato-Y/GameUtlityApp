@@ -22,18 +22,6 @@ namespace GameUtilityApp
             Basic_Check newCheck = new Basic_Check();
             newCheck.DotNetverCheck();  //업데이트 확인 전 .net 버전 먼저 확인한다.
             newCheck.NetworkCheck();
-            
-            try
-            {
-                String path = "http://potatoystudio.pe.kr/"; //사이트 접속
-                webBrowser2.Navigate(path);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("인터넷 오류", "오류");
-                Application.Exit();
-                this.Close();
-            }
 
             //서버 페이지 연결 만약 0이면 업데이트가 없는 상태, 1이면 업데이트가 있는 상태
 
@@ -62,7 +50,6 @@ namespace GameUtilityApp
 
         private void Form1_Load(object sender, EventArgs e)  //프로그램 로딩
         {
-            label11.Text = "0";
             label14.Text = "0";
             label15.Text = "0";
             //필수 시작점
@@ -106,7 +93,7 @@ namespace GameUtilityApp
             //레이블 영역 끝
 
             UpdateCheck();
-            UserCount();
+            UserCount(new Basic_Check().LOAD);
             //레지 불러오기
             RegReload_keyboard();
             RegReload_Response();
@@ -150,25 +137,12 @@ namespace GameUtilityApp
         }
 
         //사용자 파악
-        private void UserCount()
+        private void UserCount(int type)
         {
             try
             {
-                String path = "http://potatoystudio.pe.kr/";
-                webBrowser2.Navigate(path);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error");
-                Application.Exit();
-                this.Close();
-            }
-
-            try
-            {
                 Basic_Check userCheck = new Basic_Check();
-                label11.Text = userCheck.GetNowUserCountData();
-                label14.Text = userCheck.GetTodayCountData();
+                label14.Text = userCheck.GetTodayCountData(type);
                 label15.Text = userCheck.GetTotalCountData();
             }
             catch (Exception)
@@ -196,7 +170,7 @@ namespace GameUtilityApp
             RegSave_keyboard();
             MessageBox.Show("Keyboard 부분을 저장하였습니다.", "Save");
             RegReload_keyboard();
-            UserCount(); //버튼 누를 때마다 사용자 수 재설정
+            //UserCount(new Basic_Check().RELOAD); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void ResponseClick(object sender, EventArgs e)
@@ -204,7 +178,7 @@ namespace GameUtilityApp
             RegSave_Response();
             MessageBox.Show("Keyboard Response 부분을 저장하였습니다.", "Save");
             RegReload_Response();
-            UserCount(); //버튼 누를 때마다 사용자 수 재설정
+            //UserCount(new Basic_Check().RELOAD); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void ToggleKeysClick(object sender, EventArgs e)
@@ -212,7 +186,7 @@ namespace GameUtilityApp
             RegSave_ToggleKeys();
             MessageBox.Show("ToggleKeys 부분을 저장하였습니다.", "Save");
             RegReload_ToggleKeys();
-            UserCount(); //버튼 누를 때마다 사용자 수 재설정
+            //UserCount(new Basic_Check().RELOAD); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void SaveAll(object sender, EventArgs e) //전체 세이브
@@ -224,7 +198,7 @@ namespace GameUtilityApp
             RegReload_keyboard();
             RegReload_Response();
             RegReload_ToggleKeys();
-            UserCount(); //버튼 누를 때마다 사용자 수 재설정
+           // UserCount(new Basic_Check().RELOAD); //버튼 누를 때마다 사용자 수 재설정
         }
         //세이브 버튼 끝
 
@@ -234,7 +208,7 @@ namespace GameUtilityApp
             RegReload_Response();
             RegReload_ToggleKeys();
             MessageBox.Show("모두 저장 전으로 새로고침 되었습니다.", "Reload");
-            UserCount(); //버튼 누를 때마다 사용자 수 재설정
+           // UserCount(new Basic_Check().RELOAD); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void RecommendReg_Click(object sender, EventArgs e)  //권장 레지로 설정
@@ -265,34 +239,34 @@ namespace GameUtilityApp
             RegReload_keyboard();
             RegReload_Response();
             RegReload_ToggleKeys();
-            UserCount(); //버튼 누를 때마다 사용자 수 재설정
+           // UserCount(new Basic_Check().RELOAD); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void SettingButton_Click(object sender, EventArgs e)
         {
             MainSetting newForm = new MainSetting();
             newForm.ShowDialog();
-            UserCount(); //버튼 누를 때마다 사용자 수 재설정
+            //UserCount(new Basic_Check().RELOAD); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void Utility_Click(object sender, EventArgs e)
         {
             UtilityChoice newForm = new UtilityChoice();
             newForm.ShowDialog();
-            UserCount(); //버튼 누를 때마다 사용자 수 재설정
+            //UserCount(new Basic_Check().RELOAD); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void Sponsor_Click(object sender, EventArgs e)
         {
             Sponsor newForm = new Sponsor();
             newForm.ShowDialog();
-            UserCount();
+            //UserCount(new Basic_Check().RELOAD);
         }
 
         private void UseHelp_Click(object sender, EventArgs e)
         {
             Process.Start("https://repotato.tistory.com/138");
-            UserCount();
+            //UserCount(new Basic_Check().RELOAD);
         }
 
         //숫자만 입력되도록 하며 입력시 글자색이 파란색으로 변경
@@ -334,6 +308,7 @@ namespace GameUtilityApp
             {
                 if (vs.Major == 10)
                 {
+                    MessageBox.Show(vs.Major + " " + vs.Minor);
                     try
                     {
                         if (win10_message_count == 0)
@@ -506,7 +481,7 @@ namespace GameUtilityApp
             RegReload_keyboard();
             RegReload_Response();
             RegReload_ToggleKeys();
-            UserCount(); //버튼 누를 때마다 사용자 수 재설정
+            //UserCount(new Basic_Check().RELOAD); //버튼 누를 때마다 사용자 수 재설정
         }
 
         private void Homepage_Click(object sender, EventArgs e)
