@@ -1,7 +1,0 @@
-﻿EntityFramework
-Microsoft
-Apach-2.0 (https://licenses.nuget.org/Apache-2.0)
-
-Json.NET
-Newtonsoft
-MIT (https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md)
