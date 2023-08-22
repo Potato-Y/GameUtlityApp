@@ -111,9 +111,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 96);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 14);
+            this.label5.Size = new System.Drawing.Size(52, 14);
             this.label5.TabIndex = 10;
-            this.label5.Text = "v 1.5.9";
+            this.label5.Text = "v 1.5.10";
             // 
             // label4
             // 

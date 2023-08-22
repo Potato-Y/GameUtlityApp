@@ -36,7 +36,7 @@ namespace UpdateClient
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
                 var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
-                var response = client.GetAsync("https://raw.githubusercontent.com/Potato-Y/Game-Utility-App/master/release/Release%20Notes.md").Result; //웹으로부터 다운로드 
+                var response = client.GetAsync("https://potato-y.github.io/Game-Utility-App/api/release/old/note/").Result; //웹으로부터 다운로드 
                 var html = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다. 
                 var replacement = html.Replace("<br>", "\r\n");
                 textBox1.Text = Convert.ToString(replacement);
@@ -65,7 +65,7 @@ namespace UpdateClient
 
                     label2.Text = "파일 다운로드를 시작";
                     var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
-                    var server_check_response = client.GetAsync("https://github.com/Potato-Y/Game-Utility-App/blob/master/release/release%20guide.md").Result; //웹으로부터 다운로드 
+                    var server_check_response = client.GetAsync("https://potato-y.github.io/Game-Utility-App/api/release/old/").Result; //웹으로부터 다운로드 
                     var html = server_check_response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다.
                     
 

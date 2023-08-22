@@ -14,7 +14,7 @@ namespace GameUtilityApp
 {
     class Basic_Check
     {
-        int thisrelese = 20210425;
+        int thisrelese = 20230822;
         int termsOfUseRelese = 20200818;
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace GameUtilityApp
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
                 var client = new HttpClient(); //웹으로부터 다운로드 받을 수 있는 클래스의 인스턴스를 제작 한다.
-                var response = client.GetAsync("https://github.com/Potato-Y/Game-Utility-App/blob/master/release/release%20guide.md").Result; //웹으로부터 다운로드 
+                var response = client.GetAsync("https://potato-y.github.io/Game-Utility-App/api/release/old/").Result; //웹으로부터 다운로드 
                 verCheckHtml = response.Content.ReadAsStringAsync().Result; //다운로드 결과를 html 로 받아 온다. 
             }
             catch (Exception)
